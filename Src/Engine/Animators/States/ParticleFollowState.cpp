@@ -123,7 +123,8 @@ void ParticleFollowState::processPosition(float currentTime, float deltaTime, An
 void ParticleFollowState::precessRotation(float currentTime, float deltaTime, AnimationSubGeometry* subGeometry)
 {
 	Vector3D rotVelocity, interpolatedRot, temp;
-	if (m_smooth)
+	ParticleFollowNode* particleFollowNode = static_cast<ParticleFollowNode*>(m_animationNode);
+	if (particleFollowNode->m_smooth)
 	{
 		m_preEuler.subtract(m_targetEuler, rotVelocity);
 		rotVelocity.scaleBy(1 / deltaTime);
@@ -134,21 +135,20 @@ void ParticleFollowState::precessRotation(float currentTime, float deltaTime, An
 	bool changed = false;
 	float* vertexData = subGeometry->getVertexData();
 	int totalLenOfOneVertex = subGeometry->getTotalLenOfOneVertex();
-	int dataOffset = static_cast<ParticleFollowNode*>(m_animationNode)->m_dataOffset;
 	for (auto data : subGeometry->m_animationParticles)
 	{
 		float k = (currentTime - data->m_startTime) / data->m_totalTime;
 		float t = (k - std::floor(k)) * data->m_totalTime;
 		if (t - deltaTime <= 0)
 		{
-			if (m_smooth)
+			if (particleFollowNode->m_smooth)
 			{
 				temp.copyFrom(rotVelocity);
 				temp.scaleBy(t);
 				m_targetEuler.add(temp, interpolatedRot);
 			}
 
-			int inc = data->m_startVertexIndex * totalLenOfOneVertex + dataOffset;
+			int inc = data->m_startVertexIndex * totalLenOfOneVertex + particleFollowNode->m_dataOffset;
 			if (vertexData[inc] != interpolatedRot.m_x || vertexData[inc + 1] != interpolatedRot.m_y || vertexData[inc + 2] != interpolatedRot.m_z)
 			{
 				for (int i = 0; i < data->m_numVertices; i++)
@@ -169,7 +169,8 @@ void ParticleFollowState::precessRotation(float currentTime, float deltaTime, An
 void ParticleFollowState::processPositionAndRotation(float currentTime, float deltaTime, AnimationSubGeometry* subGeometry)
 {
 	Vector3D posVelocity, rotVelocity, interpolatedPos, interpolatedRot, temp;
-	if (m_smooth)
+	ParticleFollowNode* particleFollowNode = static_cast<ParticleFollowNode*>(m_animationNode);
+	if (particleFollowNode->m_smooth)
 	{
 		m_prePos.subtract(m_targetPos, posVelocity);
 		posVelocity.scaleBy(1 / deltaTime);
@@ -185,14 +186,13 @@ void ParticleFollowState::processPositionAndRotation(float currentTime, float de
 	bool changed = false;
 	float* vertexData = subGeometry->getVertexData();
 	int totalLenOfOneVertex = subGeometry->getTotalLenOfOneVertex();
-	int dataOffset = static_cast<ParticleFollowNode*>(m_animationNode)->m_dataOffset;
 	for (auto data : subGeometry->m_animationParticles)
 	{
 		float k = (currentTime - data->m_startTime) / data->m_totalTime;
 		float t = (k - std::floor(k)) * data->m_totalTime;
 		if (t - deltaTime <= 0)
 		{
-			if (m_smooth)
+			if (particleFollowNode->m_smooth)
 			{
 				temp.copyFrom(posVelocity);
 				temp.scaleBy(t);
@@ -202,7 +202,7 @@ void ParticleFollowState::processPositionAndRotation(float currentTime, float de
 				m_targetEuler.add(temp, interpolatedRot);
 			}
 
-			int inc = data->m_startVertexIndex * totalLenOfOneVertex + dataOffset;
+			int inc = data->m_startVertexIndex * totalLenOfOneVertex + particleFollowNode->m_dataOffset;
 			if (vertexData[inc] != interpolatedPos.m_x || vertexData[inc + 1] != interpolatedPos.m_y || vertexData[inc + 2] != interpolatedPos.m_z ||
 				vertexData[inc + 3] != interpolatedRot.m_x || vertexData[inc + 4] != interpolatedRot.m_y || vertexData[inc + 5] != interpolatedRot.m_z)
 			{
