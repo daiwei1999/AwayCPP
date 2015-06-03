@@ -1,0 +1,1442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Primitives">
+      <UniqueIdentifier>{1350f3b4-6ae6-436b-a941-ff0eb34cfb66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Agal">
+      <UniqueIdentifier>{4f06186f-4c10-4be5-a26b-83b0339811f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bounds">
+      <UniqueIdentifier>{24a92601-307b-45e2-b9c3-a705058d997e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cameras">
+      <UniqueIdentifier>{4ad5c56c-cc9e-4b05-8aed-b50bcccb3caa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cameras\Lenses">
+      <UniqueIdentifier>{b2cbff18-968e-49af-9949-ccb7b5d725c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers">
+      <UniqueIdentifier>{6f5cc76a-247f-41f9-aa86-b4870990eaa8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{8d42e97d-84e9-4a84-a987-2e90996171ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Data">
+      <UniqueIdentifier>{d4ca1bd4-0f74-4d96-b39d-a9d7551012c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Base">
+      <UniqueIdentifier>{c92cd481-9f80-4f32-9f8a-1a5c4486de4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Partition">
+      <UniqueIdentifier>{bf0ac21a-a82b-43ca-8404-0372fb986c5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Pick">
+      <UniqueIdentifier>{80df02f5-90be-41dd-8caf-f38dfad62d23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Traverse">
+      <UniqueIdentifier>{f8d78fa3-ab26-44f2-897f-6a11e4126c3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{c445c092-e7ec-4e62-92aa-cae2f798bd87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Materials">
+      <UniqueIdentifier>{1d93c6e9-f82d-49e9-a44f-8c9e26423662}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{c6be35fa-474e-4f64-ac27-c71231d39a1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{9095f751-79e7-474f-9113-1f7a6405f5d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\Data">
+      <UniqueIdentifier>{29b48e00-775f-4758-8030-a622d9f1bcc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Materials\Passes">
+      <UniqueIdentifier>{314ee62e-e3f7-4131-87e8-50ade52bca39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Managers">
+      <UniqueIdentifier>{a98d42b5-00b1-48a3-9622-41df11bf1267}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Materials\Methods">
+      <UniqueIdentifier>{f70205dd-d8ee-45b9-861f-2d1cc945eb52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Materials\Compilation">
+      <UniqueIdentifier>{25105a02-0f9b-40b3-8fc6-0a59807f527c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Textures">
+      <UniqueIdentifier>{9976794b-e8c1-4407-a418-72e45b20d03d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lights">
+      <UniqueIdentifier>{f35f8407-a8e5-436a-95eb-cc2f1a2aa287}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lights\ShadowMaps">
+      <UniqueIdentifier>{586acf47-1134-4dbe-ba2a-aebbd625266d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools">
+      <UniqueIdentifier>{b0865f2b-2b71-481a-8fb0-facaa1af996a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\Utils">
+      <UniqueIdentifier>{3ca2e013-31ef-44bd-9461-e4b0e025df6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Render">
+      <UniqueIdentifier>{4e28d902-fa1a-4102-be19-59b09855605f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Materials\LightPickers">
+      <UniqueIdentifier>{fdfd49ef-0f35-41ba-b1a8-770122a95cd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Sort">
+      <UniqueIdentifier>{9f7cb17b-254d-43a4-9b5d-862a590b52ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events">
+      <UniqueIdentifier>{de8ba8f7-53c8-41e7-9a17-7aca43f76729}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Animators">
+      <UniqueIdentifier>{4439fa8c-5f87-4c9a-9401-f4ff91940ce6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controllers">
+      <UniqueIdentifier>{1a928703-23e0-4f65-b877-3f568742a027}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Animators\Nodes">
+      <UniqueIdentifier>{91203b5f-3d4e-40ee-9d9b-02a4bbaa9e46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Animators\States">
+      <UniqueIdentifier>{0f2ba54c-874a-4a99-b318-c48c07906bbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Animators\Data">
+      <UniqueIdentifier>{94d938ad-15ef-4308-a5d9-dea9e0866836}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library">
+      <UniqueIdentifier>{7a08d4dd-ba3e-471b-9b71-f6687d3f9fcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\Helpers">
+      <UniqueIdentifier>{8deb0bc6-d7b3-4613-addf-e2e6cc6b1596}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\Helpers\Data">
+      <UniqueIdentifier>{8a20184f-7aee-46ec-9f64-1dfd1fcb4607}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Math\Rectangle.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Utils\BitmapData.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Utils\ByteArray.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Utils\CRC32.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Math\Matrix3D.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Math\Vector3D.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Base\Object3D.cpp">
+      <Filter>Core\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Math\Quaternion.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Containers\ObjectContainer3D.cpp">
+      <Filter>Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\agal\Regs.cpp">
+      <Filter>Agal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\agal\Shader.cpp">
+      <Filter>Agal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\agal\ShaderChunk.cpp">
+      <Filter>Agal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\agal\Tex.cpp">
+      <Filter>Agal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\containers\Scene3D.cpp">
+      <Filter>Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\partition\Partition3D.cpp">
+      <Filter>Core\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\partition\NodeBase.cpp">
+      <Filter>Core\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\traverse\EntityCollector.cpp">
+      <Filter>Core\Traverse</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\math\Plane3D.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\math\Matrix.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\base\SubMesh.cpp">
+      <Filter>Core\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\entities\Entity.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\entities\Mesh.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\math\Point.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\bounds\BoundingVolumeBase.cpp">
+      <Filter>Bounds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\base\Geometry.cpp">
+      <Filter>Core\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\traverse\PartitionTraverser.cpp">
+      <Filter>Core\Traverse</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\partition\EntityNode.cpp">
+      <Filter>Core\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\materials\MaterialBase.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\partition\MeshNode.cpp">
+      <Filter>Core\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\bounds\AxisAlignedBoundingBox.cpp">
+      <Filter>Bounds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cameras\Camera3D.cpp">
+      <Filter>Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cameras\lenses\LensBase.cpp">
+      <Filter>Cameras\Lenses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\bounds\NullBounds.cpp">
+      <Filter>Bounds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\partition\CameraNode.cpp">
+      <Filter>Core\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Primitives\WireframeSphere.cpp">
+      <Filter>Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cameras\Lenses\PerspectiveLens.cpp">
+      <Filter>Cameras\Lenses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Data\EntityListItemPool.cpp">
+      <Filter>Core\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Data\RenderableListItemPool.cpp">
+      <Filter>Core\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Entities\SegmentSet.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Partition\RenderableNode.cpp">
+      <Filter>Core\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Bounds\BoundingSphere.cpp">
+      <Filter>Bounds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Primitives\WireframePrimitiveBase.cpp">
+      <Filter>Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Primitives\WireframeCube.cpp">
+      <Filter>Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Passes\CompiledPass.cpp">
+      <Filter>Materials\Passes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Passes\DepthMapPass.cpp">
+      <Filter>Materials\Passes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Passes\DistanceMapPass.cpp">
+      <Filter>Materials\Passes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Passes\MaterialPassBase.cpp">
+      <Filter>Materials\Passes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Passes\SuperShaderPass.cpp">
+      <Filter>Materials\Passes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Managers\AGALProgramCache.cpp">
+      <Filter>Core\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\ShaderMethodSetup.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\ShadingMethodBase.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Compilation\RegisterPool.cpp">
+      <Filter>Materials\Compilation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Compilation\ShaderRegisterCache.cpp">
+      <Filter>Materials\Compilation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Compilation\ShaderCompiler.cpp">
+      <Filter>Materials\Compilation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\MethodVO.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Textures\TextureProxyBase.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\MethodVOSet.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\ColorTransformMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Math\ColorTransform.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\BasicNormalMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Textures\Texture2DBase.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\BasicAmbientMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\BasicDiffuseMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\BasicSpecularMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\LightingMethodBase.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\ShadowMapMethodBase.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Lights\LightBase.cpp">
+      <Filter>Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Partition\LightNode.cpp">
+      <Filter>Core\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Lights\ShadowMaps\ShadowMapperBase.cpp">
+      <Filter>Lights\ShadowMaps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Traverse\ShadowCasterCollector.cpp">
+      <Filter>Core\Traverse</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Textures\RenderTexture.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Tools\Utils\TextureUtils.cpp">
+      <Filter>Tools\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Render\DefaultRenderer.cpp">
+      <Filter>Core\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Render\DepthRenderer.cpp">
+      <Filter>Core\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Render\RendererBase.cpp">
+      <Filter>Core\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Lights\DirectionalLight.cpp">
+      <Filter>Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Lights\LightProbe.cpp">
+      <Filter>Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Lights\PointLight.cpp">
+      <Filter>Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\LightPickers\LightPickerBase.cpp">
+      <Filter>Materials\LightPickers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\LightPickers\StaticLightPicker.cpp">
+      <Filter>Materials\LightPickers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Partition\DirectionalLightNode.cpp">
+      <Filter>Core\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Lights\ShadowMaps\DirectionalShadowMapper.cpp">
+      <Filter>Lights\ShadowMaps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cameras\Lenses\FreeMatrixLens.cpp">
+      <Filter>Cameras\Lenses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cameras\Lenses\OrthographicLens.cpp">
+      <Filter>Cameras\Lenses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Sort\RenderableMergeSort.cpp">
+      <Filter>Core\Sort</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Render\BackgroundImageRenderer.cpp">
+      <Filter>Core\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Compilation\MethodDependencyCounter.cpp">
+      <Filter>Materials\Compilation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Events\Event.cpp">
+      <Filter>Events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Events\GeometryEvent.cpp">
+      <Filter>Events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Events\ShadingMethodEvent.cpp">
+      <Filter>Events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\SinglePassMaterialBase.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\TextureMaterial.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Compilation\SuperShaderCompiler.cpp">
+      <Filter>Materials\Compilation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Partition\PointLightNode.cpp">
+      <Filter>Core\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Partition\LightProbeNode.cpp">
+      <Filter>Core\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Lights\ShadowMaps\CubeMapShadowMapper.cpp">
+      <Filter>Lights\ShadowMaps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Events\LensEvent.cpp">
+      <Filter>Events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Textures\RenderCubeTexture.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Textures\CubeTextureBase.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Containers\View3D.cpp">
+      <Filter>Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Events\Scene3DEvent.cpp">
+      <Filter>Events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Base\SubGeometry.cpp">
+      <Filter>Core\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Base\CompactSubGeometry.cpp">
+      <Filter>Core\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Base\SubGeometryBase.cpp">
+      <Filter>Core\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Textures\ATFTexture.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Textures\ATFCubeTexture.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Controllers\ControllerBase.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Controllers\FirstPersonController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Controllers\HoverController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Controllers\LookAtController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Compilation\ShaderRegisterData.cpp">
+      <Filter>Materials\Compilation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Math\MathConsts.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Events\LightEvent.cpp">
+      <Filter>Events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Primitives\CubeGeometry.cpp">
+      <Filter>Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Primitives\PrimitiveBase.cpp">
+      <Filter>Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\ColorMaterial.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\TerrainDiffuseMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\AnimationSetBase.cpp">
+      <Filter>Animators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\AnimatorBase.cpp">
+      <Filter>Animators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\SkeletonAnimationSet.cpp">
+      <Filter>Animators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\SkeletonAnimator.cpp">
+      <Filter>Animators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\AnimationStateBase.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\AnimationClipNodeBase.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\SkeletonClipNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\AnimationClipState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\SkeletonClipState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Data\Skeleton.cpp">
+      <Filter>Animators\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Data\SkeletonPose.cpp">
+      <Filter>Animators\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\AnimationNodeBase.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Base\SkinnedSubGeometry.cpp">
+      <Filter>Core\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Primitives\SphereGeometry.cpp">
+      <Filter>Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Partition\OctreeNode.cpp">
+      <Filter>Core\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Partition\QuadtreeNode.cpp">
+      <Filter>Core\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Primitives\CapsuleGeometry.cpp">
+      <Filter>Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Primitives\ConeGeometry.cpp">
+      <Filter>Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Primitives\CylinderGeometry.cpp">
+      <Filter>Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Primitives\PlaneGeometry.cpp">
+      <Filter>Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Primitives\TorusGeometry.cpp">
+      <Filter>Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\ColorMatrixMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\FogMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\RimLightMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Entities\TextureProjector.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Base\EventDispatcher.cpp">
+      <Filter>Core\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\ProjectiveTextureMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\LightMapMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Textures\BitmapTexture.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Entities\JointTag.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Primitives\Data\Segment.cpp">
+      <Filter>Primitives\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\SegmentMaterial.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Passes\SegmentPass.cpp">
+      <Filter>Materials\Passes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Library\AssetBase.cpp">
+      <Filter>Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Primitives\WireframeCylinder.cpp">
+      <Filter>Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Primitives\WireframePlane.cpp">
+      <Filter>Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Primitives\WireframeTriangles.cpp">
+      <Filter>Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Passes\OutlinePass.cpp">
+      <Filter>Materials\Passes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\OutlineMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\HardShadowMapMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\SimpleShadowMapMethodBase.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\ParticleAnimationSet.cpp">
+      <Filter>Animators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\ParticleAnimator.cpp">
+      <Filter>Animators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleStateBase.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleNodeBase.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Data\AnimationRegisterCache.cpp">
+      <Filter>Animators\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Data\AnimationSubGeometry.cpp">
+      <Filter>Animators\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Data\ParticleAnimationData.cpp">
+      <Filter>Animators\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleTimeNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleTimeState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticlePositionNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleVelocityNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticlePositionState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleVelocityState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Tools\Helpers\ParticleGeometryHelper.cpp">
+      <Filter>Tools\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Tools\Helpers\Data\ParticleGeometryTransform.cpp">
+      <Filter>Tools\Helpers\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleBezierCurveNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleBillboardNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleBezierCurveState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleBillboardState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Math\MathUtils.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleAccelerationNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleColorNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleScaleNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleAccelerationState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleColorState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleScaleState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleDissolveNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleDissolveState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleOrbitState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleOscillatorState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleOrbitNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleOscillatorNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleRotateToHeadingNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleRotateToPositionNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleRotationalVelocityNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleRotateToHeadingState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleRotateToPositionState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleRotationalVelocityState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleInitialColorNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleSpriteSheetNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleUVNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleInitialColorState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleSpriteSheetState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleUVState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleFollowNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleSegmentedColorNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Nodes\ParticleSegmentedScaleNode.cpp">
+      <Filter>Animators\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleFollowState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleSegmentedColorState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\States\ParticleSegmentedScaleState.cpp">
+      <Filter>Animators\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Animators\Data\ColorSegmentPoint.cpp">
+      <Filter>Animators\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Entities\SkyBox.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Partition\SkyBoxNode.cpp">
+      <Filter>Core\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\SkyBoxMaterial.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Passes\SkyBoxPass.cpp">
+      <Filter>Materials\Passes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\EnvMapMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Math\Rectangle.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Utils\BitmapData.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Utils\ByteArray.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Utils\CRC32.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Math\Matrix3D.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Math\Vector3D.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Base\Object3D.h">
+      <Filter>Core\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Math\Quaternion.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Containers\ObjectContainer3D.h">
+      <Filter>Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common.h" />
+    <ClInclude Include="..\..\Setup.h" />
+    <ClInclude Include="..\..\agal\Regs.h">
+      <Filter>Agal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\agal\Shader.h">
+      <Filter>Agal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\agal\ShaderChunk.h">
+      <Filter>Agal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\agal\Tex.h">
+      <Filter>Agal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\containers\Scene3D.h">
+      <Filter>Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\partition\Partition3D.h">
+      <Filter>Core\Partition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\partition\NodeBase.h">
+      <Filter>Core\Partition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\traverse\EntityCollector.h">
+      <Filter>Core\Traverse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\math\Plane3D.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\base\IRenderable.h">
+      <Filter>Core\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\math\Matrix.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\base\ISubGeometry.h">
+      <Filter>Core\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\base\SubMesh.h">
+      <Filter>Core\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\entities\Entity.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\entities\Mesh.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\pick\PickingCollisionVO.h">
+      <Filter>Core\Pick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\math\Point.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\bounds\BoundingVolumeBase.h">
+      <Filter>Bounds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\base\Geometry.h">
+      <Filter>Core\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\traverse\PartitionTraverser.h">
+      <Filter>Core\Traverse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\partition\EntityNode.h">
+      <Filter>Core\Partition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\materials\MaterialBase.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\partition\MeshNode.h">
+      <Filter>Core\Partition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\bounds\AxisAlignedBoundingBox.h">
+      <Filter>Bounds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cameras\Camera3D.h">
+      <Filter>Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cameras\lenses\LensBase.h">
+      <Filter>Cameras\Lenses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\bounds\NullBounds.h">
+      <Filter>Bounds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\partition\CameraNode.h">
+      <Filter>Core\Partition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Primitives\WireframePrimitiveBase.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Primitives\WireframeSphere.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cameras\Lenses\PerspectiveLens.h">
+      <Filter>Cameras\Lenses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Data\EntityListItemPool.h">
+      <Filter>Core\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Data\RenderableListItemPool.h">
+      <Filter>Core\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Primitives\WireframeCube.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Entities\SegmentSet.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Partition\RenderableNode.h">
+      <Filter>Core\Partition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Bounds\BoundingSphere.h">
+      <Filter>Bounds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Passes\CompiledPass.h">
+      <Filter>Materials\Passes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Passes\DepthMapPass.h">
+      <Filter>Materials\Passes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Passes\DistanceMapPass.h">
+      <Filter>Materials\Passes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Passes\MaterialPassBase.h">
+      <Filter>Materials\Passes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Passes\SuperShaderPass.h">
+      <Filter>Materials\Passes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Managers\AGALProgramCache.h">
+      <Filter>Core\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\ShaderMethodSetup.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\ShadingMethodBase.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Compilation\ShaderRegisterCache.h">
+      <Filter>Materials\Compilation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Compilation\RegisterPool.h">
+      <Filter>Materials\Compilation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Compilation\ShaderCompiler.h">
+      <Filter>Materials\Compilation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Compilation\ShaderRegisterData.h">
+      <Filter>Materials\Compilation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\MethodVO.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Textures\TextureProxyBase.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\MethodVOSet.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\EffectMethodBase.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\ColorTransformMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Math\ColorTransform.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\BasicNormalMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Textures\Texture2DBase.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\BasicAmbientMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\BasicDiffuseMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\BasicSpecularMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\LightingMethodBase.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\ShadowMapMethodBase.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Lights\LightBase.h">
+      <Filter>Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Partition\LightNode.h">
+      <Filter>Core\Partition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Lights\ShadowMaps\ShadowMapperBase.h">
+      <Filter>Lights\ShadowMaps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Traverse\ShadowCasterCollector.h">
+      <Filter>Core\Traverse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Textures\RenderTexture.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Tools\Utils\TextureUtils.h">
+      <Filter>Tools\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Render\DefaultRenderer.h">
+      <Filter>Core\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Render\DepthRenderer.h">
+      <Filter>Core\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Render\RendererBase.h">
+      <Filter>Core\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Lights\DirectionalLight.h">
+      <Filter>Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Lights\LightProbe.h">
+      <Filter>Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Lights\PointLight.h">
+      <Filter>Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\LightPickers\LightPickerBase.h">
+      <Filter>Materials\LightPickers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\LightPickers\StaticLightPicker.h">
+      <Filter>Materials\LightPickers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Partition\DirectionalLightNode.h">
+      <Filter>Core\Partition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Lights\ShadowMaps\DirectionalShadowMapper.h">
+      <Filter>Lights\ShadowMaps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cameras\Lenses\FreeMatrixLens.h">
+      <Filter>Cameras\Lenses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cameras\Lenses\OrthographicLens.h">
+      <Filter>Cameras\Lenses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Sort\IEntitySorter.h">
+      <Filter>Core\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Sort\RenderableMergeSort.h">
+      <Filter>Core\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Render\BackgroundImageRenderer.h">
+      <Filter>Core\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Base\IMaterialOwner.h">
+      <Filter>Core\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\IAnimator.h">
+      <Filter>Animators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\IAnimationSet.h">
+      <Filter>Animators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Compilation\MethodDependencyCounter.h">
+      <Filter>Materials\Compilation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Base\EventDispatcher.h">
+      <Filter>Core\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Events\Event.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Events\GeometryEvent.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Events\ShadingMethodEvent.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\SinglePassMaterialBase.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\TextureMaterial.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Compilation\SuperShaderCompiler.h">
+      <Filter>Materials\Compilation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Partition\PointLightNode.h">
+      <Filter>Core\Partition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Partition\LightProbeNode.h">
+      <Filter>Core\Partition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Lights\ShadowMaps\CubeMapShadowMapper.h">
+      <Filter>Lights\ShadowMaps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Events\LensEvent.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Textures\RenderCubeTexture.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Textures\CubeTextureBase.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Containers\View3D.h">
+      <Filter>Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Events\Scene3DEvent.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Base\SubGeometry.h">
+      <Filter>Core\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Base\CompactSubGeometry.h">
+      <Filter>Core\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Base\SubGeometryBase.h">
+      <Filter>Core\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Textures\ATFTexture.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Textures\ATFCubeTexture.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Controllers\ControllerBase.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Controllers\FirstPersonController.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Controllers\HoverController.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Controllers\LookAtController.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Math\MathConsts.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Events\LightEvent.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Primitives\CubeGeometry.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Primitives\PrimitiveBase.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\ColorMaterial.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\TerrainDiffuseMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\AnimationSetBase.h">
+      <Filter>Animators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\AnimatorBase.h">
+      <Filter>Animators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\SkeletonAnimationSet.h">
+      <Filter>Animators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\SkeletonAnimator.h">
+      <Filter>Animators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\AnimationStateBase.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\AnimationClipNodeBase.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\SkeletonClipNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\AnimationClipState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\SkeletonClipState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Data\Skeleton.h">
+      <Filter>Animators\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Data\SkeletonPose.h">
+      <Filter>Animators\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\IAnimationNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\IAnimationState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\AnimationNodeBase.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Base\SkinnedSubGeometry.h">
+      <Filter>Core\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Primitives\SphereGeometry.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Partition\OctreeNode.h">
+      <Filter>Core\Partition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Partition\QuadtreeNode.h">
+      <Filter>Core\Partition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Primitives\CapsuleGeometry.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Primitives\ConeGeometry.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Primitives\CylinderGeometry.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Primitives\PlaneGeometry.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Primitives\TorusGeometry.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\ColorMatrixMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\FogMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\RimLightMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Entities\TextureProjector.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\ProjectiveTextureMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\LightMapMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Textures\BitmapTexture.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Entities\JointTag.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Primitives\Data\Segment.h">
+      <Filter>Primitives\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\SegmentMaterial.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Passes\SegmentPass.h">
+      <Filter>Materials\Passes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Library\AssetBase.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Primitives\WireframeCylinder.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Primitives\WireframePlane.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Primitives\WireframeTriangles.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Passes\OutlinePass.h">
+      <Filter>Materials\Passes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\OutlineMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\HardShadowMapMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\SimpleShadowMapMethodBase.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\ParticleAnimationSet.h">
+      <Filter>Animators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\ParticleAnimator.h">
+      <Filter>Animators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleStateBase.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleNodeBase.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Data\AnimationRegisterCache.h">
+      <Filter>Animators\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Data\AnimationSubGeometry.h">
+      <Filter>Animators\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Data\ParticleAnimationData.h">
+      <Filter>Animators\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleTimeNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleTimeState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Base\ParticleGeometry.h">
+      <Filter>Core\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticlePositionNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleVelocityNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticlePositionState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleVelocityState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Tools\Helpers\ParticleGeometryHelper.h">
+      <Filter>Tools\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Tools\Helpers\Data\ParticleGeometryTransform.h">
+      <Filter>Tools\Helpers\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleBezierCurveNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleBillboardNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleBezierCurveState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleBillboardState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Math\MathUtils.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleAccelerationNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleColorNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleScaleNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleAccelerationState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleColorState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleScaleState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleDissolveNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleDissolveState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleOrbitState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleOscillatorState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleOrbitNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleOscillatorNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleRotateToHeadingNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleRotateToPositionNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleRotationalVelocityNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleRotateToHeadingState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleRotateToPositionState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleRotationalVelocityState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleInitialColorNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleSpriteSheetNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleUVNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleInitialColorState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleSpriteSheetState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleUVState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleFollowNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleSegmentedColorNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Nodes\ParticleSegmentedScaleNode.h">
+      <Filter>Animators\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleFollowState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleSegmentedColorState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\States\ParticleSegmentedScaleState.h">
+      <Filter>Animators\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Animators\Data\ColorSegmentPoint.h">
+      <Filter>Animators\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Entities\SkyBox.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Partition\SkyBoxNode.h">
+      <Filter>Core\Partition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\SkyBoxMaterial.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Passes\SkyBoxPass.h">
+      <Filter>Materials\Passes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\EnvMapMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

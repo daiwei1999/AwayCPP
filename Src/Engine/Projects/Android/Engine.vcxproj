@@ -1,0 +1,549 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x86">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x86">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Agal\Regs.cpp" />
+    <ClCompile Include="..\..\Agal\Shader.cpp" />
+    <ClCompile Include="..\..\Agal\ShaderChunk.cpp" />
+    <ClCompile Include="..\..\Agal\Tex.cpp" />
+    <ClCompile Include="..\..\Animators\AnimationSetBase.cpp" />
+    <ClCompile Include="..\..\Animators\AnimatorBase.cpp" />
+    <ClCompile Include="..\..\Animators\Data\AnimationRegisterCache.cpp" />
+    <ClCompile Include="..\..\Animators\Data\AnimationSubGeometry.cpp" />
+    <ClCompile Include="..\..\Animators\Data\ColorSegmentPoint.cpp" />
+    <ClCompile Include="..\..\Animators\Data\ParticleAnimationData.cpp" />
+    <ClCompile Include="..\..\Animators\Data\Skeleton.cpp" />
+    <ClCompile Include="..\..\Animators\Data\SkeletonPose.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\AnimationClipNodeBase.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\AnimationNodeBase.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleAccelerationNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleBezierCurveNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleBillboardNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleColorNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleDissolveNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleFollowNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleInitialColorNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleNodeBase.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleOrbitNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleOscillatorNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticlePositionNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleRotateToHeadingNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleRotateToPositionNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleRotationalVelocityNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleScaleNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleSegmentedColorNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleSegmentedScaleNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleSpriteSheetNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleTimeNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleUVNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\ParticleVelocityNode.cpp" />
+    <ClCompile Include="..\..\Animators\Nodes\SkeletonClipNode.cpp" />
+    <ClCompile Include="..\..\Animators\ParticleAnimationSet.cpp" />
+    <ClCompile Include="..\..\Animators\ParticleAnimator.cpp" />
+    <ClCompile Include="..\..\Animators\SkeletonAnimationSet.cpp" />
+    <ClCompile Include="..\..\Animators\SkeletonAnimator.cpp" />
+    <ClCompile Include="..\..\Animators\States\AnimationClipState.cpp" />
+    <ClCompile Include="..\..\Animators\States\AnimationStateBase.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleAccelerationState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleBezierCurveState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleBillboardState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleColorState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleDissolveState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleFollowState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleInitialColorState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleOrbitState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleOscillatorState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticlePositionState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleRotateToHeadingState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleRotateToPositionState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleRotationalVelocityState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleScaleState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleSegmentedColorState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleSegmentedScaleState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleSpriteSheetState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleStateBase.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleTimeState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleUVState.cpp" />
+    <ClCompile Include="..\..\Animators\States\ParticleVelocityState.cpp" />
+    <ClCompile Include="..\..\Animators\States\SkeletonClipState.cpp" />
+    <ClCompile Include="..\..\Bounds\AxisAlignedBoundingBox.cpp" />
+    <ClCompile Include="..\..\Bounds\BoundingSphere.cpp" />
+    <ClCompile Include="..\..\Bounds\BoundingVolumeBase.cpp" />
+    <ClCompile Include="..\..\Bounds\NullBounds.cpp" />
+    <ClCompile Include="..\..\Cameras\Camera3D.cpp" />
+    <ClCompile Include="..\..\Cameras\Lenses\FreeMatrixLens.cpp" />
+    <ClCompile Include="..\..\Cameras\Lenses\LensBase.cpp" />
+    <ClCompile Include="..\..\Cameras\Lenses\OrthographicLens.cpp" />
+    <ClCompile Include="..\..\Cameras\Lenses\PerspectiveLens.cpp" />
+    <ClCompile Include="..\..\Containers\ObjectContainer3D.cpp" />
+    <ClCompile Include="..\..\Containers\Scene3D.cpp" />
+    <ClCompile Include="..\..\Containers\View3D.cpp" />
+    <ClCompile Include="..\..\Controllers\ControllerBase.cpp" />
+    <ClCompile Include="..\..\Controllers\FirstPersonController.cpp" />
+    <ClCompile Include="..\..\Controllers\HoverController.cpp" />
+    <ClCompile Include="..\..\Controllers\LookAtController.cpp" />
+    <ClCompile Include="..\..\Core\Base\CompactSubGeometry.cpp" />
+    <ClCompile Include="..\..\Core\Base\EventDispatcher.cpp" />
+    <ClCompile Include="..\..\Core\Base\Geometry.cpp" />
+    <ClCompile Include="..\..\Core\Base\Object3D.cpp" />
+    <ClCompile Include="..\..\Core\Base\SkinnedSubGeometry.cpp" />
+    <ClCompile Include="..\..\Core\Base\SubGeometry.cpp" />
+    <ClCompile Include="..\..\Core\Base\SubGeometryBase.cpp" />
+    <ClCompile Include="..\..\Core\Base\SubMesh.cpp" />
+    <ClCompile Include="..\..\Core\Data\EntityListItemPool.cpp" />
+    <ClCompile Include="..\..\Core\Data\RenderableListItemPool.cpp" />
+    <ClCompile Include="..\..\Core\Managers\AGALProgramCache.cpp" />
+    <ClCompile Include="..\..\Core\Partition\CameraNode.cpp" />
+    <ClCompile Include="..\..\Core\Partition\DirectionalLightNode.cpp" />
+    <ClCompile Include="..\..\Core\Partition\EntityNode.cpp" />
+    <ClCompile Include="..\..\Core\Partition\LightNode.cpp" />
+    <ClCompile Include="..\..\Core\Partition\LightProbeNode.cpp" />
+    <ClCompile Include="..\..\Core\Partition\MeshNode.cpp" />
+    <ClCompile Include="..\..\Core\Partition\NodeBase.cpp" />
+    <ClCompile Include="..\..\Core\Partition\OctreeNode.cpp" />
+    <ClCompile Include="..\..\Core\Partition\Partition3D.cpp" />
+    <ClCompile Include="..\..\Core\Partition\PointLightNode.cpp" />
+    <ClCompile Include="..\..\Core\Partition\QuadtreeNode.cpp" />
+    <ClCompile Include="..\..\Core\Partition\RenderableNode.cpp" />
+    <ClCompile Include="..\..\Core\Partition\SkyBoxNode.cpp" />
+    <ClCompile Include="..\..\Core\Render\BackgroundImageRenderer.cpp" />
+    <ClCompile Include="..\..\Core\Render\DefaultRenderer.cpp" />
+    <ClCompile Include="..\..\Core\Render\DepthRenderer.cpp" />
+    <ClCompile Include="..\..\Core\Render\RendererBase.cpp" />
+    <ClCompile Include="..\..\Core\Sort\RenderableMergeSort.cpp" />
+    <ClCompile Include="..\..\Core\Traverse\EntityCollector.cpp" />
+    <ClCompile Include="..\..\Core\Traverse\PartitionTraverser.cpp" />
+    <ClCompile Include="..\..\Core\Traverse\ShadowCasterCollector.cpp" />
+    <ClCompile Include="..\..\Entities\JointTag.cpp" />
+    <ClCompile Include="..\..\Entities\Entity.cpp" />
+    <ClCompile Include="..\..\Entities\Mesh.cpp" />
+    <ClCompile Include="..\..\Entities\SegmentSet.cpp" />
+    <ClCompile Include="..\..\Entities\SkyBox.cpp" />
+    <ClCompile Include="..\..\Entities\TextureProjector.cpp" />
+    <ClCompile Include="..\..\Events\Event.cpp" />
+    <ClCompile Include="..\..\Events\GeometryEvent.cpp" />
+    <ClCompile Include="..\..\Events\LensEvent.cpp" />
+    <ClCompile Include="..\..\Events\LightEvent.cpp" />
+    <ClCompile Include="..\..\Events\Scene3DEvent.cpp" />
+    <ClCompile Include="..\..\Events\ShadingMethodEvent.cpp" />
+    <ClCompile Include="..\..\Library\AssetBase.cpp" />
+    <ClCompile Include="..\..\Lights\DirectionalLight.cpp" />
+    <ClCompile Include="..\..\Lights\LightBase.cpp" />
+    <ClCompile Include="..\..\Lights\LightProbe.cpp" />
+    <ClCompile Include="..\..\Lights\PointLight.cpp" />
+    <ClCompile Include="..\..\Lights\ShadowMaps\CubeMapShadowMapper.cpp" />
+    <ClCompile Include="..\..\Lights\ShadowMaps\DirectionalShadowMapper.cpp" />
+    <ClCompile Include="..\..\Lights\ShadowMaps\ShadowMapperBase.cpp" />
+    <ClCompile Include="..\..\Materials\ColorMaterial.cpp" />
+    <ClCompile Include="..\..\Materials\Compilation\MethodDependencyCounter.cpp" />
+    <ClCompile Include="..\..\Materials\Compilation\RegisterPool.cpp" />
+    <ClCompile Include="..\..\Materials\Compilation\ShaderCompiler.cpp" />
+    <ClCompile Include="..\..\Materials\Compilation\ShaderRegisterCache.cpp" />
+    <ClCompile Include="..\..\Materials\Compilation\ShaderRegisterData.cpp" />
+    <ClCompile Include="..\..\Materials\Compilation\SuperShaderCompiler.cpp" />
+    <ClCompile Include="..\..\Materials\LightPickers\LightPickerBase.cpp" />
+    <ClCompile Include="..\..\Materials\LightPickers\StaticLightPicker.cpp" />
+    <ClCompile Include="..\..\Materials\MaterialBase.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\BasicAmbientMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\BasicDiffuseMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\BasicNormalMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\BasicSpecularMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\ColorMatrixMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\ColorTransformMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\EnvMapMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\FogMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\HardShadowMapMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\LightingMethodBase.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\LightMapMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\MethodVO.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\MethodVOSet.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\OutlineMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\ProjectiveTextureMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\RimLightMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\ShaderMethodSetup.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\ShadingMethodBase.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\ShadowMapMethodBase.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\SimpleShadowMapMethodBase.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\TerrainDiffuseMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Passes\CompiledPass.cpp" />
+    <ClCompile Include="..\..\Materials\Passes\DepthMapPass.cpp" />
+    <ClCompile Include="..\..\Materials\Passes\DistanceMapPass.cpp" />
+    <ClCompile Include="..\..\Materials\Passes\MaterialPassBase.cpp" />
+    <ClCompile Include="..\..\Materials\Passes\OutlinePass.cpp" />
+    <ClCompile Include="..\..\Materials\Passes\SegmentPass.cpp" />
+    <ClCompile Include="..\..\Materials\Passes\SkyBoxPass.cpp" />
+    <ClCompile Include="..\..\Materials\Passes\SuperShaderPass.cpp" />
+    <ClCompile Include="..\..\Materials\SegmentMaterial.cpp" />
+    <ClCompile Include="..\..\Materials\SinglePassMaterialBase.cpp" />
+    <ClCompile Include="..\..\Materials\SkyBoxMaterial.cpp" />
+    <ClCompile Include="..\..\Materials\TextureMaterial.cpp" />
+    <ClCompile Include="..\..\Math\ColorTransform.cpp" />
+    <ClCompile Include="..\..\Math\MathUtils.cpp" />
+    <ClCompile Include="..\..\Math\MathConsts.cpp" />
+    <ClCompile Include="..\..\Math\Matrix.cpp" />
+    <ClCompile Include="..\..\Math\Matrix3D.cpp" />
+    <ClCompile Include="..\..\Math\Plane3D.cpp" />
+    <ClCompile Include="..\..\Math\Point.cpp" />
+    <ClCompile Include="..\..\Math\Quaternion.cpp" />
+    <ClCompile Include="..\..\Math\Rectangle.cpp" />
+    <ClCompile Include="..\..\Math\Vector3D.cpp" />
+    <ClCompile Include="..\..\Primitives\CapsuleGeometry.cpp" />
+    <ClCompile Include="..\..\Primitives\ConeGeometry.cpp" />
+    <ClCompile Include="..\..\Primitives\CubeGeometry.cpp" />
+    <ClCompile Include="..\..\Primitives\CylinderGeometry.cpp" />
+    <ClCompile Include="..\..\Primitives\Data\Segment.cpp" />
+    <ClCompile Include="..\..\Primitives\PlaneGeometry.cpp" />
+    <ClCompile Include="..\..\Primitives\PrimitiveBase.cpp" />
+    <ClCompile Include="..\..\Primitives\SphereGeometry.cpp" />
+    <ClCompile Include="..\..\Primitives\TorusGeometry.cpp" />
+    <ClCompile Include="..\..\Primitives\WireframeCube.cpp" />
+    <ClCompile Include="..\..\Primitives\WireframeCylinder.cpp" />
+    <ClCompile Include="..\..\Primitives\WireframePlane.cpp" />
+    <ClCompile Include="..\..\Primitives\WireframePrimitiveBase.cpp" />
+    <ClCompile Include="..\..\Primitives\WireframeSphere.cpp" />
+    <ClCompile Include="..\..\Primitives\WireframeTriangles.cpp" />
+    <ClCompile Include="..\..\Textures\ATFCubeTexture.cpp" />
+    <ClCompile Include="..\..\Textures\ATFTexture.cpp" />
+    <ClCompile Include="..\..\Textures\BitmapTexture.cpp" />
+    <ClCompile Include="..\..\Textures\CubeTextureBase.cpp" />
+    <ClCompile Include="..\..\Textures\RenderCubeTexture.cpp" />
+    <ClCompile Include="..\..\Textures\RenderTexture.cpp" />
+    <ClCompile Include="..\..\Textures\Texture2DBase.cpp" />
+    <ClCompile Include="..\..\Textures\TextureProxyBase.cpp" />
+    <ClCompile Include="..\..\Tools\Helpers\Data\ParticleGeometryTransform.cpp" />
+    <ClCompile Include="..\..\Tools\Helpers\ParticleGeometryHelper.cpp" />
+    <ClCompile Include="..\..\Tools\Utils\TextureUtils.cpp" />
+    <ClCompile Include="..\..\Utils\BitmapData.cpp" />
+    <ClCompile Include="..\..\Utils\ByteArray.cpp" />
+    <ClCompile Include="..\..\Utils\CRC32.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Agal\Regs.h" />
+    <ClInclude Include="..\..\Agal\Shader.h" />
+    <ClInclude Include="..\..\Agal\ShaderChunk.h" />
+    <ClInclude Include="..\..\Agal\Tex.h" />
+    <ClInclude Include="..\..\Animators\AnimationSetBase.h" />
+    <ClInclude Include="..\..\Animators\AnimatorBase.h" />
+    <ClInclude Include="..\..\Animators\Data\AnimationRegisterCache.h" />
+    <ClInclude Include="..\..\Animators\Data\AnimationSubGeometry.h" />
+    <ClInclude Include="..\..\Animators\Data\ColorSegmentPoint.h" />
+    <ClInclude Include="..\..\Animators\Data\ParticleAnimationData.h" />
+    <ClInclude Include="..\..\Animators\Data\Skeleton.h" />
+    <ClInclude Include="..\..\Animators\Data\SkeletonPose.h" />
+    <ClInclude Include="..\..\Animators\IAnimationSet.h" />
+    <ClInclude Include="..\..\Animators\IAnimator.h" />
+    <ClInclude Include="..\..\Animators\Nodes\AnimationClipNodeBase.h" />
+    <ClInclude Include="..\..\Animators\Nodes\AnimationNodeBase.h" />
+    <ClInclude Include="..\..\Animators\Nodes\IAnimationNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleAccelerationNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleBezierCurveNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleBillboardNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleColorNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleDissolveNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleFollowNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleInitialColorNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleNodeBase.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleOrbitNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleOscillatorNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticlePositionNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleRotateToHeadingNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleRotateToPositionNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleRotationalVelocityNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleScaleNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleSegmentedColorNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleSegmentedScaleNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleSpriteSheetNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleTimeNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleUVNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\ParticleVelocityNode.h" />
+    <ClInclude Include="..\..\Animators\Nodes\SkeletonClipNode.h" />
+    <ClInclude Include="..\..\Animators\ParticleAnimationSet.h" />
+    <ClInclude Include="..\..\Animators\ParticleAnimator.h" />
+    <ClInclude Include="..\..\Animators\SkeletonAnimationSet.h" />
+    <ClInclude Include="..\..\Animators\SkeletonAnimator.h" />
+    <ClInclude Include="..\..\Animators\States\AnimationClipState.h" />
+    <ClInclude Include="..\..\Animators\States\AnimationStateBase.h" />
+    <ClInclude Include="..\..\Animators\States\IAnimationState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleAccelerationState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleBezierCurveState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleBillboardState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleColorState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleDissolveState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleFollowState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleInitialColorState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleOrbitState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleOscillatorState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticlePositionState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleRotateToHeadingState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleRotateToPositionState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleRotationalVelocityState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleScaleState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleSegmentedColorState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleSegmentedScaleState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleSpriteSheetState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleStateBase.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleTimeState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleUVState.h" />
+    <ClInclude Include="..\..\Animators\States\ParticleVelocityState.h" />
+    <ClInclude Include="..\..\Animators\States\SkeletonClipState.h" />
+    <ClInclude Include="..\..\Bounds\AxisAlignedBoundingBox.h" />
+    <ClInclude Include="..\..\Bounds\BoundingSphere.h" />
+    <ClInclude Include="..\..\Bounds\BoundingVolumeBase.h" />
+    <ClInclude Include="..\..\Bounds\NullBounds.h" />
+    <ClInclude Include="..\..\Cameras\Camera3D.h" />
+    <ClInclude Include="..\..\Cameras\Lenses\FreeMatrixLens.h" />
+    <ClInclude Include="..\..\Cameras\Lenses\LensBase.h" />
+    <ClInclude Include="..\..\Cameras\Lenses\OrthographicLens.h" />
+    <ClInclude Include="..\..\Cameras\Lenses\PerspectiveLens.h" />
+    <ClInclude Include="..\..\Common.h" />
+    <ClInclude Include="..\..\Containers\ObjectContainer3D.h" />
+    <ClInclude Include="..\..\Containers\Scene3D.h" />
+    <ClInclude Include="..\..\Containers\View3D.h" />
+    <ClInclude Include="..\..\Controllers\ControllerBase.h" />
+    <ClInclude Include="..\..\Controllers\FirstPersonController.h" />
+    <ClInclude Include="..\..\Controllers\HoverController.h" />
+    <ClInclude Include="..\..\Controllers\LookAtController.h" />
+    <ClInclude Include="..\..\Core\Base\CompactSubGeometry.h" />
+    <ClInclude Include="..\..\Core\Base\EventDispatcher.h" />
+    <ClInclude Include="..\..\Core\Base\Geometry.h" />
+    <ClInclude Include="..\..\Core\Base\IMaterialOwner.h" />
+    <ClInclude Include="..\..\Core\Base\IRenderable.h" />
+    <ClInclude Include="..\..\Core\Base\ISubGeometry.h" />
+    <ClInclude Include="..\..\Core\Base\Object3D.h" />
+    <ClInclude Include="..\..\Core\Base\ParticleGeometry.h" />
+    <ClInclude Include="..\..\Core\Base\SkinnedSubGeometry.h" />
+    <ClInclude Include="..\..\Core\Base\SubGeometry.h" />
+    <ClInclude Include="..\..\Core\Base\SubGeometryBase.h" />
+    <ClInclude Include="..\..\Core\Base\SubMesh.h" />
+    <ClInclude Include="..\..\Core\Data\EntityListItemPool.h" />
+    <ClInclude Include="..\..\Core\Data\RenderableListItemPool.h" />
+    <ClInclude Include="..\..\Core\Managers\AGALProgramCache.h" />
+    <ClInclude Include="..\..\Core\Partition\CameraNode.h" />
+    <ClInclude Include="..\..\Core\Partition\DirectionalLightNode.h" />
+    <ClInclude Include="..\..\Core\Partition\EntityNode.h" />
+    <ClInclude Include="..\..\Core\Partition\LightNode.h" />
+    <ClInclude Include="..\..\Core\Partition\LightProbeNode.h" />
+    <ClInclude Include="..\..\Core\Partition\MeshNode.h" />
+    <ClInclude Include="..\..\Core\Partition\NodeBase.h" />
+    <ClInclude Include="..\..\Core\Partition\OctreeNode.h" />
+    <ClInclude Include="..\..\Core\Partition\Partition3D.h" />
+    <ClInclude Include="..\..\Core\Partition\PointLightNode.h" />
+    <ClInclude Include="..\..\Core\Partition\QuadtreeNode.h" />
+    <ClInclude Include="..\..\Core\Partition\RenderableNode.h" />
+    <ClInclude Include="..\..\Core\Partition\SkyBoxNode.h" />
+    <ClInclude Include="..\..\Core\Pick\PickingCollisionVO.h" />
+    <ClInclude Include="..\..\Core\Render\BackgroundImageRenderer.h" />
+    <ClInclude Include="..\..\Core\Render\DefaultRenderer.h" />
+    <ClInclude Include="..\..\Core\Render\DepthRenderer.h" />
+    <ClInclude Include="..\..\Core\Render\RendererBase.h" />
+    <ClInclude Include="..\..\Core\Sort\IEntitySorter.h" />
+    <ClInclude Include="..\..\Core\Sort\RenderableMergeSort.h" />
+    <ClInclude Include="..\..\Core\Traverse\EntityCollector.h" />
+    <ClInclude Include="..\..\Core\Traverse\PartitionTraverser.h" />
+    <ClInclude Include="..\..\Core\Traverse\ShadowCasterCollector.h" />
+    <ClInclude Include="..\..\Entities\JointTag.h" />
+    <ClInclude Include="..\..\Entities\Entity.h" />
+    <ClInclude Include="..\..\Entities\Mesh.h" />
+    <ClInclude Include="..\..\Entities\SegmentSet.h" />
+    <ClInclude Include="..\..\Entities\SkyBox.h" />
+    <ClInclude Include="..\..\Entities\TextureProjector.h" />
+    <ClInclude Include="..\..\Events\Event.h" />
+    <ClInclude Include="..\..\Events\GeometryEvent.h" />
+    <ClInclude Include="..\..\Events\LensEvent.h" />
+    <ClInclude Include="..\..\Events\LightEvent.h" />
+    <ClInclude Include="..\..\Events\Scene3DEvent.h" />
+    <ClInclude Include="..\..\Events\ShadingMethodEvent.h" />
+    <ClInclude Include="..\..\Library\AssetBase.h" />
+    <ClInclude Include="..\..\Lights\DirectionalLight.h" />
+    <ClInclude Include="..\..\Lights\LightBase.h" />
+    <ClInclude Include="..\..\Lights\LightProbe.h" />
+    <ClInclude Include="..\..\Lights\PointLight.h" />
+    <ClInclude Include="..\..\Lights\ShadowMaps\CubeMapShadowMapper.h" />
+    <ClInclude Include="..\..\Lights\ShadowMaps\DirectionalShadowMapper.h" />
+    <ClInclude Include="..\..\Lights\ShadowMaps\ShadowMapperBase.h" />
+    <ClInclude Include="..\..\Materials\ColorMaterial.h" />
+    <ClInclude Include="..\..\Materials\Compilation\MethodDependencyCounter.h" />
+    <ClInclude Include="..\..\Materials\Compilation\RegisterPool.h" />
+    <ClInclude Include="..\..\Materials\Compilation\ShaderCompiler.h" />
+    <ClInclude Include="..\..\Materials\Compilation\ShaderRegisterCache.h" />
+    <ClInclude Include="..\..\Materials\Compilation\ShaderRegisterData.h" />
+    <ClInclude Include="..\..\Materials\Compilation\SuperShaderCompiler.h" />
+    <ClInclude Include="..\..\Materials\LightPickers\LightPickerBase.h" />
+    <ClInclude Include="..\..\Materials\LightPickers\StaticLightPicker.h" />
+    <ClInclude Include="..\..\Materials\MaterialBase.h" />
+    <ClInclude Include="..\..\Materials\Methods\BasicAmbientMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\BasicDiffuseMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\BasicNormalMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\BasicSpecularMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\ColorMatrixMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\ColorTransformMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\EffectMethodBase.h" />
+    <ClInclude Include="..\..\Materials\Methods\EnvMapMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\FogMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\HardShadowMapMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\LightingMethodBase.h" />
+    <ClInclude Include="..\..\Materials\Methods\LightMapMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\MethodVO.h" />
+    <ClInclude Include="..\..\Materials\Methods\MethodVOSet.h" />
+    <ClInclude Include="..\..\Materials\Methods\OutlineMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\ProjectiveTextureMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\RimLightMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\ShaderMethodSetup.h" />
+    <ClInclude Include="..\..\Materials\Methods\ShadingMethodBase.h" />
+    <ClInclude Include="..\..\Materials\Methods\ShadowMapMethodBase.h" />
+    <ClInclude Include="..\..\Materials\Methods\SimpleShadowMapMethodBase.h" />
+    <ClInclude Include="..\..\Materials\Methods\TerrainDiffuseMethod.h" />
+    <ClInclude Include="..\..\Materials\Passes\CompiledPass.h" />
+    <ClInclude Include="..\..\Materials\Passes\DepthMapPass.h" />
+    <ClInclude Include="..\..\Materials\Passes\DistanceMapPass.h" />
+    <ClInclude Include="..\..\Materials\Passes\MaterialPassBase.h" />
+    <ClInclude Include="..\..\Materials\Passes\OutlinePass.h" />
+    <ClInclude Include="..\..\Materials\Passes\SegmentPass.h" />
+    <ClInclude Include="..\..\Materials\Passes\SkyBoxPass.h" />
+    <ClInclude Include="..\..\Materials\Passes\SuperShaderPass.h" />
+    <ClInclude Include="..\..\Materials\SegmentMaterial.h" />
+    <ClInclude Include="..\..\Materials\SinglePassMaterialBase.h" />
+    <ClInclude Include="..\..\Materials\SkyBoxMaterial.h" />
+    <ClInclude Include="..\..\Materials\TextureMaterial.h" />
+    <ClInclude Include="..\..\Math\ColorTransform.h" />
+    <ClInclude Include="..\..\Math\MathUtils.h" />
+    <ClInclude Include="..\..\Math\MathConsts.h" />
+    <ClInclude Include="..\..\Math\Matrix.h" />
+    <ClInclude Include="..\..\Math\Matrix3D.h" />
+    <ClInclude Include="..\..\Math\Plane3D.h" />
+    <ClInclude Include="..\..\Math\Point.h" />
+    <ClInclude Include="..\..\Math\Quaternion.h" />
+    <ClInclude Include="..\..\Math\Rectangle.h" />
+    <ClInclude Include="..\..\Math\Vector3D.h" />
+    <ClInclude Include="..\..\Primitives\CapsuleGeometry.h" />
+    <ClInclude Include="..\..\Primitives\ConeGeometry.h" />
+    <ClInclude Include="..\..\Primitives\CubeGeometry.h" />
+    <ClInclude Include="..\..\Primitives\CylinderGeometry.h" />
+    <ClInclude Include="..\..\Primitives\Data\Segment.h" />
+    <ClInclude Include="..\..\Primitives\PlaneGeometry.h" />
+    <ClInclude Include="..\..\Primitives\PrimitiveBase.h" />
+    <ClInclude Include="..\..\Primitives\SphereGeometry.h" />
+    <ClInclude Include="..\..\Primitives\TorusGeometry.h" />
+    <ClInclude Include="..\..\Primitives\WireframeCube.h" />
+    <ClInclude Include="..\..\Primitives\WireframeCylinder.h" />
+    <ClInclude Include="..\..\Primitives\WireframePlane.h" />
+    <ClInclude Include="..\..\Primitives\WireframePrimitiveBase.h" />
+    <ClInclude Include="..\..\Primitives\WireframeSphere.h" />
+    <ClInclude Include="..\..\Primitives\WireframeTriangles.h" />
+    <ClInclude Include="..\..\Setup.h" />
+    <ClInclude Include="..\..\Textures\ATFCubeTexture.h" />
+    <ClInclude Include="..\..\Textures\ATFTexture.h" />
+    <ClInclude Include="..\..\Textures\BitmapTexture.h" />
+    <ClInclude Include="..\..\Textures\CubeTextureBase.h" />
+    <ClInclude Include="..\..\Textures\RenderCubeTexture.h" />
+    <ClInclude Include="..\..\Textures\RenderTexture.h" />
+    <ClInclude Include="..\..\Textures\Texture2DBase.h" />
+    <ClInclude Include="..\..\Textures\TextureProxyBase.h" />
+    <ClInclude Include="..\..\Tools\Helpers\Data\ParticleGeometryTransform.h" />
+    <ClInclude Include="..\..\Tools\Helpers\ParticleGeometryHelper.h" />
+    <ClInclude Include="..\..\Tools\Utils\TextureUtils.h" />
+    <ClInclude Include="..\..\Utils\BitmapData.h" />
+    <ClInclude Include="..\..\Utils\ByteArray.h" />
+    <ClInclude Include="..\..\Utils\CRC32.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{a82aae65-e1a4-4d1e-9128-ee95953ba6a0}</ProjectGuid>
+    <Keyword>Android</Keyword>
+    <ApplicationType>Android</ApplicationType>
+    <ApplicationTypeRevision>1.0</ApplicationTypeRevision>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>Clang_3_4</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>Clang_3_4</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>Clang_3_4</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>Clang_3_4</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <TargetName>lib$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <TargetName>lib$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <TargetName>lib$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <TargetName>lib$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>..\..;..\..\Agal;..\..\Animators;..\..\Animators\Data;..\..\Animators\Nodes;..\..\Animators\States;..\..\Bounds;..\..\Cameras;..\..\Cameras\Lenses;..\..\Containers;..\..\Controllers;..\..\Core\Base;..\..\Core\Data;..\..\Core\Managers;..\..\Core\Partition;..\..\Core\Pick;..\..\Core\Render;..\..\Core\Sort;..\..\Core\Traverse;..\..\Entities;..\..\Events;..\..\Library;..\..\Lights;..\..\Lights\ShadowMaps;..\..\Materials;..\..\Materials\Compilation;..\..\Materials\LightPickers;..\..\Materials\Methods;..\..\Materials\Passes;..\..\Math;..\..\Primitives;..\..\Primitives\Data;..\..\Textures;..\..\Tools\Helpers;..\..\Tools\Helpers\Data;..\..\Tools\Utils;..\..\Utils;..\..\..\RenderSystems;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <CppLanguageStandard>c++11</CppLanguageStandard>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>..\..\;..\..\Agal;..\..\Animators;..\..\Animators\Data;..\..\Animators\Nodes;..\..\Animators\States;..\..\Bounds;..\..\Cameras;..\..\Cameras\Lenses;..\..\Containers;..\..\Controllers;..\..\Core\Base;..\..\Core\Data;..\..\Core\Managers;..\..\Core\Partition;..\..\Core\Pick;..\..\Core\Render;..\..\Core\Sort;..\..\Core\Traverse;..\..\Entities;..\..\Events;..\..\Library;..\..\Lights;..\..\Lights\ShadowMaps;..\..\Materials;..\..\Materials\Compilation;..\..\Materials\LightPickers;..\..\Materials\Methods;..\..\Materials\Passes;..\..\Math;..\..\Primitives;..\..\Primitives\Data;..\..\Textures;..\..\Tools\Helpers;..\..\Tools\Helpers\Data;..\..\Tools\Utils;..\..\Utils;..\..\..\RenderSystems;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CppLanguageStandard>c++11</CppLanguageStandard>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>..\..;..\..\Agal;..\..\Animators;..\..\Animators\Data;..\..\Animators\Nodes;..\..\Animators\States;..\..\Bounds;..\..\Cameras;..\..\Cameras\Lenses;..\..\Containers;..\..\Controllers;..\..\Core\Base;..\..\Core\Data;..\..\Core\Managers;..\..\Core\Partition;..\..\Core\Pick;..\..\Core\Render;..\..\Core\Sort;..\..\Core\Traverse;..\..\Entities;..\..\Events;..\..\Library;..\..\Lights;..\..\Lights\ShadowMaps;..\..\Materials;..\..\Materials\Compilation;..\..\Materials\LightPickers;..\..\Materials\Methods;..\..\Materials\Passes;..\..\Math;..\..\Primitives;..\..\Primitives\Data;..\..\Textures;..\..\Tools\Helpers;..\..\Tools\Helpers\Data;..\..\Tools\Utils;..\..\Utils;..\..\..\RenderSystems;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <CppLanguageStandard>c++11</CppLanguageStandard>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>..\..\;..\..\Agal;..\..\Animators;..\..\Animators\Data;..\..\Animators\Nodes;..\..\Animators\States;..\..\Bounds;..\..\Cameras;..\..\Cameras\Lenses;..\..\Containers;..\..\Controllers;..\..\Core\Base;..\..\Core\Data;..\..\Core\Managers;..\..\Core\Partition;..\..\Core\Pick;..\..\Core\Render;..\..\Core\Sort;..\..\Core\Traverse;..\..\Entities;..\..\Events;..\..\Library;..\..\Lights;..\..\Lights\ShadowMaps;..\..\Materials;..\..\Materials\Compilation;..\..\Materials\LightPickers;..\..\Materials\Methods;..\..\Materials\Passes;..\..\Math;..\..\Primitives;..\..\Primitives\Data;..\..\Textures;..\..\Tools\Helpers;..\..\Tools\Helpers\Data;..\..\Tools\Utils;..\..\Utils;..\..\..\RenderSystems;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <CppLanguageStandard>c++11</CppLanguageStandard>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
