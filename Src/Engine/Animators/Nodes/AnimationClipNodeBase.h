@@ -27,15 +27,15 @@ protected:
 	virtual void updateStitch();
 
 public:
-	bool m_fixedFrameRate = true;
+	bool m_fixedFrameRate;
 
 protected:
-	bool m_looping = true;
-	bool m_stitchDirty = true;
-	bool m_stitchFinalFrame = false;
-	unsigned int m_totalDuration = 0;
+	bool m_looping;
+	bool m_stitchDirty;
+	bool m_stitchFinalFrame;
+	unsigned int m_totalDuration;
 	unsigned int m_lastFrame;
-	unsigned int m_numFrames = 0;
+	unsigned int m_numFrames;
 	std::vector<unsigned int> m_durations;
 	Vector3D m_totalDelta;
 };

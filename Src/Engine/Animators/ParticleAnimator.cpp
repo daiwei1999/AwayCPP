@@ -12,10 +12,9 @@ USING_AWAY_NAMESPACE
 ParticleAnimator::ParticleAnimator(ParticleAnimationSet* particleAnimationSet) : AnimatorBase(particleAnimationSet)
 {
 	m_totalLenOfOneVertex = 0;
-	m_particleAnimationSet = particleAnimationSet;
 
 	ParticleStateBase* state;
-	for (ParticleNodeBase* node : m_particleAnimationSet->getParticleNodes())
+	for (ParticleNodeBase* node : static_cast<ParticleAnimationSet*>(m_animationSet)->getParticleNodes())
 	{
 		state = static_cast<ParticleStateBase*>(getAnimationState(node));
 		if (node->getMode() == ParticlePropertiesMode::LOCAL_DYNAMIC)
@@ -55,12 +54,13 @@ void ParticleAnimator::resetTime(int offset)
 
 void ParticleAnimator::setRenderState(IContext* context, IRenderable* renderable, int vertexConstantOffset, int vertexStreamOffset, Camera3D* camera)
 {
-	AnimationRegisterCache* regCache = m_particleAnimationSet->m_animationRegisterCache;
+	ParticleAnimationSet* particleAnimationSet = static_cast<ParticleAnimationSet*>(m_animationSet);
+	AnimationRegisterCache* regCache = particleAnimationSet->m_animationRegisterCache;
 	SubMesh* subMesh = static_cast<SubMesh*>(renderable);
 
 	// process animation sub geometries
 	if (!subMesh->m_animationSubGeometry)
-		m_particleAnimationSet->generateAnimationSubGeometries(subMesh->getParentMesh());
+		particleAnimationSet->generateAnimationSubGeometries(subMesh->getParentMesh());
 
 	for (ParticleStateBase* state : m_animationParticleStates)
 		state->setRenderState(context, renderable, subMesh->m_animationSubGeometry, regCache, camera);
@@ -81,6 +81,11 @@ void ParticleAnimator::setRenderState(IContext* context, IRenderable* renderable
 void ParticleAnimator::testGPUCompatibility(MaterialPassBase* pass)
 {
 
+}
+
+IAnimator* ParticleAnimator::clone()
+{
+	return new ParticleAnimator(static_cast<ParticleAnimationSet*>(m_animationSet));
 }
 
 void ParticleAnimator::updateDeltaTime(float dt)

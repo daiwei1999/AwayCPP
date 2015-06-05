@@ -4,7 +4,12 @@ USING_AWAY_NAMESPACE
 
 AnimationClipNodeBase::AnimationClipNodeBase()
 {
-
+	m_fixedFrameRate = true;
+	m_looping = true;
+	m_stitchDirty = true;
+	m_stitchFinalFrame = false;
+	m_totalDuration = 0;
+	m_numFrames = 0;
 }
 
 void AnimationClipNodeBase::setLooping(bool value)

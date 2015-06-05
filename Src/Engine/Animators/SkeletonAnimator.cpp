@@ -118,6 +118,11 @@ void SkeletonAnimator::testGPUCompatibility(MaterialPassBase* pass)
 		m_animationSet->cancelGPUCompatibility();
 }
 
+IAnimator* SkeletonAnimator::clone()
+{
+	return new SkeletonAnimator(static_cast<SkeletonAnimationSet*>(m_animationSet), m_skeleton, m_forceCPU);
+}
+
 void SkeletonAnimator::updateDeltaTime(float dt)
 {
 	AnimatorBase::updateDeltaTime(dt);

@@ -22,6 +22,7 @@ public:
 	void resetTime(int offset = 0);
 	void setRenderState(IContext* context, IRenderable* renderable, int vertexConstantOffset, int vertexStreamOffset, Camera3D* camera) override;
 	void testGPUCompatibility(MaterialPassBase* pass) override;
+	IAnimator* clone() override;
 
 protected:
 	void updateDeltaTime(float dt) override;
@@ -31,7 +32,6 @@ private:
 
 private:
 	int m_totalLenOfOneVertex;
-	ParticleAnimationSet* m_particleAnimationSet;
 	std::vector<ParticleStateBase*> m_animationParticleStates;
 	std::vector<ParticleStateBase*> m_animatorParticleStates;
 	std::vector<ParticleStateBase*> m_timeParticleStates;

@@ -32,6 +32,7 @@ public:
 	void play(const std::string& name, float offset = 0);
 	void setRenderState(IContext* context, IRenderable* renderable, int vertexConstantOffset, int vertexStreamOffset, Camera3D* camera) override;
 	void testGPUCompatibility(MaterialPassBase* pass) override;
+	IAnimator* clone() override;
 
 protected:
 	void updateDeltaTime(float dt) override;

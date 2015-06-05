@@ -40,6 +40,11 @@ public:
 	 * Used by the mesh object from which the animator is removed, unregisters the owner for internal use.
 	 */
 	virtual void removeOwner(Mesh* mesh) = 0;
+
+	/**
+	 * Returns a shallow clone (re-using the same IAnimationSet) of this IAnimator.
+	 */
+	virtual IAnimator* clone() = 0;
 };
 
 AWAY_NAMESPACE_END
