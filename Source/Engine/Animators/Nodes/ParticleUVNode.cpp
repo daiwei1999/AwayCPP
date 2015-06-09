@@ -11,7 +11,7 @@ USING_AWAY_NAMESPACE
 const int ParticleUVNode::UV_INDEX = 0;
 const std::string ParticleUVNode::UV_VECTOR3D = "UVVector3D";
 
-ParticleUVNode::ParticleUVNode(ParticlePropertiesMode mode, float cycle, float scale, Axis axis, Formula formula) : ParticleNodeBase("ParticleUV", mode, 4, ParticleAnimationSet::POST_PRIORITY + 1)
+ParticleUVNode::ParticleUVNode(ParticlePropertiesMode mode, float cycle, float scale, Axis axis, Formula formula) : ParticleNodeBase("ParticleUV", mode, 2, ParticleAnimationSet::POST_PRIORITY + 1)
 {
 	m_cycle = cycle;
 	m_scale = scale;
@@ -19,7 +19,7 @@ ParticleUVNode::ParticleUVNode(ParticlePropertiesMode mode, float cycle, float s
 	m_formula = formula;
 }
 
-void ParticleUVNode::getAGALVertexCode(ShaderChunk& code, AnimationRegisterCache* regCache)
+void ParticleUVNode::getAGALUVCode(ShaderChunk& code, AnimationRegisterCache* regCache)
 {
 	if (!regCache->m_needUVAnimation)
 		return;

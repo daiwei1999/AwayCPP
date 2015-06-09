@@ -25,7 +25,7 @@ class ParticleUVNode : public ParticleNodeBase
 public:
 	ParticleUVNode(ParticlePropertiesMode mode, float cycle = 1, float scale = 1, Axis axis = Axis::U_AXIS, Formula formula = Formula::LINEAR_EASE);
 
-	void getAGALVertexCode(ShaderChunk& code, AnimationRegisterCache* regCache) override;
+	void getAGALUVCode(ShaderChunk& code, AnimationRegisterCache* regCache) override;
 	AnimationStateBase* createAnimationState(IAnimator* animator) override;
 	void processAnimationSetting(ParticleAnimationSet* particleAnimationSet) override;
 	void generatePropertyOfOneParticle(ParticleProperties& param) override;
