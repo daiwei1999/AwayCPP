@@ -59,6 +59,14 @@ void Vector3D::setTo(float xa, float ya, float za)
 	m_z = za;
 }
 
+void Vector3D::setTo(float xa, float ya, float za, float wa)
+{
+	m_x = xa;
+	m_y = ya;
+	m_z = za;
+	m_w = wa;
+}
+
 void Vector3D::add(const Vector3D& a, Vector3D& result) const
 {
 	result.m_x = m_x + a.m_x;
@@ -93,17 +101,16 @@ void Vector3D::negate()
 	m_z = -m_z;
 }
 
-float Vector3D::normalize()
+void Vector3D::normalize()
 {
 	float length = getLength();
-	if (length > 0)
+	if (length != 0)
 	{
-		float invLength = 1.0f / length;
+		float invLength = 1 / length;
 		m_x *= invLength;
 		m_y *= invLength;
 		m_z *= invLength;
 	}
-	return length;
 }
 
 void Vector3D::project()

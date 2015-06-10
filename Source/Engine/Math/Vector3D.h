@@ -15,13 +15,14 @@ public:
 	void incrementBy(const Vector3D& a);
 	void scaleBy(float s);
 	void setTo(float xa, float ya, float za);
+	void setTo(float xa, float ya, float za, float wa);
 
 	void add(const Vector3D& a, Vector3D& result) const;
 	void subtract(const Vector3D& a, Vector3D& result) const;
 	void crossProduct(const Vector3D& a, Vector3D& result) const;
 	float dotProduct(const Vector3D& a) const;
 	void negate();
-	float normalize();
+	void normalize();
 	void project();
 
 	float getLength() const {return std::sqrt(m_x * m_x + m_y * m_y + m_z * m_z);}
