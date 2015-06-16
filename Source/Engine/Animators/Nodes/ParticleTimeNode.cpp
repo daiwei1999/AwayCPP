@@ -24,7 +24,7 @@ void ParticleTimeNode::getAGALVertexCode(ShaderChunk& code, AnimationRegisterCac
 	regCache->setRegisterIndex(this, TIME_CONSTANT_INDEX, REGISTER_INDEX(timeConstReg));
 
 	unsigned int temp = regCache->getFreeVertexSingleTemp();
-	code.sub(regCache->m_vertexTime, timeConstReg, timeStreamReg ^ Regs::x); // lifeTime = currentTime - startTime
+	code.sub(regCache->m_vertexTime, timeConstReg ^ Regs::x, timeStreamReg ^ Regs::x); // lifeTime = currentTime - startTime
 	code.sge(temp, regCache->m_vertexTime, regCache->m_vertexZeroConst); // aliveFlag = (currentTime >= startTime) ? 1 : 0
 	code.mul(regCache->m_scaleAndRotateTarget ^ Regs::xyz, regCache->m_scaleAndRotateTarget, temp);
 
