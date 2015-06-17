@@ -137,4 +137,7 @@ void ParticleSegmentedColorState::updateColorData()
 			m_offsetData.push_back((endColor.m_alphaOffset - previousColor.m_alphaOffset) / timeLife);
 		}
 	}
+
+	// cut off the data
+	m_timeLifeData.resize(4);
 }
