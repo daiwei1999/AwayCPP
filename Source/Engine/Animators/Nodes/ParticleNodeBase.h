@@ -38,7 +38,7 @@ public:
 	ParticlePropertiesMode getMode() { return m_mode; }
 	int getPriority() { return m_priority; }
 	int getDataLength() { return m_dataLength; }
-	float* getOneData() { return m_oneData; }
+	float* getOneData() { return m_oneData.data(); }
 
 	virtual void getAGALVertexCode(ShaderChunk& code, AnimationRegisterCache* regCache);
 	virtual void getAGALFragmentCode(ShaderChunk& code, AnimationRegisterCache* regCache);
@@ -52,7 +52,7 @@ public:
 protected:
 	int m_dataLength;
 	ParticlePropertiesMode m_mode;
-	float* m_oneData;
+	std::vector<float> m_oneData;
 
 private:
 	int m_priority;

@@ -2,14 +2,13 @@
 
 USING_AWAY_NAMESPACE
 
-ParticleNodeBase::ParticleNodeBase(const std::string& name, ParticlePropertiesMode mode, int dataLength, int priority)
+ParticleNodeBase::ParticleNodeBase(const std::string& name, ParticlePropertiesMode mode, int dataLength, int priority) : m_oneData(dataLength)
 {
 	std::string modeNames[3] = { "Global", "LocalStatic", "LocalDynamic" };
 	setName(name + modeNames[static_cast<int>(mode)]);
 	m_mode = mode;
-	m_priority = priority;
 	m_dataLength = dataLength;
-	m_oneData = new float[m_dataLength];
+	m_priority = priority;
 }
 
 void ParticleNodeBase::getAGALVertexCode(ShaderChunk& code, AnimationRegisterCache* regCache)
