@@ -88,7 +88,7 @@ protected:
 	bool m_alphaPremultiplied;
 	bool m_needFragmentAnimation;
 	bool m_needUVAnimation;
-	int m_uvSource, m_uvTarget;
+	unsigned int m_uvTarget, m_uvSource;
 
 private:
 	IContext* m_context;
