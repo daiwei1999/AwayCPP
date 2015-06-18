@@ -39,10 +39,10 @@ public:
 	void m34(unsigned int dest, unsigned int src1, unsigned int src2); // 0x19
 	void ddx(unsigned int dest, unsigned int src); // 0x1a
 	void ddy(unsigned int dest, unsigned int src); // 0x1b
-	void ife(unsigned int dest, unsigned int src); // 0x1c
-	void ine(unsigned int dest, unsigned int src); // 0x1d
-	void ifg(unsigned int dest, unsigned int src); // 0x1e
-	void ifl(unsigned int dest, unsigned int src); // 0x1f
+	void ife(unsigned int src1, unsigned int src2); // 0x1c
+	void ine(unsigned int src1, unsigned int src2); // 0x1d
+	void ifg(unsigned int src1, unsigned int src2); // 0x1e
+	void ifl(unsigned int src1, unsigned int src2); // 0x1f
 	void els(); // 0x20
 	void eif(); // 0x21
 	void ted(unsigned int dest, unsigned int src1, unsigned int src2); // 0x26
@@ -64,10 +64,11 @@ protected:
 	}
 
 private:
-	void writeOp0();
-	void writeOp1(unsigned int src);
-	void writeOp2(unsigned int dest, unsigned int src);
-	void writeOp3(unsigned int dest, unsigned int src1, unsigned int src2);
+	void writeOp000();
+	void writeOp010(unsigned int src);
+	void writeOp011(unsigned int src1, unsigned int src2);
+	void writeOp110(unsigned int dest, unsigned int src);
+	void writeOp111(unsigned int dest, unsigned int src1, unsigned int src2);
 	void writeOpTex(unsigned int dest, unsigned int tcoord, unsigned int sampler);
 	void writeSourceD(unsigned int src);
 	void writeSourceI(unsigned int src);
