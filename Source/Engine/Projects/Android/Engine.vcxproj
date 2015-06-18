@@ -131,6 +131,7 @@
     <ClCompile Include="..\..\Core\Traverse\EntityCollector.cpp" />
     <ClCompile Include="..\..\Core\Traverse\PartitionTraverser.cpp" />
     <ClCompile Include="..\..\Core\Traverse\ShadowCasterCollector.cpp" />
+    <ClCompile Include="..\..\Debug\Trident.cpp" />
     <ClCompile Include="..\..\Entities\JointTag.cpp" />
     <ClCompile Include="..\..\Entities\Entity.cpp" />
     <ClCompile Include="..\..\Entities\Mesh.cpp" />
@@ -358,6 +359,7 @@
     <ClInclude Include="..\..\Core\Traverse\EntityCollector.h" />
     <ClInclude Include="..\..\Core\Traverse\PartitionTraverser.h" />
     <ClInclude Include="..\..\Core\Traverse\ShadowCasterCollector.h" />
+    <ClInclude Include="..\..\Debug\Trident.h" />
     <ClInclude Include="..\..\Entities\JointTag.h" />
     <ClInclude Include="..\..\Entities\Entity.h" />
     <ClInclude Include="..\..\Entities\Mesh.h" />
@@ -511,7 +513,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\..;..\..\Agal;..\..\Animators;..\..\Animators\Data;..\..\Animators\Nodes;..\..\Animators\States;..\..\Bounds;..\..\Cameras;..\..\Cameras\Lenses;..\..\Containers;..\..\Controllers;..\..\Core\Base;..\..\Core\Data;..\..\Core\Managers;..\..\Core\Partition;..\..\Core\Pick;..\..\Core\Render;..\..\Core\Sort;..\..\Core\Traverse;..\..\Entities;..\..\Events;..\..\Library;..\..\Lights;..\..\Lights\ShadowMaps;..\..\Materials;..\..\Materials\Compilation;..\..\Materials\LightPickers;..\..\Materials\Methods;..\..\Materials\Passes;..\..\Math;..\..\Primitives;..\..\Primitives\Data;..\..\Textures;..\..\Tools\Helpers;..\..\Tools\Helpers\Data;..\..\Tools\Utils;..\..\Utils;..\..\..\RenderSystems;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..;..\..\Agal;..\..\Animators;..\..\Animators\Data;..\..\Animators\Nodes;..\..\Animators\States;..\..\Bounds;..\..\Cameras;..\..\Cameras\Lenses;..\..\Containers;..\..\Controllers;..\..\Core\Base;..\..\Core\Data;..\..\Core\Managers;..\..\Core\Partition;..\..\Core\Pick;..\..\Core\Render;..\..\Core\Sort;..\..\Core\Traverse;..\..\Debug;..\..\Entities;..\..\Events;..\..\Library;..\..\Lights;..\..\Lights\ShadowMaps;..\..\Materials;..\..\Materials\Compilation;..\..\Materials\LightPickers;..\..\Materials\Methods;..\..\Materials\Passes;..\..\Math;..\..\Primitives;..\..\Primitives\Data;..\..\Textures;..\..\Tools\Helpers;..\..\Tools\Helpers\Data;..\..\Tools\Utils;..\..\Utils;..\..\..\RenderSystems;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <CppLanguageStandard>c++11</CppLanguageStandard>
     </ClCompile>
@@ -520,7 +522,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\..\;..\..\Agal;..\..\Animators;..\..\Animators\Data;..\..\Animators\Nodes;..\..\Animators\States;..\..\Bounds;..\..\Cameras;..\..\Cameras\Lenses;..\..\Containers;..\..\Controllers;..\..\Core\Base;..\..\Core\Data;..\..\Core\Managers;..\..\Core\Partition;..\..\Core\Pick;..\..\Core\Render;..\..\Core\Sort;..\..\Core\Traverse;..\..\Entities;..\..\Events;..\..\Library;..\..\Lights;..\..\Lights\ShadowMaps;..\..\Materials;..\..\Materials\Compilation;..\..\Materials\LightPickers;..\..\Materials\Methods;..\..\Materials\Passes;..\..\Math;..\..\Primitives;..\..\Primitives\Data;..\..\Textures;..\..\Tools\Helpers;..\..\Tools\Helpers\Data;..\..\Tools\Utils;..\..\Utils;..\..\..\RenderSystems;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\;..\..\Agal;..\..\Animators;..\..\Animators\Data;..\..\Animators\Nodes;..\..\Animators\States;..\..\Bounds;..\..\Cameras;..\..\Cameras\Lenses;..\..\Containers;..\..\Controllers;..\..\Core\Base;..\..\Core\Data;..\..\Core\Managers;..\..\Core\Partition;..\..\Core\Pick;..\..\Core\Render;..\..\Core\Sort;..\..\Core\Traverse;..\..\Debug;..\..\Entities;..\..\Events;..\..\Library;..\..\Lights;..\..\Lights\ShadowMaps;..\..\Materials;..\..\Materials\Compilation;..\..\Materials\LightPickers;..\..\Materials\Methods;..\..\Materials\Passes;..\..\Math;..\..\Primitives;..\..\Primitives\Data;..\..\Textures;..\..\Tools\Helpers;..\..\Tools\Helpers\Data;..\..\Tools\Utils;..\..\Utils;..\..\..\RenderSystems;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CppLanguageStandard>c++11</CppLanguageStandard>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -530,7 +532,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\..;..\..\Agal;..\..\Animators;..\..\Animators\Data;..\..\Animators\Nodes;..\..\Animators\States;..\..\Bounds;..\..\Cameras;..\..\Cameras\Lenses;..\..\Containers;..\..\Controllers;..\..\Core\Base;..\..\Core\Data;..\..\Core\Managers;..\..\Core\Partition;..\..\Core\Pick;..\..\Core\Render;..\..\Core\Sort;..\..\Core\Traverse;..\..\Entities;..\..\Events;..\..\Library;..\..\Lights;..\..\Lights\ShadowMaps;..\..\Materials;..\..\Materials\Compilation;..\..\Materials\LightPickers;..\..\Materials\Methods;..\..\Materials\Passes;..\..\Math;..\..\Primitives;..\..\Primitives\Data;..\..\Textures;..\..\Tools\Helpers;..\..\Tools\Helpers\Data;..\..\Tools\Utils;..\..\Utils;..\..\..\RenderSystems;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..;..\..\Agal;..\..\Animators;..\..\Animators\Data;..\..\Animators\Nodes;..\..\Animators\States;..\..\Bounds;..\..\Cameras;..\..\Cameras\Lenses;..\..\Containers;..\..\Controllers;..\..\Core\Base;..\..\Core\Data;..\..\Core\Managers;..\..\Core\Partition;..\..\Core\Pick;..\..\Core\Render;..\..\Core\Sort;..\..\Core\Traverse;..\..\Debug;..\..\Entities;..\..\Events;..\..\Library;..\..\Lights;..\..\Lights\ShadowMaps;..\..\Materials;..\..\Materials\Compilation;..\..\Materials\LightPickers;..\..\Materials\Methods;..\..\Materials\Passes;..\..\Math;..\..\Primitives;..\..\Primitives\Data;..\..\Textures;..\..\Tools\Helpers;..\..\Tools\Helpers\Data;..\..\Tools\Utils;..\..\Utils;..\..\..\RenderSystems;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <CppLanguageStandard>c++11</CppLanguageStandard>
     </ClCompile>
@@ -539,7 +541,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\..\;..\..\Agal;..\..\Animators;..\..\Animators\Data;..\..\Animators\Nodes;..\..\Animators\States;..\..\Bounds;..\..\Cameras;..\..\Cameras\Lenses;..\..\Containers;..\..\Controllers;..\..\Core\Base;..\..\Core\Data;..\..\Core\Managers;..\..\Core\Partition;..\..\Core\Pick;..\..\Core\Render;..\..\Core\Sort;..\..\Core\Traverse;..\..\Entities;..\..\Events;..\..\Library;..\..\Lights;..\..\Lights\ShadowMaps;..\..\Materials;..\..\Materials\Compilation;..\..\Materials\LightPickers;..\..\Materials\Methods;..\..\Materials\Passes;..\..\Math;..\..\Primitives;..\..\Primitives\Data;..\..\Textures;..\..\Tools\Helpers;..\..\Tools\Helpers\Data;..\..\Tools\Utils;..\..\Utils;..\..\..\RenderSystems;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\;..\..\Agal;..\..\Animators;..\..\Animators\Data;..\..\Animators\Nodes;..\..\Animators\States;..\..\Bounds;..\..\Cameras;..\..\Cameras\Lenses;..\..\Containers;..\..\Controllers;..\..\Core\Base;..\..\Core\Data;..\..\Core\Managers;..\..\Core\Partition;..\..\Core\Pick;..\..\Core\Render;..\..\Core\Sort;..\..\Core\Traverse;..\..\Debug;..\..\Entities;..\..\Events;..\..\Library;..\..\Lights;..\..\Lights\ShadowMaps;..\..\Materials;..\..\Materials\Compilation;..\..\Materials\LightPickers;..\..\Materials\Methods;..\..\Materials\Passes;..\..\Math;..\..\Primitives;..\..\Primitives\Data;..\..\Textures;..\..\Tools\Helpers;..\..\Tools\Helpers\Data;..\..\Tools\Utils;..\..\Utils;..\..\..\RenderSystems;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <CppLanguageStandard>c++11</CppLanguageStandard>
     </ClCompile>
