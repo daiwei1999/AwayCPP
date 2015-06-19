@@ -32,27 +32,25 @@ void ParticleTimeNode::getAGALVertexCode(ShaderChunk& code, AnimationRegisterCac
 	{
 		if (m_usesLooping)
 		{
-			unsigned int div = regCache->getFreeVertexSingleTemp();
 			if (m_usesDelay)
 			{
-				code.div(div, regCache->m_vertexTime, timeStreamReg ^ Regs::z);
-				code.frc(div, div); // lifeRatio = fract((currentTime - startTime) / (delay + duration))
-				code.mul(regCache->m_vertexTime, div, timeStreamReg ^ Regs::z); // lifeTime = lifeRatio * (delay + duration)
-				code.slt(div, regCache->m_vertexTime, timeStreamReg ^ Regs::y); // aliveFlag = (lifeTime < duration) ? 1 : 0
-				code.mul(regCache->m_scaleAndRotateTarget ^ Regs::xyz, regCache->m_scaleAndRotateTarget, div);
+				code.div(temp, regCache->m_vertexTime, timeStreamReg ^ Regs::z);
+				code.frc(temp, temp); // lifeRatio = fract((currentTime - startTime) / (delay + duration))
+				code.mul(regCache->m_vertexTime, temp, timeStreamReg ^ Regs::z); // lifeTime = lifeRatio * (delay + duration)
+				code.slt(temp, regCache->m_vertexTime, timeStreamReg ^ Regs::y); // aliveFlag = (lifeTime < duration) ? 1 : 0
+				code.mul(regCache->m_scaleAndRotateTarget ^ Regs::xyz, regCache->m_scaleAndRotateTarget, temp);
 			}
 			else
 			{
-				code.mul(div, regCache->m_vertexTime, timeStreamReg ^ Regs::w);
-				code.frc(div, div); // lifeRatio = fract((currentTime - startTime) / duration)
-				code.mul(regCache->m_vertexTime, div, timeStreamReg ^ Regs::y); // lifeTime = lifeRatio * duration
+				code.mul(temp, regCache->m_vertexTime, timeStreamReg ^ Regs::w);
+				code.frc(temp, temp); // lifeRatio = fract((currentTime - startTime) / duration)
+				code.mul(regCache->m_vertexTime, temp, timeStreamReg ^ Regs::y); // lifeTime = lifeRatio * duration
 			}
 		}
 		else
 		{
-			unsigned int sge = regCache->getFreeVertexSingleTemp();
-			code.sge(sge, timeStreamReg ^ Regs::y, regCache->m_vertexTime); // aliveFlag = (duration >= currentTime - startTime) ? 1 : 0
-			code.mul(regCache->m_scaleAndRotateTarget ^ Regs::xyz, regCache->m_scaleAndRotateTarget, sge);
+			code.sge(temp, timeStreamReg ^ Regs::y, regCache->m_vertexTime); // aliveFlag = (duration >= currentTime - startTime) ? 1 : 0
+			code.mul(regCache->m_scaleAndRotateTarget ^ Regs::xyz, regCache->m_scaleAndRotateTarget, temp);
 		}
 	}
 
