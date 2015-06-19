@@ -23,13 +23,13 @@ ShaderChunk::~ShaderChunk()
 	std::free(m_pBytes);
 }
 
-void ShaderChunk::writeOp0()
+void ShaderChunk::writeOp000()
 {
 	std::memset(m_pBytes + m_position, 0, 20);
 	m_position += 20;
 }
 
-void ShaderChunk::writeOp1(unsigned int src)
+void ShaderChunk::writeOp010(unsigned int src)
 {
 	// dest
 	std::memset(m_pBytes + m_position, 0, 4);
@@ -46,7 +46,26 @@ void ShaderChunk::writeOp1(unsigned int src)
 	m_position += 8;
 }
 
-void ShaderChunk::writeOp2(unsigned int dest, unsigned int src)
+void ShaderChunk::writeOp011(unsigned int src1, unsigned int src2)
+{
+	// dest
+	std::memset(m_pBytes + m_position, 0, 4);
+	m_position += 4;
+
+	// src1
+	if ((src1 & 0x10000) == 0)
+		writeSourceD(src1);
+	else
+		writeSourceI(src1);
+
+	// src2
+	if ((src2 & 0x10000) == 0)
+		writeSourceD(src2);
+	else
+		writeSourceI(src2);
+}
+
+void ShaderChunk::writeOp110(unsigned int dest, unsigned int src)
 {
 	// dest
 	writeDest(dest);
@@ -62,7 +81,7 @@ void ShaderChunk::writeOp2(unsigned int dest, unsigned int src)
 	m_position += 8;
 }
 
-void ShaderChunk::writeOp3(unsigned int dest, unsigned int src1, unsigned int src2)
+void ShaderChunk::writeOp111(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	// dest
 	writeDest(dest);
@@ -127,205 +146,205 @@ void ShaderChunk::writeDest(unsigned int dest)
 void ShaderChunk::mov(unsigned int dest, unsigned int src)
 {
 	writeUnsignedInt(0x00);
-	writeOp2(dest, src);
+	writeOp110(dest, src);
 }
 
 void ShaderChunk::add(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x01);
-	writeOp3(dest, src1, src2);
+	writeOp111(dest, src1, src2);
 }
 
 void ShaderChunk::sub(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x02);
-	writeOp3(dest, src1, src2);
+	writeOp111(dest, src1, src2);
 }
 
 void ShaderChunk::mul(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x03);
-	writeOp3(dest, src1, src2);
+	writeOp111(dest, src1, src2);
 }
 
 void ShaderChunk::div(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x04);
-	writeOp3(dest, src1, src2);
+	writeOp111(dest, src1, src2);
 }
 
 void ShaderChunk::rcp(unsigned int dest, unsigned int src)
 {
 	writeUnsignedInt(0x05);
-	writeOp2(dest, src);
+	writeOp110(dest, src);
 }
 
 void ShaderChunk::min(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x06);
-	writeOp3(dest, src1, src2);
+	writeOp111(dest, src1, src2);
 }
 
 void ShaderChunk::max(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x07);
-	writeOp3(dest, src1, src2);
+	writeOp111(dest, src1, src2);
 }
 
 void ShaderChunk::frc(unsigned int dest, unsigned int src)
 {
 	writeUnsignedInt(0x08);
-	writeOp2(dest, src);
+	writeOp110(dest, src);
 }
 
 void ShaderChunk::sqt(unsigned int dest, unsigned int src)
 {
 	writeUnsignedInt(0x09);
-	writeOp2(dest, src);
+	writeOp110(dest, src);
 }
 
 void ShaderChunk::rsq(unsigned int dest, unsigned int src)
 {
 	writeUnsignedInt(0x0a);
-	writeOp2(dest, src);
+	writeOp110(dest, src);
 }
 
 void ShaderChunk::pow(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x0b);
-	writeOp3(dest, src1, src2);
+	writeOp111(dest, src1, src2);
 }
 
 void ShaderChunk::log(unsigned int dest, unsigned int src)
 {
 	writeUnsignedInt(0x0c);
-	writeOp2(dest, src);
+	writeOp110(dest, src);
 }
 
 void ShaderChunk::exp(unsigned int dest, unsigned int src)
 {
 	writeUnsignedInt(0x0d);
-	writeOp2(dest, src);
+	writeOp110(dest, src);
 }
 
 void ShaderChunk::nrm(unsigned int dest, unsigned int src)
 {
 	writeUnsignedInt(0x0e);
-	writeOp2(dest, src);
+	writeOp110(dest, src);
 }
 
 void ShaderChunk::sin(unsigned int dest, unsigned int src)
 {
 	writeUnsignedInt(0x0f);
-	writeOp2(dest, src);
+	writeOp110(dest, src);
 }
 
 void ShaderChunk::cos(unsigned int dest, unsigned int src)
 {
 	writeUnsignedInt(0x10);
-	writeOp2(dest, src);
+	writeOp110(dest, src);
 }
 
 void ShaderChunk::crs(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x11);
-	writeOp3(dest, src1, src2);
+	writeOp111(dest, src1, src2);
 }
 
 void ShaderChunk::dp3(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x12);
-	writeOp3(dest, src1, src2);
+	writeOp111(dest, src1, src2);
 }
 
 void ShaderChunk::dp4(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x13);
-	writeOp3(dest, src1, src2);
+	writeOp111(dest, src1, src2);
 }
 
 void ShaderChunk::abs(unsigned int dest, unsigned int src)
 {
 	writeUnsignedInt(0x14);
-	writeOp2(dest, src);
+	writeOp110(dest, src);
 }
 
 void ShaderChunk::neg(unsigned int dest, unsigned int src)
 {
 	writeUnsignedInt(0x15);
-	writeOp2(dest, src);
+	writeOp110(dest, src);
 }
 
 void ShaderChunk::sat(unsigned int dest, unsigned int src)
 {
 	writeUnsignedInt(0x16);
-	writeOp2(dest, src);
+	writeOp110(dest, src);
 }
 
 void ShaderChunk::m33(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x17);
-	writeOp3(dest, src1, src2);
+	writeOp111(dest, src1, src2);
 }
 
 void ShaderChunk::m44(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x18);
-	writeOp3(dest, src1, src2);
+	writeOp111(dest, src1, src2);
 }
 
 void ShaderChunk::m34(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x19);
-	writeOp3(dest, src1, src2);
+	writeOp111(dest, src1, src2);
 }
 
 void ShaderChunk::ddx(unsigned int dest, unsigned int src)
 {
 	writeUnsignedInt(0x1a);
-	writeOp2(dest, src);
+	writeOp110(dest, src);
 }
 
 void ShaderChunk::ddy(unsigned int dest, unsigned int src)
 {
 	writeUnsignedInt(0x1b);
-	writeOp2(dest, src);
+	writeOp110(dest, src);
 }
 
-void ShaderChunk::ife(unsigned int dest, unsigned int src)
+void ShaderChunk::ife(unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x1c);
-	writeOp2(dest, src);
+	writeOp011(src1, src2);
 }
 
-void ShaderChunk::ine(unsigned int dest, unsigned int src)
+void ShaderChunk::ine(unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x1d);
-	writeOp2(dest, src);
+	writeOp011(src1, src2);
 }
 
-void ShaderChunk::ifg(unsigned int dest, unsigned int src)
+void ShaderChunk::ifg(unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x1e);
-	writeOp2(dest, src);
+	writeOp011(src1, src2);
 }
 
-void ShaderChunk::ifl(unsigned int dest, unsigned int src)
+void ShaderChunk::ifl(unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x1f);
-	writeOp2(dest, src);
+	writeOp011(src1, src2);
 }
 
 void ShaderChunk::els()
 {
 	writeUnsignedInt(0x20);
-	writeOp0();
+	writeOp000();
 }
 
 void ShaderChunk::eif()
 {
 	writeUnsignedInt(0x21);
-	writeOp0();
+	writeOp000();
 }
 
 void ShaderChunk::ted(unsigned int dest, unsigned int tcoord, unsigned int sampler)
@@ -337,7 +356,7 @@ void ShaderChunk::ted(unsigned int dest, unsigned int tcoord, unsigned int sampl
 void ShaderChunk::kil(unsigned int src)
 {
 	writeUnsignedInt(0x27);
-	writeOp1(src);
+	writeOp010(src);
 }
 
 void ShaderChunk::tex(unsigned int dest, unsigned int tcoord, unsigned int sampler)
@@ -349,31 +368,31 @@ void ShaderChunk::tex(unsigned int dest, unsigned int tcoord, unsigned int sampl
 void ShaderChunk::sge(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x29);
-	writeOp3(dest, src1, src2);
+	writeOp111(dest, src1, src2);
 }
 
 void ShaderChunk::slt(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x2a);
-	writeOp3(dest, src1, src2);
+	writeOp111(dest, src1, src2);
 }
 
 void ShaderChunk::sgn(unsigned int dest, unsigned int src)
 {
 	writeUnsignedInt(0x2b);
-	writeOp2(dest, src);
+	writeOp110(dest, src);
 }
 
 void ShaderChunk::seq(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x2c);
-	writeOp3(dest, src1, src2);
+	writeOp111(dest, src1, src2);
 }
 
 void ShaderChunk::sne(unsigned int dest, unsigned int src1, unsigned int src2)
 {
 	writeUnsignedInt(0x2d);
-	writeOp3(dest, src1, src2);
+	writeOp111(dest, src1, src2);
 }
 
 void ShaderChunk::append(ShaderChunk* chunk)
