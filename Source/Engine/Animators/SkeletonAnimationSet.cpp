@@ -11,7 +11,7 @@ SkeletonAnimationSet::SkeletonAnimationSet(unsigned char jointsPerVertex)
 	m_jointsPerVertex = jointsPerVertex;
 }
 
-void SkeletonAnimationSet::getAGALVertexCode(ShaderChunk& code, MaterialPassBase* pass, std::vector<unsigned int>& sourceRegisters, std::vector<unsigned int>& targetRegisters)
+void SkeletonAnimationSet::getAGALVertexCode(ShaderChunk& code, MaterialPassBase* pass, std::vector<unsigned int>& sourceRegisters, std::vector<unsigned int>& targetRegisters, unsigned int uvSource, unsigned int uvTarget)
 {
 	int indexOffset = pass->getUsedVertexConstantCount();
 	unsigned int indexStream = Regs::a0 + pass->getUsedStreamCount();

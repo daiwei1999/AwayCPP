@@ -11,7 +11,7 @@ AWAY_NAMESPACE_BEGIN
 class ParticleTimeNode : public ParticleNodeBase
 {
 public:
-	ParticleTimeNode(bool usesDuration = false, bool usesLooping = false, bool usesDelay = false);
+	ParticleTimeNode(bool usesDuration = false, bool usesLooping = false, bool usesDelay = false, bool usesRibbon = false);
 
 	void getAGALVertexCode(ShaderChunk& code, AnimationRegisterCache* regCache) override;
 	AnimationStateBase* createAnimationState(IAnimator* animator) override;
@@ -23,8 +23,9 @@ public:
 
 private:
 	bool m_usesDuration;
-	bool m_usesDelay;
 	bool m_usesLooping;
+	bool m_usesDelay;
+	bool m_usesRibbon;
 };
 
 AWAY_NAMESPACE_END

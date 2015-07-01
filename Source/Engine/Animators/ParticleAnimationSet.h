@@ -11,13 +11,13 @@ AWAY_NAMESPACE_BEGIN
 class ParticleAnimationSet : public AnimationSetBase
 {
 public:
-	ParticleAnimationSet(bool usesDuration = false, bool usesLooping = false, bool usesDelay = false);
+	ParticleAnimationSet(bool usesDuration = false, bool usesLooping = false, bool usesDelay = false, bool usesRibbon = false);
 
 	void generateAnimationSubGeometries(Mesh* mesh);
 	std::vector<ParticleNodeBase*>& getParticleNodes() { return m_particleNodes; }
 
 	void addAnimation(AnimationNodeBase* node) override;
-	void getAGALVertexCode(ShaderChunk& code, MaterialPassBase* pass, std::vector<unsigned int>& sourceRegisters, std::vector<unsigned int>& targetRegisters) override;
+	void getAGALVertexCode(ShaderChunk& code, MaterialPassBase* pass, std::vector<unsigned int>& sourceRegisters, std::vector<unsigned int>& targetRegisters, unsigned int uvSource, unsigned int uvTarget) override;
 	void getAGALFragmentCode(ShaderChunk& code, MaterialPassBase* pass, unsigned int shadedTarget) override;
 	void getAGALUVCode(ShaderChunk& code, MaterialPassBase* pass, unsigned int uvSource, unsigned int uvTarget) override;
 	void doneAGALCode(MaterialPassBase* pass) override;

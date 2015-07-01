@@ -51,7 +51,7 @@ public:
 	 * @targetRegisters The animatable target registers of the material pass.
 	 * @return The AGAL Vertex code that animates the vertex data.
 	 */
-	virtual void getAGALVertexCode(ShaderChunk& code, MaterialPassBase* pass, std::vector<unsigned int>& sourceRegisters, std::vector<unsigned int>& targetRegisters) = 0;
+	virtual void getAGALVertexCode(ShaderChunk& code, MaterialPassBase* pass, std::vector<unsigned int>& sourceRegisters, std::vector<unsigned int>& targetRegisters, unsigned int uvSource, unsigned int uvTarget) = 0;
 
 	/**
 	 * Generates the AGAL Fragment code for the animation, tailored to the material pass's requirements.

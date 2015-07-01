@@ -5,10 +5,23 @@
 
 AWAY_NAMESPACE_BEGIN
 
+enum class PlaneGeometryMode
+{
+	CENTER,
+	BOTTOM_LEFT,
+	BOTTOM_MIDDLE,
+	BOTTOM_RIGHT,
+	TOP_LEFT,
+	TOP_MIDDLE,
+	TOP_RIGHT,
+	MIDDLE_LEFT,
+	MIDDLE_RIGHT
+};
+
 class PlaneGeometry : public PrimitiveBase
 {
 public:
-	PlaneGeometry(float width = 100, float height = 100, unsigned short segmentsW = 1, unsigned short segmentsH = 1, bool yUp = true, bool doubleSided = false);
+	PlaneGeometry(float width = 100, float height = 100, unsigned short segmentsW = 1, unsigned short segmentsH = 1, bool yUp = true, bool doubleSided = false, PlaneGeometryMode mode = PlaneGeometryMode::CENTER);
 
 	float getWidth() { return m_width; }
 	void setWidth(float value);
@@ -22,6 +35,8 @@ public:
 	void setYUp(bool value);
 	bool getDoubleSided() { return m_doubleSided; }
 	void setDoubleSided(bool value);
+	PlaneGeometryMode getMode() { return m_mode; }
+	void setMode(PlaneGeometryMode value);
 
 protected:
 	void buildGeometry(CompactSubGeometry* target) override;
@@ -34,6 +49,7 @@ private:
 	unsigned short m_segmentsH;
 	bool m_yUp;
 	bool m_doubleSided;
+	PlaneGeometryMode m_mode;
 };
 
 AWAY_NAMESPACE_END

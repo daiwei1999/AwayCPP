@@ -21,6 +21,7 @@ public:
 	float m_startTime; // The start time of the particle
 	float m_duration; // The duration of the particle, an optional value used when useDuration parameter is enabled in ParticleAnimationSet's constructor
 	float m_delay; // The delay between cycles of the particle, an optional value used when useLooping and useDelay are enabled in ParticleAnimationSet's constructor
+	float m_lagTime; // The shrink time of the particle, an optional value used when usesRibbon are enabled in ParticleAnimationSet's constructor
 	Vector3D& operator[](const std::string& name) { return m_extra[name]; }
 
 private:

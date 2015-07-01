@@ -3,7 +3,7 @@
 
 USING_AWAY_NAMESPACE
 
-PlaneGeometry::PlaneGeometry(float width, float height, unsigned short segmentsW, unsigned short segmentsH, bool yUp, bool doubleSided)
+PlaneGeometry::PlaneGeometry(float width, float height, unsigned short segmentsW, unsigned short segmentsH, bool yUp, bool doubleSided, PlaneGeometryMode mode)
 {
 	m_width = width;
 	m_height = height;
@@ -11,6 +11,7 @@ PlaneGeometry::PlaneGeometry(float width, float height, unsigned short segmentsW
 	m_segmentsH = segmentsH;
 	m_yUp = yUp;
 	m_doubleSided = doubleSided;
+	m_mode = mode;
 }
 
 void PlaneGeometry::setWidth(float value)
@@ -69,6 +70,15 @@ void PlaneGeometry::setDoubleSided(bool value)
 	}
 }
 
+void PlaneGeometry::setMode(PlaneGeometryMode value)
+{
+	if (value != m_mode)
+	{
+		m_mode = value;
+		invalidateGeometry();
+	}
+}
+
 void PlaneGeometry::buildGeometry(CompactSubGeometry* target)
 {
 	unsigned short tw = m_segmentsW + 1;
@@ -104,9 +114,46 @@ void PlaneGeometry::buildGeometry(CompactSubGeometry* target)
 	{
 		for (j = 0; j <= m_segmentsW; j++)
 		{
-			x = ((float)j / m_segmentsW - .5f) * m_width;
-			y = ((float)i / m_segmentsH - .5f) * m_height;
-
+			switch (m_mode)
+			{
+			case PlaneGeometryMode::CENTER:
+				x = ((float)j / m_segmentsW - .5f) * m_width;
+				y = ((float)i / m_segmentsH - .5f) * m_height;
+				break;
+			case PlaneGeometryMode::BOTTOM_LEFT:
+				x = ((float)j / m_segmentsW) * m_width;
+				y = ((float)i / m_segmentsH) * m_height;
+				break;
+			case PlaneGeometryMode::BOTTOM_MIDDLE:
+				x = ((float)j / m_segmentsW - .5f) * m_width;
+				y = ((float)i / m_segmentsH) * m_height;
+				break;
+			case PlaneGeometryMode::BOTTOM_RIGHT:
+				x = ((float)j / m_segmentsW - 1) * m_width;
+				y = ((float)i / m_segmentsH) * m_height;
+				break;
+			case PlaneGeometryMode::TOP_LEFT:
+				x = ((float)j / m_segmentsW) * m_width;
+				y = ((float)i / m_segmentsH - 1) * m_height;
+				break;
+			case PlaneGeometryMode::TOP_MIDDLE:
+				x = ((float)j / m_segmentsW - .5f) * m_width;
+				y = ((float)i / m_segmentsH - 1) * m_height;
+				break;
+			case PlaneGeometryMode::TOP_RIGHT:
+				x = ((float)j / m_segmentsW - 1) * m_width;
+				y = ((float)i / m_segmentsH - 1) * m_height;
+				break;
+			case PlaneGeometryMode::MIDDLE_LEFT:
+				x = ((float)j / m_segmentsW) * m_width;
+				y = ((float)i / m_segmentsH - .5f) * m_height;
+				break;
+			case PlaneGeometryMode::MIDDLE_RIGHT:
+				x = ((float)j / m_segmentsW - 1) * m_width;
+				y = ((float)i / m_segmentsH - .5f) * m_height;
+				break;
+			}
+			
 			vertices[index++] = x;
 			if (m_yUp)
 			{

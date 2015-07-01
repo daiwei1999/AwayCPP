@@ -16,7 +16,7 @@ USING_AWAY_NAMESPACE
 const int ParticleAnimationSet::POST_PRIORITY = 9;
 const int ParticleAnimationSet::COLOR_PRIORITY = 18;
 
-ParticleAnimationSet::ParticleAnimationSet(bool usesDuration, bool usesLooping, bool usesDelay)
+ParticleAnimationSet::ParticleAnimationSet(bool usesDuration, bool usesLooping, bool usesDelay, bool usesRibbon)
 {
 	m_hasUVNode = false;
 	m_needVelocity = false;
@@ -25,7 +25,7 @@ ParticleAnimationSet::ParticleAnimationSet(bool usesDuration, bool usesLooping, 
 	m_hasColorAddNode = false;
 	m_animationRegisterCache = nullptr;
 	m_totalLenOfOneVertex = 0;
-	addAnimation(new ParticleTimeNode(usesDuration, usesLooping, usesDelay));
+	addAnimation(new ParticleTimeNode(usesDuration, usesLooping, usesDelay, usesRibbon));
 }
 
 void ParticleAnimationSet::generateAnimationSubGeometries(Mesh* mesh)
@@ -166,7 +166,7 @@ void ParticleAnimationSet::addAnimation(AnimationNodeBase* node)
 	AnimationSetBase::addAnimation(node);
 }
 
-void ParticleAnimationSet::getAGALVertexCode(ShaderChunk& code, MaterialPassBase* pass, std::vector<unsigned int>& sourceRegisters, std::vector<unsigned int>& targetRegisters)
+void ParticleAnimationSet::getAGALVertexCode(ShaderChunk& code, MaterialPassBase* pass, std::vector<unsigned int>& sourceRegisters, std::vector<unsigned int>& targetRegisters, unsigned int uvSource, unsigned int uvTarget)
 {
 	if (!pass->m_animationRegisterCache)
 		pass->m_animationRegisterCache = new AnimationRegisterCache();
@@ -187,6 +187,7 @@ void ParticleAnimationSet::getAGALVertexCode(ShaderChunk& code, MaterialPassBase
 	m_animationRegisterCache->m_hasColorAddNode = m_hasColorAddNode;
 	m_animationRegisterCache->m_hasColorMulNode = m_hasColorMulNode;
 	m_animationRegisterCache->reset();
+	m_animationRegisterCache->setUVSourceAndTarget(uvSource, uvTarget);
 
 	m_animationRegisterCache->getInitCode(code);
 
@@ -226,7 +227,6 @@ void ParticleAnimationSet::getAGALUVCode(ShaderChunk& code, MaterialPassBase* pa
 {
 	if (m_hasUVNode)
 	{
-		m_animationRegisterCache->setUVSourceAndTarget(uvSource, uvTarget);
 		code.mov(m_animationRegisterCache->m_uvTarget ^ Regs::xy, m_animationRegisterCache->m_uvAttribute);
 
 		for (ParticleNodeBase* node : m_particleNodes)

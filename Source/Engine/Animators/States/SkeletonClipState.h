@@ -24,7 +24,6 @@ private:
 	void updateSkeletonPose(Skeleton* skeleton);
 
 private:
-	Vector3D m_rootPos;
 	SkeletonClipNode* m_skeletonClipNode;
 	SkeletonPose m_skeletonPose;
 	bool m_skeletonPoseDirty = true;

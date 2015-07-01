@@ -23,7 +23,7 @@ protected:
 
 protected:
 	float m_blendWeight;
-	unsigned m_currentFrame;
+	unsigned int m_currentFrame;
 	unsigned int m_nextFrame;
 	unsigned int m_oldFrame;
 	bool m_timeDir;

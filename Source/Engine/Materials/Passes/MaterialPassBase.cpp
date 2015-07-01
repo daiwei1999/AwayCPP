@@ -220,7 +220,7 @@ void MaterialPassBase::updateProgram(IContext* context)
 
 	if (m_animationSet && !m_animationSet->usesCPU())
 	{
-		m_animationSet->getAGALVertexCode(vertexShader, this, m_animatableAttributes, m_animationTargetRegisters);
+		m_animationSet->getAGALVertexCode(vertexShader, this, m_animatableAttributes, m_animationTargetRegisters, m_uvSource, m_uvTarget);
 
 		if (m_needFragmentAnimation)
 			m_animationSet->getAGALFragmentCode(fragmentShader, this, m_shadedTarget);

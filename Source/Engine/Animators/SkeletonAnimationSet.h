@@ -11,7 +11,7 @@ public:
 	SkeletonAnimationSet(unsigned char jointsPerVertex = 4);
 
 	unsigned char getJointsPerVertex() { return m_jointsPerVertex; }
-	void getAGALVertexCode(ShaderChunk& code, MaterialPassBase* pass, std::vector<unsigned int>& sourceRegisters, std::vector<unsigned int>& targetRegisters) override;
+	void getAGALVertexCode(ShaderChunk& code, MaterialPassBase* pass, std::vector<unsigned int>& sourceRegisters, std::vector<unsigned int>& targetRegisters, unsigned int uvSource, unsigned int uvTarget) override;
 	void getAGALFragmentCode(ShaderChunk& code, MaterialPassBase* pass, unsigned int shadedTarget) override;
 	void getAGALUVCode(ShaderChunk& code, MaterialPassBase* pass, unsigned int uvSource, unsigned int uvTarget) override;
 	void doneAGALCode(MaterialPassBase* pass) override;
