@@ -18,6 +18,6 @@ void ParticleRotateToHeadingState::setRenderState(IContext* context, IRenderable
 	{
 		Matrix3D matrix(renderable->getRenderSceneTransform(camera));
 		matrix.append(camera->getInverseSceneTransform());
-		regCache->setVertexConst(regCache->getRegisterIndex(m_animationNode, ParticleRotateToHeadingNode::MATRIX_INDEX), matrix);
+		regCache->setVertexConst(regCache->getRegisterIndex(m_animationNode, ParticleRotateToHeadingNode::MATRIX_INDEX), matrix, true);
 	}
 }

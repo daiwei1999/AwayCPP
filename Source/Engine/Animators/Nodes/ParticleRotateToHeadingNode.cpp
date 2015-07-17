@@ -29,7 +29,6 @@ void ParticleRotateToHeadingNode::getAGALVertexCode(ShaderChunk& code, Animation
 		unsigned int rotationMatrixReg = regCache->getFreeVertexConstant();
 		regCache->getFreeVertexConstant();
 		regCache->getFreeVertexConstant();
-		regCache->getFreeVertexConstant();
 		regCache->setRegisterIndex(this, MATRIX_INDEX, REGISTER_INDEX(rotationMatrixReg));
 
 		// process the velocity

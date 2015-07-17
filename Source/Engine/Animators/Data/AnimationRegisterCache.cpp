@@ -160,9 +160,22 @@ void AnimationRegisterCache::setVertexConst(int index, std::vector<float>& data)
 		m_vertexConstantData[index++] = value;
 }
 
-void AnimationRegisterCache::setVertexConst(int index, Matrix3D& matrix)
+void AnimationRegisterCache::setVertexConst(int index, Matrix3D& matrix, bool m33)
 {
-	matrix.copyRawDataTo(m_vertexConstantData.data(), (index - m_vertexConstantOffset) * 4, true);
+	index = (index - m_vertexConstantOffset) * 4;
+	if (m33)
+	{
+		float(&raw)[16] = matrix.m_rawData;
+		for (int i = 0; i < 3; i++)
+		{
+			m_vertexConstantData[index++] = raw[i];
+			m_vertexConstantData[index++] = raw[i + 4];
+			m_vertexConstantData[index++] = raw[i + 8];
+			m_vertexConstantData[index++] = 0;
+		}
+	}
+	else
+		matrix.copyRawDataTo(m_vertexConstantData.data(), index, true);
 }
 
 void AnimationRegisterCache::setFragmentConst(int index, float x, float y, float z, float w)

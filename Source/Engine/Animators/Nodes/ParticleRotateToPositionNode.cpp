@@ -33,7 +33,6 @@ void ParticleRotateToPositionNode::getAGALVertexCode(ShaderChunk& code, Animatio
 		unsigned int rotationMatrixReg = regCache->getFreeVertexConstant();
 		regCache->getFreeVertexConstant();
 		regCache->getFreeVertexConstant();
-		regCache->getFreeVertexConstant();
 		regCache->setRegisterIndex(this, MATRIX_INDEX, REGISTER_INDEX(rotationMatrixReg));
 
 		// process the position

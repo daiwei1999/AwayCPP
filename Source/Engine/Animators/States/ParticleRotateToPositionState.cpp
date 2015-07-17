@@ -19,7 +19,7 @@ void ParticleRotateToPositionState::setRenderState(IContext* context, IRenderabl
 	{
 		Matrix3D matrix(renderable->getRenderSceneTransform(camera));
 		matrix.append(camera->getInverseSceneTransform());
-		regCache->setVertexConst(regCache->getRegisterIndex(m_animationNode, ParticleRotateToPositionNode::MATRIX_INDEX), matrix);
+		regCache->setVertexConst(regCache->getRegisterIndex(m_animationNode, ParticleRotateToPositionNode::MATRIX_INDEX), matrix, true);
 	}
 
 	int index = regCache->getRegisterIndex(m_animationNode, ParticleRotateToPositionNode::POSITION_INDEX);

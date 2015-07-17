@@ -67,6 +67,7 @@ void ParticleAnimationSet::generateAnimationSubGeometries(Mesh* mesh)
 	particleProperties.m_startTime = 0;
 	particleProperties.m_duration = 1000;
 	particleProperties.m_delay = 0.1f;
+	particleProperties.m_lagTime = 1;
 	
 	ParticleData* particle;
 	float *vertexData, *oneData;

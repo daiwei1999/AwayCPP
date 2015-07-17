@@ -50,8 +50,7 @@ void ParticleBillboardState::setRenderState(IContext* context, IRenderable* rend
 		temp.copyRowFrom(0, pos);
 		temp.copyRowFrom(1, look);
 		temp.copyRowFrom(2, right);
-		temp.copyRowFrom(3, Vector3D::ZERO);
-		matrix.append(temp);
+		matrix.append(temp, true);
 	}
 	else
 	{
@@ -72,8 +71,7 @@ void ParticleBillboardState::setRenderState(IContext* context, IRenderable* rend
 		matrix.copyRowFrom(0, pos);
 		matrix.copyRowFrom(1, look);
 		matrix.copyRowFrom(2, right);
-		matrix.copyRowFrom(3, Vector3D::ZERO);
 	}
 
-	regCache->setVertexConst(regCache->getRegisterIndex(m_animationNode, ParticleBillboardNode::MATRIX_INDEX), matrix);
+	regCache->setVertexConst(regCache->getRegisterIndex(m_animationNode, ParticleBillboardNode::MATRIX_INDEX), matrix, true);
 }

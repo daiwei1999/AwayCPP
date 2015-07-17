@@ -18,33 +18,50 @@ Matrix3D::Matrix3D(const Matrix3D& matrix)
 	init(raw[0], raw[1], raw[2], raw[3], raw[4], raw[5], raw[6], raw[7], raw[8], raw[9], raw[10], raw[11], raw[12], raw[13], raw[14], raw[15]);
 }
 
-void Matrix3D::append(const Matrix3D& lhs)
+void Matrix3D::append(const Matrix3D& lhs, bool m33)
 {
-	float m111 = m_rawData[0], m121 = m_rawData[4], m131 = m_rawData[8], m141 = m_rawData[12];
-	float m112 = m_rawData[1], m122 = m_rawData[5], m132 = m_rawData[9], m142 = m_rawData[13];
-	float m113 = m_rawData[2], m123 = m_rawData[6], m133 = m_rawData[10], m143 = m_rawData[14];
-	float m114 = m_rawData[3], m124 = m_rawData[7], m134 = m_rawData[11], m144 = m_rawData[15];
-	float m211 = lhs.m_rawData[0], m221 = lhs.m_rawData[4], m231 = lhs.m_rawData[8], m241 = lhs.m_rawData[12];
-	float m212 = lhs.m_rawData[1], m222 = lhs.m_rawData[5], m232 = lhs.m_rawData[9], m242 = lhs.m_rawData[13];
-	float m213 = lhs.m_rawData[2], m223 = lhs.m_rawData[6], m233 = lhs.m_rawData[10], m243 = lhs.m_rawData[14];
-	float m214 = lhs.m_rawData[3], m224 = lhs.m_rawData[7], m234 = lhs.m_rawData[11], m244 = lhs.m_rawData[15];
+	float m111 = m_rawData[0], m121 = m_rawData[4], m131 = m_rawData[8];
+	float m112 = m_rawData[1], m122 = m_rawData[5], m132 = m_rawData[9];
+	float m113 = m_rawData[2], m123 = m_rawData[6], m133 = m_rawData[10];
+	float m114 = m_rawData[3], m124 = m_rawData[7], m134 = m_rawData[11];
+	float m211 = lhs.m_rawData[0], m221 = lhs.m_rawData[4], m231 = lhs.m_rawData[8];
+	float m212 = lhs.m_rawData[1], m222 = lhs.m_rawData[5], m232 = lhs.m_rawData[9];
+	float m213 = lhs.m_rawData[2], m223 = lhs.m_rawData[6], m233 = lhs.m_rawData[10];
+	float m214 = lhs.m_rawData[3], m224 = lhs.m_rawData[7], m234 = lhs.m_rawData[11];
 
-	init(m111 * m211 + m112 * m221 + m113 * m231 + m114 * m241,
-		 m111 * m212 + m112 * m222 + m113 * m232 + m114 * m242,
-		 m111 * m213 + m112 * m223 + m113 * m233 + m114 * m243,
-		 m111 * m214 + m112 * m224 + m113 * m234 + m114 * m244,
-		 m121 * m211 + m122 * m221 + m123 * m231 + m124 * m241,
-		 m121 * m212 + m122 * m222 + m123 * m232 + m124 * m242,
-		 m121 * m213 + m122 * m223 + m123 * m233 + m124 * m243,
-		 m121 * m214 + m122 * m224 + m123 * m234 + m124 * m244,
-		 m131 * m211 + m132 * m221 + m133 * m231 + m134 * m241,
-		 m131 * m212 + m132 * m222 + m133 * m232 + m134 * m242,
-		 m131 * m213 + m132 * m223 + m133 * m233 + m134 * m243,
-		 m131 * m214 + m132 * m224 + m133 * m234 + m134 * m244,
-		 m141 * m211 + m142 * m221 + m143 * m231 + m144 * m241,
-		 m141 * m212 + m142 * m222 + m143 * m232 + m144 * m242,
-		 m141 * m213 + m142 * m223 + m143 * m233 + m144 * m243,
-		 m141 * m214 + m142 * m224 + m143 * m234 + m144 * m244);
+	if (m33)
+	{
+		m_rawData[0] = m111 * m211 + m112 * m221 + m113 * m231;
+		m_rawData[1] = m111 * m212 + m112 * m222 + m113 * m232;
+		m_rawData[2] = m111 * m213 + m112 * m223 + m113 * m233;
+		m_rawData[4] = m121 * m211 + m122 * m221 + m123 * m231;
+		m_rawData[5] = m121 * m212 + m122 * m222 + m123 * m232;
+		m_rawData[6] = m121 * m213 + m122 * m223 + m123 * m233;
+		m_rawData[8] = m131 * m211 + m132 * m221 + m133 * m231;
+		m_rawData[9] = m131 * m212 + m132 * m222 + m133 * m232;
+		m_rawData[10] = m131 * m213 + m132 * m223 + m133 * m233;
+	}
+	else
+	{
+		float m141 = m_rawData[12], m142 = m_rawData[13], m143 = m_rawData[14], m144 = m_rawData[15];
+		float m241 = lhs.m_rawData[12], m242 = lhs.m_rawData[13], m243 = lhs.m_rawData[14], m244 = lhs.m_rawData[15];
+		init(m111 * m211 + m112 * m221 + m113 * m231 + m114 * m241,
+			 m111 * m212 + m112 * m222 + m113 * m232 + m114 * m242,
+			 m111 * m213 + m112 * m223 + m113 * m233 + m114 * m243,
+			 m111 * m214 + m112 * m224 + m113 * m234 + m114 * m244,
+			 m121 * m211 + m122 * m221 + m123 * m231 + m124 * m241,
+			 m121 * m212 + m122 * m222 + m123 * m232 + m124 * m242,
+			 m121 * m213 + m122 * m223 + m123 * m233 + m124 * m243,
+			 m121 * m214 + m122 * m224 + m123 * m234 + m124 * m244,
+			 m131 * m211 + m132 * m221 + m133 * m231 + m134 * m241,
+			 m131 * m212 + m132 * m222 + m133 * m232 + m134 * m242,
+			 m131 * m213 + m132 * m223 + m133 * m233 + m134 * m243,
+			 m131 * m214 + m132 * m224 + m133 * m234 + m134 * m244,
+			 m141 * m211 + m142 * m221 + m143 * m231 + m144 * m241,
+			 m141 * m212 + m142 * m222 + m143 * m232 + m144 * m242,
+			 m141 * m213 + m142 * m223 + m143 * m233 + m144 * m243,
+			 m141 * m214 + m142 * m224 + m143 * m234 + m144 * m244);
+	}
 }
 
 void Matrix3D::appendRotation(float degrees, const Vector3D& axis)

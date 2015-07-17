@@ -19,7 +19,6 @@ void ParticleBillboardNode::getAGALVertexCode(ShaderChunk& code, AnimationRegist
 	unsigned int rotationMatrixReg = regCache->getFreeVertexConstant();
 	regCache->getFreeVertexConstant();
 	regCache->getFreeVertexConstant();
-	regCache->getFreeVertexConstant();
 	regCache->setRegisterIndex(this, MATRIX_INDEX, REGISTER_INDEX(rotationMatrixReg));
 
 	code.m33(regCache->m_scaleAndRotateTarget ^ Regs::xyz, regCache->m_scaleAndRotateTarget, rotationMatrixReg);

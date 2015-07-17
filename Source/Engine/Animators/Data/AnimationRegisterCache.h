@@ -25,7 +25,7 @@ public:
 	void setDataLength();
 	void setVertexConst(int index, float x = 0, float y = 0, float z = 0, float w = 0);
 	void setVertexConst(int index, std::vector<float>& data);
-	void setVertexConst(int index, Matrix3D& matrix);
+	void setVertexConst(int index, Matrix3D& matrix, bool m33 = false);
 	void setFragmentConst(int index, float x = 0, float y = 0, float z = 0, float w = 0);
 	void setFragmentConst(int index, std::vector<float>& data);
 

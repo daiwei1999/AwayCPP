@@ -31,7 +31,7 @@ public:
 		m_rawData[12] = m03; m_rawData[13] = m13; m_rawData[14] = m23; m_rawData[15] = m33;
 	}
 
-	void append(const Matrix3D& lhs);
+	void append(const Matrix3D& lhs, bool m33 = false);
 	void appendRotation(float degrees, const Vector3D& axis);
 	void appendScale(float xScale, float yScale, float zScale);
 	void appendTranslation(float x, float y, float z);
