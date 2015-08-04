@@ -20,47 +20,45 @@ Matrix3D::Matrix3D(const Matrix3D& matrix)
 
 void Matrix3D::append(const Matrix3D& lhs, bool m33)
 {
-	float m111 = m_rawData[0], m121 = m_rawData[4], m131 = m_rawData[8];
-	float m112 = m_rawData[1], m122 = m_rawData[5], m132 = m_rawData[9];
-	float m113 = m_rawData[2], m123 = m_rawData[6], m133 = m_rawData[10];
-	float m114 = m_rawData[3], m124 = m_rawData[7], m134 = m_rawData[11];
-	float m211 = lhs.m_rawData[0], m221 = lhs.m_rawData[4], m231 = lhs.m_rawData[8];
-	float m212 = lhs.m_rawData[1], m222 = lhs.m_rawData[5], m232 = lhs.m_rawData[9];
-	float m213 = lhs.m_rawData[2], m223 = lhs.m_rawData[6], m233 = lhs.m_rawData[10];
-	float m214 = lhs.m_rawData[3], m224 = lhs.m_rawData[7], m234 = lhs.m_rawData[11];
+	float r00 = m_rawData[0], r01 = m_rawData[4], r02 = m_rawData[8];
+	float r10 = m_rawData[1], r11 = m_rawData[5], r12 = m_rawData[9];
+	float r20 = m_rawData[2], r21 = m_rawData[6], r22 = m_rawData[10];
+	float l00 = lhs.m_rawData[0], l01 = lhs.m_rawData[4], l02 = lhs.m_rawData[8];
+	float l10 = lhs.m_rawData[1], l11 = lhs.m_rawData[5], l12 = lhs.m_rawData[9];
+	float l20 = lhs.m_rawData[2], l21 = lhs.m_rawData[6], l22 = lhs.m_rawData[10];
 
 	if (m33)
 	{
-		m_rawData[0] = m111 * m211 + m112 * m221 + m113 * m231;
-		m_rawData[1] = m111 * m212 + m112 * m222 + m113 * m232;
-		m_rawData[2] = m111 * m213 + m112 * m223 + m113 * m233;
-		m_rawData[4] = m121 * m211 + m122 * m221 + m123 * m231;
-		m_rawData[5] = m121 * m212 + m122 * m222 + m123 * m232;
-		m_rawData[6] = m121 * m213 + m122 * m223 + m123 * m233;
-		m_rawData[8] = m131 * m211 + m132 * m221 + m133 * m231;
-		m_rawData[9] = m131 * m212 + m132 * m222 + m133 * m232;
-		m_rawData[10] = m131 * m213 + m132 * m223 + m133 * m233;
+		m_rawData[0] = r00 * l00 + r10 * l01 + r20 * l02;
+		m_rawData[1] = r00 * l10 + r10 * l11 + r20 * l12;
+		m_rawData[2] = r00 * l20 + r10 * l21 + r20 * l22;
+		m_rawData[4] = r01 * l00 + r11 * l01 + r21 * l02;
+		m_rawData[5] = r01 * l10 + r11 * l11 + r21 * l12;
+		m_rawData[6] = r01 * l20 + r11 * l21 + r21 * l22;
+		m_rawData[8] = r02 * l00 + r12 * l01 + r22 * l02;
+		m_rawData[9] = r02 * l10 + r12 * l11 + r22 * l12;
+		m_rawData[10] = r02 * l20 + r12 * l21 + r22 * l22;
 	}
 	else
 	{
-		float m141 = m_rawData[12], m142 = m_rawData[13], m143 = m_rawData[14], m144 = m_rawData[15];
-		float m241 = lhs.m_rawData[12], m242 = lhs.m_rawData[13], m243 = lhs.m_rawData[14], m244 = lhs.m_rawData[15];
-		init(m111 * m211 + m112 * m221 + m113 * m231 + m114 * m241,
-			 m111 * m212 + m112 * m222 + m113 * m232 + m114 * m242,
-			 m111 * m213 + m112 * m223 + m113 * m233 + m114 * m243,
-			 m111 * m214 + m112 * m224 + m113 * m234 + m114 * m244,
-			 m121 * m211 + m122 * m221 + m123 * m231 + m124 * m241,
-			 m121 * m212 + m122 * m222 + m123 * m232 + m124 * m242,
-			 m121 * m213 + m122 * m223 + m123 * m233 + m124 * m243,
-			 m121 * m214 + m122 * m224 + m123 * m234 + m124 * m244,
-			 m131 * m211 + m132 * m221 + m133 * m231 + m134 * m241,
-			 m131 * m212 + m132 * m222 + m133 * m232 + m134 * m242,
-			 m131 * m213 + m132 * m223 + m133 * m233 + m134 * m243,
-			 m131 * m214 + m132 * m224 + m133 * m234 + m134 * m244,
-			 m141 * m211 + m142 * m221 + m143 * m231 + m144 * m241,
-			 m141 * m212 + m142 * m222 + m143 * m232 + m144 * m242,
-			 m141 * m213 + m142 * m223 + m143 * m233 + m144 * m243,
-			 m141 * m214 + m142 * m224 + m143 * m234 + m144 * m244);
+		float r03 = m_rawData[12], r13 = m_rawData[13], r23 = m_rawData[14], r33 = m_rawData[15], r30 = m_rawData[3], r31 = m_rawData[7], r32 = m_rawData[11];
+		float l03 = lhs.m_rawData[12], l13 = lhs.m_rawData[13], l23 = lhs.m_rawData[14], l33 = lhs.m_rawData[15], l30 = lhs.m_rawData[3], l31 = lhs.m_rawData[7], l32 = lhs.m_rawData[11];
+		init(r00 * l00 + r10 * l01 + r20 * l02 + r30 * l03,
+			 r00 * l10 + r10 * l11 + r20 * l12 + r30 * l13,
+			 r00 * l20 + r10 * l21 + r20 * l22 + r30 * l23,
+			 r00 * l30 + r10 * l31 + r20 * l32 + r30 * l33,
+			 r01 * l00 + r11 * l01 + r21 * l02 + r31 * l03,
+			 r01 * l10 + r11 * l11 + r21 * l12 + r31 * l13,
+			 r01 * l20 + r11 * l21 + r21 * l22 + r31 * l23,
+			 r01 * l30 + r11 * l31 + r21 * l32 + r31 * l33,
+			 r02 * l00 + r12 * l01 + r22 * l02 + r32 * l03,
+			 r02 * l10 + r12 * l11 + r22 * l12 + r32 * l13,
+			 r02 * l20 + r12 * l21 + r22 * l22 + r32 * l23,
+			 r02 * l30 + r12 * l31 + r22 * l32 + r32 * l33,
+			 r03 * l00 + r13 * l01 + r23 * l02 + r33 * l03,
+			 r03 * l10 + r13 * l11 + r23 * l12 + r33 * l13,
+			 r03 * l20 + r13 * l21 + r23 * l22 + r33 * l23,
+			 r03 * l30 + r13 * l31 + r23 * l32 + r33 * l33);
 	}
 }
 
@@ -96,31 +94,31 @@ void Matrix3D::appendTranslation(float x, float y, float z)
 
 void Matrix3D::prepend(const Matrix3D& rhs)
 {
-	float m111 = rhs.m_rawData[0], m121 = rhs.m_rawData[4], m131 = rhs.m_rawData[8], m141 = rhs.m_rawData[12];
-	float m112 = rhs.m_rawData[1], m122 = rhs.m_rawData[5], m132 = rhs.m_rawData[9], m142 = rhs.m_rawData[13];
-	float m113 = rhs.m_rawData[2], m123 = rhs.m_rawData[6], m133 = rhs.m_rawData[10], m143 = rhs.m_rawData[14];
-	float m114 = rhs.m_rawData[3], m124 = rhs.m_rawData[7], m134 = rhs.m_rawData[11], m144 = rhs.m_rawData[15];
-	float m211 = m_rawData[0], m221 = m_rawData[4], m231 = m_rawData[8], m241 = m_rawData[12];
-	float m212 = m_rawData[1], m222 = m_rawData[5], m232 = m_rawData[9], m242 = m_rawData[13];
-	float m213 = m_rawData[2], m223 = m_rawData[6], m233 = m_rawData[10], m243 = m_rawData[14];
-	float m214 = m_rawData[3], m224 = m_rawData[7], m234 = m_rawData[11], m244 = m_rawData[15];
+	float r00 = rhs.m_rawData[0], r01 = rhs.m_rawData[4], r02 = rhs.m_rawData[8], r03 = rhs.m_rawData[12];
+	float r10 = rhs.m_rawData[1], r11 = rhs.m_rawData[5], r12 = rhs.m_rawData[9], r13 = rhs.m_rawData[13];
+	float r20 = rhs.m_rawData[2], r21 = rhs.m_rawData[6], r22 = rhs.m_rawData[10], r23 = rhs.m_rawData[14];
+	float r30 = rhs.m_rawData[3], r31 = rhs.m_rawData[7], r32 = rhs.m_rawData[11], r33 = rhs.m_rawData[15];
+	float l00 = m_rawData[0], l01 = m_rawData[4], l02 = m_rawData[8], l03 = m_rawData[12];
+	float l10 = m_rawData[1], l11 = m_rawData[5], l12 = m_rawData[9], l13 = m_rawData[13];
+	float l20 = m_rawData[2], l21 = m_rawData[6], l22 = m_rawData[10], l23 = m_rawData[14];
+	float l30 = m_rawData[3], l31 = m_rawData[7], l32 = m_rawData[11], l33 = m_rawData[15];
 
-	init(m111 * m211 + m112 * m221 + m113 * m231 + m114 * m241,
-		 m111 * m212 + m112 * m222 + m113 * m232 + m114 * m242,
-		 m111 * m213 + m112 * m223 + m113 * m233 + m114 * m243,
-		 m111 * m214 + m112 * m224 + m113 * m234 + m114 * m244,
-		 m121 * m211 + m122 * m221 + m123 * m231 + m124 * m241,
-		 m121 * m212 + m122 * m222 + m123 * m232 + m124 * m242,
-		 m121 * m213 + m122 * m223 + m123 * m233 + m124 * m243,
-		 m121 * m214 + m122 * m224 + m123 * m234 + m124 * m244,
-		 m131 * m211 + m132 * m221 + m133 * m231 + m134 * m241,
-		 m131 * m212 + m132 * m222 + m133 * m232 + m134 * m242,
-		 m131 * m213 + m132 * m223 + m133 * m233 + m134 * m243,
-		 m131 * m214 + m132 * m224 + m133 * m234 + m134 * m244,
-		 m141 * m211 + m142 * m221 + m143 * m231 + m144 * m241,
-		 m141 * m212 + m142 * m222 + m143 * m232 + m144 * m242,
-		 m141 * m213 + m142 * m223 + m143 * m233 + m144 * m243,
-		 m141 * m214 + m142 * m224 + m143 * m234 + m144 * m244);
+	init(r00 * l00 + r10 * l01 + r20 * l02 + r30 * l03,
+		 r00 * l10 + r10 * l11 + r20 * l12 + r30 * l13,
+		 r00 * l20 + r10 * l21 + r20 * l22 + r30 * l23,
+		 r00 * l30 + r10 * l31 + r20 * l32 + r30 * l33,
+		 r01 * l00 + r11 * l01 + r21 * l02 + r31 * l03,
+		 r01 * l10 + r11 * l11 + r21 * l12 + r31 * l13,
+		 r01 * l20 + r11 * l21 + r21 * l22 + r31 * l23,
+		 r01 * l30 + r11 * l31 + r21 * l32 + r31 * l33,
+		 r02 * l00 + r12 * l01 + r22 * l02 + r32 * l03,
+		 r02 * l10 + r12 * l11 + r22 * l12 + r32 * l13,
+		 r02 * l20 + r12 * l21 + r22 * l22 + r32 * l23,
+		 r02 * l30 + r12 * l31 + r22 * l32 + r32 * l33,
+		 r03 * l00 + r13 * l01 + r23 * l02 + r33 * l03,
+		 r03 * l10 + r13 * l11 + r23 * l12 + r33 * l13,
+		 r03 * l20 + r13 * l21 + r23 * l22 + r33 * l23,
+		 r03 * l30 + r13 * l31 + r23 * l32 + r33 * l33);
 }
 
 void Matrix3D::prependRotation(float degrees, const Vector3D& axis)
