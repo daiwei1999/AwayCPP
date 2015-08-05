@@ -142,16 +142,12 @@ void Program::upload(ByteArray& vertexProgram, ByteArray& fragmentProgram)
 
 int Program::getUniformLocation(const std::string& name)
 {
-	if (m_uniforms.count(name) == 0)
-		return -1;
-
-	return m_uniforms[name];
+	auto iter = m_uniforms.find(name);
+	return iter == m_uniforms.end() ? -1 : iter->second;
 }
 
 int Program::getAttributeLocation(const std::string& name)
 {
-	if (m_attributes.count(name) == 0)
-		return -1;
-
-	return m_attributes[name];
+	auto iter = m_attributes.find(name);
+	return iter == m_attributes.end() ? -1 : iter->second;
 }
