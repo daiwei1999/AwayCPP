@@ -14,9 +14,6 @@ ParticleVelocityState::ParticleVelocityState(IAnimator* animator, ParticleVeloci
 void ParticleVelocityState::setRenderState(IContext* context, IRenderable* renderable, AnimationSubGeometry* subGeometry, AnimationRegisterCache* regCache, Camera3D* camera)
 {
 	ParticleVelocityNode* particleVelocityNode = static_cast<ParticleVelocityNode*>(m_animationNode);
-	if (particleVelocityNode->getMode() == ParticlePropertiesMode::LOCAL_DYNAMIC && !m_dynamicPropertiesDirty[subGeometry])
-		updateDynamicProperties(subGeometry);
-
 	int index = regCache->getRegisterIndex(m_animationNode, ParticleVelocityNode::VELOCITY_INDEX);
 	if (particleVelocityNode->getMode() == ParticlePropertiesMode::GLOBAL)
 	{

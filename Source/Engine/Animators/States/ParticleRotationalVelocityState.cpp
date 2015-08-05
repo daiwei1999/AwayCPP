@@ -15,9 +15,6 @@ ParticleRotationalVelocityState::ParticleRotationalVelocityState(IAnimator* anim
 void ParticleRotationalVelocityState::setRenderState(IContext* context, IRenderable* renderable, AnimationSubGeometry* subGeometry, AnimationRegisterCache* regCache, Camera3D* camera)
 {
 	ParticleRotationalVelocityNode* particleRotationalVelocityNode = static_cast<ParticleRotationalVelocityNode*>(m_animationNode);
-	if (particleRotationalVelocityNode->getMode() == ParticlePropertiesMode::LOCAL_DYNAMIC && !m_dynamicPropertiesDirty[subGeometry])
-		updateDynamicProperties(subGeometry);
-
 	int index = regCache->getRegisterIndex(m_animationNode, ParticleRotationalVelocityNode::ROTATIONALVELOCITY_INDEX);
 	if (particleRotationalVelocityNode->getMode() == ParticlePropertiesMode::GLOBAL)
 		regCache->setVertexConst(index, m_rotationalVelocityData->m_x, m_rotationalVelocityData->m_y, m_rotationalVelocityData->m_z, m_rotationalVelocityData->m_w);

@@ -14,9 +14,6 @@ ParticlePositionState::ParticlePositionState(IAnimator* animator, ParticlePositi
 void ParticlePositionState::setRenderState(IContext* context, IRenderable* renderable, AnimationSubGeometry* subGeometry, AnimationRegisterCache* regCache, Camera3D* camera)
 {
 	ParticlePositionNode* particlePositionNode = static_cast<ParticlePositionNode*>(m_animationNode);
-	if (particlePositionNode->getMode() == ParticlePropertiesMode::LOCAL_DYNAMIC && !m_dynamicPropertiesDirty[subGeometry])
-		updateDynamicProperties(subGeometry);
-
 	int index = regCache->getRegisterIndex(m_animationNode, ParticlePositionNode::POSITION_INDEX);
 	if (particlePositionNode->getMode() == ParticlePropertiesMode::GLOBAL)
 	{
