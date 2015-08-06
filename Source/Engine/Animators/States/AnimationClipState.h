@@ -28,9 +28,6 @@ protected:
 	unsigned int m_oldFrame;
 	bool m_timeDir;
 	bool m_framesDirty = true;
-
-private:
-	AnimationClipNodeBase* m_animationClipNode;
 };
 
 AWAY_NAMESPACE_END

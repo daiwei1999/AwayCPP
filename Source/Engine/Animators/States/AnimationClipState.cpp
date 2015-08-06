@@ -5,7 +5,7 @@ USING_AWAY_NAMESPACE
 
 AnimationClipState::AnimationClipState(IAnimator* animator, AnimationClipNodeBase* animationClipNode) : AnimationStateBase(animator, animationClipNode)
 {
-	m_animationClipNode = animationClipNode;
+
 }
 
 float AnimationClipState::getBlendWeight()
@@ -34,9 +34,10 @@ unsigned int AnimationClipState::getNextFrame()
 
 void AnimationClipState::update(float time)
 {
-	if (!m_animationClipNode->getLooping())
+	AnimationClipNodeBase* animationClipNode = static_cast<AnimationClipNodeBase*>(m_animationNode);
+	if (!animationClipNode->getLooping())
 	{
-		unsigned int totalDuration = m_animationClipNode->getTotalDuration();
+		unsigned int totalDuration = animationClipNode->getTotalDuration();
 		if (time > m_startTime + totalDuration)
 			time = m_startTime + totalDuration;
 		else if (time < m_startTime)
@@ -49,7 +50,7 @@ void AnimationClipState::update(float time)
 
 void AnimationClipState::phase(float value)
 {
-	float time = value * m_animationClipNode->getTotalDuration() + m_startTime;
+	float time = value * static_cast<AnimationClipNodeBase*>(m_animationNode)->getTotalDuration() + m_startTime;
 	if (m_time != time - m_startTime)
 		updateTime(time);
 }
@@ -65,9 +66,10 @@ void AnimationClipState::updateFrames()
 {
 	m_framesDirty = false;
 
-	bool looping = m_animationClipNode->getLooping();
-	unsigned int totalDuration = m_animationClipNode->getTotalDuration();
-	unsigned int lastFrame = m_animationClipNode->getLastFrame();
+	AnimationClipNodeBase* animationClipNode = static_cast<AnimationClipNodeBase*>(m_animationNode);
+	bool looping = animationClipNode->getLooping();
+	unsigned int totalDuration = animationClipNode->getTotalDuration();
+	unsigned int lastFrame = animationClipNode->getLastFrame();
 	float time = m_time;
 
 	if (looping && (time >= totalDuration || time < 0))
@@ -90,7 +92,7 @@ void AnimationClipState::updateFrames()
 		m_nextFrame = 0;
 		m_blendWeight = 0;
 	}
-	else if (m_animationClipNode->m_fixedFrameRate)
+	else if (animationClipNode->m_fixedFrameRate)
 	{
 		float t = time / totalDuration * lastFrame;
 		m_currentFrame = (unsigned int)t;
@@ -103,7 +105,7 @@ void AnimationClipState::updateFrames()
 		m_nextFrame = 0;
 
 		unsigned int dur = 0, frameTime;
-		std::vector<unsigned int>& durations = m_animationClipNode->getDurations();
+		std::vector<unsigned int>& durations = animationClipNode->getDurations();
 
 		do
 		{

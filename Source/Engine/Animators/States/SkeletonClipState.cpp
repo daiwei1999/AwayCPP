@@ -6,7 +6,7 @@ USING_AWAY_NAMESPACE
 
 SkeletonClipState::SkeletonClipState(IAnimator* animator, SkeletonClipNode* skeletonClipNode) : AnimationClipState(animator, skeletonClipNode)
 {
-	m_skeletonClipNode = skeletonClipNode;
+
 }
 
 SkeletonPose* SkeletonClipState::getCurrentPose()
@@ -43,25 +43,22 @@ void SkeletonClipState::updateFrames()
 {
 	AnimationClipState::updateFrames();
 
-	std::vector<SkeletonPose*>& frames = m_skeletonClipNode->getFrames();
+	SkeletonClipNode* skeletonClipNode = static_cast<SkeletonClipNode*>(m_animationNode);
+	std::vector<SkeletonPose*>& frames = skeletonClipNode->getFrames();
 	m_currentPose = frames[m_currentFrame];
 
-	if (m_skeletonClipNode->getLooping() && m_nextFrame >= m_skeletonClipNode->getLastFrame())
+	if (skeletonClipNode->getLooping() && m_nextFrame >= skeletonClipNode->getLastFrame())
 		m_nextPose = frames[0];
 	else
 		m_nextPose = frames[m_nextFrame];
-}
-
-void SkeletonClipState::updatePositionDelta()
-{
-
 }
 
 void SkeletonClipState::updateSkeletonPose(Skeleton* skeleton)
 {
 	m_skeletonPoseDirty = false;
 
-	if (!m_skeletonClipNode->getTotalDuration())
+	SkeletonClipNode* skeletonClipNode = static_cast<SkeletonClipNode*>(m_animationNode);
+	if (skeletonClipNode->getTotalDuration() == 0)
 		return;
 
 	if (m_framesDirty)
@@ -80,7 +77,7 @@ void SkeletonClipState::updateSkeletonPose(Skeleton* skeleton)
 		JointPose& endPose = endPoses[i];
 
 		// interpolation of orientation
-		if (m_skeletonClipNode->m_highQuality)
+		if (skeletonClipNode->m_highQuality)
 			endPose.m_orientation.slerp(pose1.m_orientation, pose2.m_orientation, m_blendWeight);
 		else
 			endPose.m_orientation.lerp(pose1.m_orientation, pose2.m_orientation, m_blendWeight);

@@ -23,7 +23,6 @@ private:
 	void updateSkeletonPose(Skeleton* skeleton);
 
 private:
-	SkeletonClipNode* m_skeletonClipNode;
 	SkeletonPose m_skeletonPose;
 	bool m_skeletonPoseDirty = true;
 	SkeletonPose* m_currentPose;
