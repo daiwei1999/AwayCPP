@@ -21,7 +21,7 @@ AnimatorBase::AnimatorBase(IAnimationSet* animationSet)
 
 AnimationStateBase* AnimatorBase::getAnimationState(AnimationNodeBase* node)
 {
-	AnimationStateBase*& state = m_animationStates[node];
+	auto& state = m_animationStates[node];
 	if (!state)
 		state = node->createAnimationState(this);
 

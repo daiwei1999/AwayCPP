@@ -18,7 +18,6 @@ public:
 protected:
 	void updateTime(float time) override;
 	void updateFrames() override;
-	void updatePositionDelta() override;
 
 private:
 	void updateSkeletonPose(Skeleton* skeleton);

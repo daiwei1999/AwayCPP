@@ -7,7 +7,6 @@ AWAY_NAMESPACE_BEGIN
 class IAnimationState
 {
 public:
-	virtual Vector3D& getPositionDelta() = 0;
 	virtual void offset(float startTime) = 0;
 	virtual void update(float time) = 0;
 	virtual void phase(float value) = 0;
