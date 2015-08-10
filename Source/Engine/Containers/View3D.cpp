@@ -6,6 +6,10 @@
 #include "DefaultRenderer.h"
 #include "EntityCollector.h"
 #include "IContext.h"
+#include "Texture.h"
+#include "RTTBufferManager.h"
+#include "DepthRenderer.h"
+#include "FilterRenderer.h"
 
 USING_AWAY_NAMESPACE
 
@@ -13,6 +17,9 @@ View3D::View3D(Scene3D* scene, Camera3D* camera, RendererBase* renderer)
 {
 	m_visible = true;
 	m_backBufferInvalid = true;
+	m_requireDepthRender = false;
+	m_filterRenderer = nullptr;
+	m_depthRender = nullptr;
 	m_x = m_y = m_width = m_height = 0;
 	m_backgroundColor = 0;
 	m_backgroundAlpha = 1;
@@ -22,6 +29,7 @@ View3D::View3D(Scene3D* scene, Camera3D* camera, RendererBase* renderer)
 	m_layeredView = false;
 	m_scissorRectDirty = true;
 	m_viewportDirty = true;
+	m_depthTextureInvalid = true;
 
 	m_scene = scene ? scene : new Scene3D();
 	m_scene->addEventListener(Scene3DEvent::PARTITION_CHANGED, CALLBACK_OBJECT(onScenePartitionChanged));
@@ -31,6 +39,7 @@ View3D::View3D(Scene3D* scene, Camera3D* camera, RendererBase* renderer)
 	m_camera->setPartition(m_scene->getPartition());
 
 	m_renderer = renderer ? renderer : new DefaultRenderer();
+	m_depthRenderer = new DepthRenderer();
 
 	m_entityCollector = m_renderer->createEntityCollector();
 	m_entityCollector->setCamera(m_camera);
@@ -39,6 +48,8 @@ View3D::View3D(Scene3D* scene, Camera3D* camera, RendererBase* renderer)
 void View3D::setContext(IContext* value)
 {
 	m_context = value;
+
+	m_rttBufferManager = RTTBufferManager::getInstance(m_context);
 
 	m_renderer->setContext(m_context);
 
@@ -118,9 +129,11 @@ void View3D::setWidth(float value)
 	if (value == m_width)
 		return;
 
+	m_rttBufferManager->setViewWidth(value);
 	m_width = value;
 	m_aspectRatio = m_width / m_height;
 	m_camera->getLens()->setAspectRatio(m_aspectRatio);
+	m_depthTextureInvalid = true;
 
 	m_scissorRect.m_width = value;
 
@@ -133,9 +146,11 @@ void View3D::setHeight(float value)
 	if (value == m_height)
 		return;
 
+	m_rttBufferManager->setViewHeight(value);
 	m_height = value;
 	m_aspectRatio = m_width / m_height;
 	m_camera->getLens()->setAspectRatio(m_aspectRatio);
+	m_depthTextureInvalid = true;
 
 	m_scissorRect.m_height = value;
 
@@ -175,6 +190,18 @@ void View3D::setAntiAlias(unsigned int value)
 	m_renderer->setAntiAlias(value);
 }
 
+FilterVector& View3D::getFilters()
+{
+	return m_filterRenderer->getFilters();
+}
+
+void View3D::setFilters(FilterVector& value)
+{
+	m_filterRenderer = new FilterRenderer(m_context);
+	m_filterRenderer->setFilters(value);
+	m_requireDepthRender = m_filterRenderer->requireDepthRender();
+}
+
 void View3D::updateBackBuffer()
 {
 	m_context->configureViewport(m_x, m_y, m_width, m_height);
@@ -199,7 +226,19 @@ void View3D::render()
 	m_entityCollector->clear();
 	m_scene->traversePartitions(m_entityCollector);
 
-	m_renderer->render(m_entityCollector, nullptr, &m_scissorRect);
+	if (m_requireDepthRender)
+		renderSceneDepthToTexture();
+
+	// render
+	if (m_filterRenderer && m_context)
+	{
+		m_renderer->render(m_entityCollector, m_filterRenderer->getMainInputTexture(m_context), m_rttBufferManager->getRenderToTextureRect());
+		m_filterRenderer->render(m_context, m_camera, m_depthRender);
+	}
+	else
+	{
+		m_renderer->render(m_entityCollector, nullptr, &m_scissorRect);
+	}
 }
 
 void View3D::project(Vector3D* point3d, Vector3D* result)
@@ -239,6 +278,17 @@ void View3D::updateViewSizeData()
 		m_viewportDirty = false;
 		m_camera->getLens()->updateViewport(m_x, m_y, m_width, m_height);
 	}
+
+	if (m_filterRenderer)
+	{
+		m_renderer->setTextureRatioX(m_rttBufferManager->getTextureRatioX());
+		m_renderer->setTextureRatioY(m_rttBufferManager->getTextureRatioY());
+	}
+	else
+	{
+		m_renderer->setTextureRatioX(1);
+		m_renderer->setTextureRatioY(1);
+	}
 }
 
 void View3D::renderDepthPrepass(EntityCollector* entityCollector)
@@ -246,14 +296,20 @@ void View3D::renderDepthPrepass(EntityCollector* entityCollector)
 
 }
 
-void View3D::renderSceneDepthToTexture(EntityCollector* entityCollector)
+void View3D::renderSceneDepthToTexture()
 {
+	if (m_depthTextureInvalid || !m_depthRender)
+		initDepthTexture();
 
+	m_depthRenderer->setTextureRatioX(m_rttBufferManager->getTextureRatioX());
+	m_depthRenderer->setTextureRatioY(m_rttBufferManager->getTextureRatioY());
+	m_depthRenderer->render(m_entityCollector, m_depthRender);
 }
 
-void View3D::initDepthTexture(IContext* context)
+void View3D::initDepthTexture()
 {
-
+	m_depthTextureInvalid = false;
+	m_depthRender = m_context->createTexture(m_rttBufferManager->getTextureWidth(), m_rttBufferManager->getTextureHeight(), TextureFormat::BGRA, true);
 }
 
 void View3D::onLensChanged(Event* event)

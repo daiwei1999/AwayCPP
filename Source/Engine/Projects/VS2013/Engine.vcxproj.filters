@@ -118,6 +118,12 @@
     <Filter Include="Debug">
       <UniqueIdentifier>{65235831-4507-483d-ab3d-f592e1b3c87a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Filters">
+      <UniqueIdentifier>{28c4493b-6f4f-486b-854c-29be7f90ce87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Tasks">
+      <UniqueIdentifier>{84082943-1338-491e-935b-cf091a6fe9ba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Math\Rectangle.cpp">
@@ -764,6 +770,30 @@
     </ClCompile>
     <ClCompile Include="..\..\Debug\Trident.cpp">
       <Filter>Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Managers\RTTBufferManager.cpp">
+      <Filter>Core\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\FilterBase.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\FilterTaskBase.cpp">
+      <Filter>Filters\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Render\FilterRenderer.cpp">
+      <Filter>Core\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\ColorTransformFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\ColorTransformFilterTask.cpp">
+      <Filter>Filters\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\ColorMatrixFilterTask.cpp">
+      <Filter>Filters\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\ColorMatrixFilter.cpp">
+      <Filter>Filters</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1446,6 +1476,30 @@
     </ClInclude>
     <ClInclude Include="..\..\Debug\Trident.h">
       <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Managers\RTTBufferManager.h">
+      <Filter>Core\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\FilterBase.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\FilterTaskBase.h">
+      <Filter>Filters\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Render\FilterRenderer.h">
+      <Filter>Core\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\ColorTransformFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\ColorTransformFilterTask.h">
+      <Filter>Filters\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\ColorMatrixFilterTask.h">
+      <Filter>Filters\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\ColorMatrixFilter.h">
+      <Filter>Filters</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

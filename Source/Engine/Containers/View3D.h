@@ -40,6 +40,8 @@ public:
 	void setVisible(bool value);
 	unsigned int getAntiAlias() { return m_antiAlias; }
 	void setAntiAlias(unsigned int value);
+	FilterVector& getFilters();
+	void setFilters(FilterVector& value);
 
 	void render();
 	void project(Vector3D* point3d, Vector3D* result);
@@ -52,10 +54,10 @@ protected:
 	void updateGlobalPos();
 	void updateViewSizeData();
 	void renderDepthPrepass(EntityCollector* entityCollector);
-	void renderSceneDepthToTexture(EntityCollector* entityCollector);
+	void renderSceneDepthToTexture();
 
 private:
-	void initDepthTexture(IContext* context);
+	void initDepthTexture();
 	void onLensChanged(Event* event);
 
 private:
@@ -65,12 +67,17 @@ protected:
 	Scene3D* m_scene;
 	Camera3D* m_camera;
 	RendererBase* m_renderer;
+	DepthRenderer* m_depthRenderer;
 	EntityCollector* m_entityCollector;
 	float m_aspectRatio;
 	IContext* m_context;
 	bool m_visible;
 	bool m_backBufferInvalid;
+	bool m_requireDepthRender;
 	Rectangle m_scissorRect;
+	FilterRenderer* m_filterRenderer;
+	Texture* m_depthRender;
+	RTTBufferManager* m_rttBufferManager;
 
 private:
 	float m_x;
@@ -85,6 +92,7 @@ private:
 	bool m_layeredView;
 	bool m_scissorRectDirty;
 	bool m_viewportDirty;
+	bool m_depthTextureInvalid;
 };
 
 AWAY_NAMESPACE_END

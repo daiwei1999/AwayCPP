@@ -12,7 +12,7 @@ RendererBase::RendererBase()
 	m_renderableSorter = new RenderableMergeSort();
 	m_backgroundR = m_backgroundG = m_backgroundB = 0;
 	m_backgroundA = 1;
-	m_shareContext = false;
+	m_shareContext = true;
 	m_textureRatioX = m_textureRatioY = 1;
 	m_backgroundImageRenderer = nullptr;
 	m_clearOnRender = true;

@@ -13,6 +13,7 @@ public:
 
 public:
 	static const std::string CHANGE;
+	static const std::string RESIZE;
 
 private:
 	std::string m_type;

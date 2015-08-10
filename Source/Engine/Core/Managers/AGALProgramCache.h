@@ -7,13 +7,13 @@ AWAY_NAMESPACE_BEGIN
 class AGALProgramCache
 {
 public:
-	AGALProgramCache(IContext* context);
 	static AGALProgramCache* getInstance(IContext* context);
 	static void freeProgram(int programId);
 
 	void setProgram(MaterialPassBase* pass, Shader& vertexShader, Shader& fragmentShader);
 
 private:
+	AGALProgramCache(IContext* context);
 	void destroyProgram(unsigned int key);
 	void freeProgram3D(int programId);
 

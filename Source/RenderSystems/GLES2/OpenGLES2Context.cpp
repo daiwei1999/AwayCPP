@@ -72,7 +72,6 @@ OpenGLES2Context::OpenGLES2Context()
 	glEnable(GL_BLEND); // Enable blending
 	glEnable(GL_CULL_FACE); // Discard polygons whose vertex winding order is opposite of the specified frontfacing mode
 	glCullFace(GL_BACK);
-	glFrontFace(GL_CW); // clockwise winding order is front
 
 	m_curProgram = nullptr;
 	m_curTriangleFaceToCull = TriangleFace::BACK;
@@ -401,6 +400,7 @@ void OpenGLES2Context::setProgramConstantsFromVector(ProgramType programType, in
 void OpenGLES2Context::setRenderToBackBuffer()
 {
 	m_renderToTexture = false;
+	glFrontFace(GL_CW);
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glViewport(m_viewportX, m_viewportY, m_viewportWidth, m_viewportHeight);
 }
@@ -408,6 +408,7 @@ void OpenGLES2Context::setRenderToBackBuffer()
 void OpenGLES2Context::setRenderToTexture(TextureBase* texture, bool enableDepthAndStencil, int antiAlias, int surfaceSelector, int colorOutputIndex)
 {
 	m_renderToTexture = true;
+	glFrontFace(GL_CCW);
 	glBindFramebuffer(GL_FRAMEBUFFER, texture->getFrameBuffer());
 	if (texture->getType() == TextureType::Cube)
 	{

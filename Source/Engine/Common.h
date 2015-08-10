@@ -159,6 +159,7 @@ class RenderableListItemPool;
 class EntityListItem;
 class EntityListItemPool;
 class AGALProgramCache;
+class RTTBufferManager;
 class CameraNode;
 class DirectionalLightNode;
 class EntityNode;
@@ -176,6 +177,7 @@ class PickingCollisionVO;
 class BackgroundImageRenderer;
 class DefaultRenderer;
 class DepthRenderer;
+class FilterRenderer;
 class RendererBase;
 class IEntitySorter;
 class RenderableMergeSort;
@@ -198,6 +200,14 @@ class LensEvent;
 class LightEvent;
 class Scene3DEvent;
 class ShadingMethodEvent;
+
+// Filters
+class ColorMatrixFilter;
+class ColorTransformFilter;
+class FilterBase;
+class ColorMatrixFilterTask;
+class ColorTransformFilterTask;
+class FilterTaskBase;
 
 // Library
 class AssetBase;
@@ -336,5 +346,6 @@ typedef std::vector<PointLight*> PointLightVector;
 typedef std::vector<DirectionalLight*> DirectionalLightVector;
 typedef std::vector<LightProbe*> LightProbeVector;
 typedef std::vector<float> WeightVector;
+typedef std::vector<FilterBase*> FilterVector;
 
 AWAY_NAMESPACE_END
