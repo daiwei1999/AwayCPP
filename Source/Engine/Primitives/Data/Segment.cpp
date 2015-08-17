@@ -6,6 +6,7 @@ USING_AWAY_NAMESPACE
 Segment::Segment(Vector3D& start, Vector3D& end, unsigned int colorStart, unsigned int colorEnd)
 {
 	m_segmentSet = nullptr;
+	m_index = -1;
 	m_start.copyFrom(start);
 	m_end.copyFrom(end);
 	setStartColor(colorStart);

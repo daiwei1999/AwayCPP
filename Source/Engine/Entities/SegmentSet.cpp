@@ -13,7 +13,6 @@ SegmentSet::SegmentSet()
 {
 	m_bounds = new BoundingSphere();
 	m_worldBounds = new BoundingSphere();
-	m_numVertices = 0;
 	m_vertexContext = nullptr;
 	m_vertexBuffer = nullptr;
 	m_material = new SegmentMaterial();
@@ -21,33 +20,32 @@ SegmentSet::SegmentSet()
 
 void SegmentSet::addSegment(Segment* segment)
 {
-	segment->setIndex(m_vertices.size());
-	segment->setSegmentSet(this);
+	segment->m_index = m_vertices.size();
+	segment->m_segmentSet = this;
 	m_segments.push_back(segment);
 
-	m_numVertices += 2;
-	m_vertices.resize(m_numVertices * 6);
+	m_vertices.resize(m_segments.size() * 12);
 	updateSegment(segment);
-}
-
-void SegmentSet::removeSegmentByIndex(int index)
-{
-	
 }
 
 void SegmentSet::removeSegment(Segment* segment)
 {
+	// update index of segments behind the removed segment
+	int index = segment->m_index / 12;
+	m_segments.erase(m_segments.begin() + index);
+	for (size_t i = index; i < m_segments.size(); i++)
+		m_segments[i]->m_index -= 12;
 	
+	auto first = m_vertices.begin() + segment->m_index;
+	m_vertices.erase(first, first + 12);
+
+	m_vertexBufferDirty = true;
 }
 
 void SegmentSet::removeAllSegments()
 {
-	
-}
-
-Segment* SegmentSet::getSegment(int index)
-{
-	return m_segments[index];
+	m_segments.clear();
+	m_vertices.clear();
 }
 
 void SegmentSet::updateSegment(Segment* segment)
@@ -75,15 +73,12 @@ void SegmentSet::updateSegment(Segment* segment)
 
 void SegmentSet::activateVertexBuffer(int index, IContext* context)
 {
-	if (m_vertexContext != context || !m_vertexBuffer)
+	if (m_vertexContext != context || m_vertexBufferDirty)
 	{
-		m_vertexBuffer = context->createVertexBuffer(m_numVertices, 24);
+		int numVertices = m_segments.size() * 2;
+		m_vertexBuffer = context->createVertexBuffer(numVertices, 24);
+		m_vertexBuffer->uploadFromVector(m_vertices.data(), 0, numVertices);
 		m_vertexContext = context;
-		m_vertexBufferDirty = true;
-	}
-	if (m_vertexBufferDirty)
-	{
-		m_vertexBuffer->uploadFromVector(m_vertices.data(), 0, m_numVertices);
 		m_vertexBufferDirty = false;
 	}
 	context->setVertexBufferAt(0, m_vertexBuffer, 0, VertexBufferFormat::FLOAT_3);

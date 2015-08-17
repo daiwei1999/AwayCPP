@@ -12,13 +12,12 @@ public:
 	SegmentSet();
 
 	void addSegment(Segment* segment);
-	void removeSegmentByIndex(int index);
 	void removeSegment(Segment* segment);
 	void removeAllSegments();
 
-	Segment* getSegment(int index);
+	Segment* getSegment(int index) { return m_segments[index]; }
 	void updateSegment(Segment* segment);
-	bool hasData() { return true; }
+	bool hasData() { return m_segments.size() > 0; }
 
 	Matrix3D& getRenderSceneTransform(Camera3D* camera) override { return m_sceneTransform; }
 	Matrix3D& getInverseSceneTransform() override { return Entity::getInverseSceneTransform(); }
@@ -28,7 +27,7 @@ public:
 	MaterialBase* getMaterial() override { return m_material; }
 	IAnimator* getAnimator() override { return nullptr; }
 	Matrix* getUVTransform() override { return nullptr; }
-	int getTriangleCount() override { return m_numVertices / 2; }
+	int getTriangleCount() override { return m_segments.size(); }
 	int getVertexStride() override { return 6; }
 	void activateVertexBuffer(int index, IContext* context) override;
 	void activateUVBuffer(int index, IContext* context) override {}
@@ -51,7 +50,6 @@ protected:
 
 private:
 	MaterialBase* m_material;
-	int m_numVertices;
 	std::vector<float> m_vertices;
 	IContext* m_vertexContext;
 	VertexBuffer* m_vertexBuffer;

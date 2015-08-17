@@ -4,6 +4,7 @@
 #include "Matrix3D.h"
 #include "IRenderable.h"
 #include "IContext.h"
+#include "SegmentSet.h"
 
 USING_AWAY_NAMESPACE
 
@@ -31,9 +32,12 @@ void SegmentPass::deactivate(IContext* context)
 
 void SegmentPass::render(IRenderable* renderable, IContext* context, Camera3D* camera, Matrix3D& viewProjection)
 {
-	Matrix3D matrix(renderable->getRenderSceneTransform(camera));
-	matrix.append(viewProjection);
-	context->setProgramConstantsFromMatrix(ProgramType::VERTEX, 0, matrix, true);
-	renderable->activateVertexBuffer(0, context);
-	context->drawLines(renderable->getIndexBuffer(context), 0, renderable->getTriangleCount());
+	if (static_cast<SegmentSet*>(renderable)->hasData())
+	{
+		Matrix3D matrix(renderable->getRenderSceneTransform(camera));
+		matrix.append(viewProjection);
+		context->setProgramConstantsFromMatrix(ProgramType::VERTEX, 0, matrix, true);
+		renderable->activateVertexBuffer(0, context);
+		context->drawLines(renderable->getIndexBuffer(context), 0, renderable->getTriangleCount());
+	}
 }
