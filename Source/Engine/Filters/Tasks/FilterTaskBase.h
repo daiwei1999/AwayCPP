@@ -27,7 +27,7 @@ protected:
 	void invalidateProgram() { m_programInvalid = true; }
 	virtual void getVertexCode(Shader& vertexShader);
 	virtual void getFragmentCode(Shader& fragmentShader) = 0;
-	void updateTextures(IContext* context);
+	virtual void updateTextures(IContext* context);
 
 protected:
 	Texture* m_mainInputTexture;

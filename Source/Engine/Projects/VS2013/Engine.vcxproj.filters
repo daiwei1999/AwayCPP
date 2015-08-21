@@ -795,6 +795,15 @@
     <ClCompile Include="..\..\Filters\ColorMatrixFilter.cpp">
       <Filter>Filters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\XFadeCompositeFilterTask.cpp">
+      <Filter>Filters\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\DoubleBufferCopyFilterTask.cpp">
+      <Filter>Filters\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\MotionBlurFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Math\Rectangle.h">
@@ -1499,6 +1508,15 @@
       <Filter>Filters\Tasks</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Filters\ColorMatrixFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\XFadeCompositeFilterTask.h">
+      <Filter>Filters\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\DoubleBufferCopyFilterTask.h">
+      <Filter>Filters\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\MotionBlurFilter.h">
       <Filter>Filters</Filter>
     </ClInclude>
   </ItemGroup>

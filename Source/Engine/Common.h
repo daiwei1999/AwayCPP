@@ -205,9 +205,12 @@ class ShadingMethodEvent;
 class ColorMatrixFilter;
 class ColorTransformFilter;
 class FilterBase;
+class MotionBlurFilter;
 class ColorMatrixFilterTask;
 class ColorTransformFilterTask;
+class DoubleBufferCopyFilterTask;
 class FilterTaskBase;
+class XFadeCompositeFilterTask;
 
 // Library
 class AssetBase;

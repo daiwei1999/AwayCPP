@@ -141,9 +141,12 @@
     <ClCompile Include="..\..\Filters\ColorMatrixFilter.cpp" />
     <ClCompile Include="..\..\Filters\ColorTransformFilter.cpp" />
     <ClCompile Include="..\..\Filters\FilterBase.cpp" />
+    <ClCompile Include="..\..\Filters\MotionBlurFilter.cpp" />
     <ClCompile Include="..\..\Filters\Tasks\ColorMatrixFilterTask.cpp" />
     <ClCompile Include="..\..\Filters\Tasks\ColorTransformFilterTask.cpp" />
+    <ClCompile Include="..\..\Filters\Tasks\DoubleBufferCopyFilterTask.cpp" />
     <ClCompile Include="..\..\Filters\Tasks\FilterTaskBase.cpp" />
+    <ClCompile Include="..\..\Filters\Tasks\XFadeCompositeFilterTask.cpp" />
     <ClCompile Include="..\..\Library\AssetBase.cpp" />
     <ClCompile Include="..\..\Lights\DirectionalLight.cpp" />
     <ClCompile Include="..\..\Lights\LightBase.cpp" />
@@ -377,9 +380,12 @@
     <ClInclude Include="..\..\Filters\ColorMatrixFilter.h" />
     <ClInclude Include="..\..\Filters\ColorTransformFilter.h" />
     <ClInclude Include="..\..\Filters\FilterBase.h" />
+    <ClInclude Include="..\..\Filters\MotionBlurFilter.h" />
     <ClInclude Include="..\..\Filters\Tasks\ColorMatrixFilterTask.h" />
     <ClInclude Include="..\..\Filters\Tasks\ColorTransformFilterTask.h" />
+    <ClInclude Include="..\..\Filters\Tasks\DoubleBufferCopyFilterTask.h" />
     <ClInclude Include="..\..\Filters\Tasks\FilterTaskBase.h" />
+    <ClInclude Include="..\..\Filters\Tasks\XFadeCompositeFilterTask.h" />
     <ClInclude Include="..\..\Library\AssetBase.h" />
     <ClInclude Include="..\..\Lights\DirectionalLight.h" />
     <ClInclude Include="..\..\Lights\LightBase.h" />

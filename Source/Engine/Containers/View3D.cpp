@@ -197,9 +197,14 @@ FilterVector& View3D::getFilters()
 
 void View3D::setFilters(FilterVector& value)
 {
-	m_filterRenderer = new FilterRenderer(m_context);
-	m_filterRenderer->setFilters(value);
-	m_requireDepthRender = m_filterRenderer->requireDepthRender();
+	if (value.size() > 0)
+	{
+		m_filterRenderer = new FilterRenderer(m_context);
+		m_filterRenderer->setFilters(value);
+		m_requireDepthRender = m_filterRenderer->requireDepthRender();
+	}
+	else
+		m_filterRenderer = nullptr;
 }
 
 void View3D::updateBackBuffer()
