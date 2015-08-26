@@ -205,11 +205,17 @@ class ShadingMethodEvent;
 class ColorMatrixFilter;
 class ColorTransformFilter;
 class FilterBase;
+class HBlurFilter;
 class MotionBlurFilter;
+class RadialBlurFilter;
+class VBlurFilter;
 class ColorMatrixFilterTask;
 class ColorTransformFilterTask;
 class DoubleBufferCopyFilterTask;
 class FilterTaskBase;
+class HBlurFilterTask;
+class RadialBlurFilterTask;
+class VBlurFilterTask;
 class XFadeCompositeFilterTask;
 
 // Library

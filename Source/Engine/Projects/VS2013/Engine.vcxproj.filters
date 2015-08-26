@@ -804,6 +804,24 @@
     <ClCompile Include="..\..\Filters\MotionBlurFilter.cpp">
       <Filter>Filters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Filters\HBlurFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\VBlurFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\HBlurFilterTask.cpp">
+      <Filter>Filters\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\VBlurFilterTask.cpp">
+      <Filter>Filters\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\RadialBlurFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\RadialBlurFilterTask.cpp">
+      <Filter>Filters\Tasks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Math\Rectangle.h">
@@ -1518,6 +1536,24 @@
     </ClInclude>
     <ClInclude Include="..\..\Filters\MotionBlurFilter.h">
       <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\HBlurFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\VBlurFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\HBlurFilterTask.h">
+      <Filter>Filters\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\VBlurFilterTask.h">
+      <Filter>Filters\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\RadialBlurFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\RadialBlurFilterTask.h">
+      <Filter>Filters\Tasks</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
