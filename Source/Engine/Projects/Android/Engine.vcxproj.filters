@@ -118,6 +118,12 @@
     <Filter Include="Debug">
       <UniqueIdentifier>{31566e73-ba3c-46fa-bdf3-3e0e73b061cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Filters">
+      <UniqueIdentifier>{c663cc56-02f9-4bcf-a79b-8ed94fc0f9c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Tasks">
+      <UniqueIdentifier>{cd952820-b9b6-47a5-9065-469530dcad18}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Math\Rectangle.cpp">
@@ -764,6 +770,57 @@
     </ClCompile>
     <ClCompile Include="..\..\Debug\Trident.cpp">
       <Filter>Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Managers\RTTBufferManager.cpp">
+      <Filter>Core\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\Render\FilterRenderer.cpp">
+      <Filter>Core\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\ColorMatrixFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\ColorTransformFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\FilterBase.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\HBlurFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\MotionBlurFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\RadialBlurFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\VBlurFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\ColorMatrixFilterTask.cpp">
+      <Filter>Filters\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\ColorTransformFilterTask.cpp">
+      <Filter>Filters\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\DoubleBufferCopyFilterTask.cpp">
+      <Filter>Filters\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\FilterTaskBase.cpp">
+      <Filter>Filters\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\HBlurFilterTask.cpp">
+      <Filter>Filters\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\RadialBlurFilterTask.cpp">
+      <Filter>Filters\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\VBlurFilterTask.cpp">
+      <Filter>Filters\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\XFadeCompositeFilterTask.cpp">
+      <Filter>Filters\Tasks</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1446,6 +1503,57 @@
     </ClInclude>
     <ClInclude Include="..\..\Debug\Trident.h">
       <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Managers\RTTBufferManager.h">
+      <Filter>Core\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\Render\FilterRenderer.h">
+      <Filter>Core\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\ColorMatrixFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\ColorTransformFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\FilterBase.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\HBlurFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\MotionBlurFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\RadialBlurFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\VBlurFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\ColorMatrixFilterTask.h">
+      <Filter>Filters\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\ColorTransformFilterTask.h">
+      <Filter>Filters\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\DoubleBufferCopyFilterTask.h">
+      <Filter>Filters\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\FilterTaskBase.h">
+      <Filter>Filters\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\HBlurFilterTask.h">
+      <Filter>Filters\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\RadialBlurFilterTask.h">
+      <Filter>Filters\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\VBlurFilterTask.h">
+      <Filter>Filters\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\XFadeCompositeFilterTask.h">
+      <Filter>Filters\Tasks</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
