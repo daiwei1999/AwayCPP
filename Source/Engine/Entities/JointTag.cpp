@@ -13,9 +13,8 @@ void JointTag::updateSceneTransform()
 {
 	if (m_parent)
 	{
-		Matrix3D matrix;
 		SkeletonAnimator* animator = static_cast<SkeletonAnimator*>(static_cast<Mesh*>(m_parent)->getAnimator());
-		m_sceneTransform.copyFrom(animator->getGlobalPose().m_jointPoses[m_jointIndex].toMatrix3D(matrix));
+		m_sceneTransform.copyFrom(animator->getGlobalMatrices()[m_jointIndex]);
 		m_sceneTransform.append(m_parent->getSceneTransform());
 		m_sceneTransform.prepend(getTransform());
 	}
