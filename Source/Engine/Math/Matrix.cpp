@@ -89,7 +89,9 @@ void Matrix::translate(float dx, float dy)
 
 Point* Matrix::transformPoint(const Matrix& matrix, const Point* pin, Point* pout)
 {
-	pout->m_x = pin->m_x * matrix.m_a + pin->m_y * matrix.m_c + matrix.m_tx;
-	pout->m_y = pin->m_x * matrix.m_b + pin->m_y * matrix.m_d + matrix.m_ty;
+	float x = pin->m_x;
+	float y = pin->m_y;
+	pout->m_x = x * matrix.m_a + y * matrix.m_c + matrix.m_tx;
+	pout->m_y = x * matrix.m_b + y * matrix.m_d + matrix.m_ty;
 	return pout;
 }
