@@ -39,16 +39,14 @@ protected:
 
 private:
 	void updateGlobalProperties();
-	void localToGlobalPose(SkeletonPose& sourcePose);
 	void morphGeometry(float* targetData, SkinnedSubGeometry* subGeom);
 
 private:
-	int m_numTotalJoints;
 	Skeleton* m_skeleton;
 	bool m_forceCPU;
 	bool m_globalPropertiesDirty;
 	unsigned char m_jointsPerVertex;
-	std::vector<float> m_matBones;
+	std::vector<float> m_vertexData;
 	std::vector<Matrix3D> m_globalMatrices;
 	std::unordered_map<SkinnedSubGeometry*, SubGeomAnimationState*> m_subGeomAnimStates;
 };

@@ -29,23 +29,25 @@ SkeletonAnimator::SkeletonAnimator(SkeletonAnimationSet* animationSet, Skeleton*
 	m_globalPropertiesDirty = false;
 	m_jointsPerVertex = animationSet->getJointsPerVertex();
 
-	m_numTotalJoints = m_skeleton->m_joints.size();
-	m_globalMatrices.resize(m_numTotalJoints);
-	m_matBones.resize(m_numTotalJoints * 12);
-	for (int i = 0, j = 0; i < m_numTotalJoints; i++)
+	int numTotalJoints = m_skeleton->m_joints.size();
+	m_globalMatrices.resize(numTotalJoints);
+
+	int numSkinningJoints = m_skeleton->m_numSkinningJoints;
+	m_vertexData.resize(numSkinningJoints * 12);
+	for (int i = 0, j = 0; i < numSkinningJoints; i++)
 	{
-		m_matBones[j++] = 1;
-		m_matBones[j++] = 0;
-		m_matBones[j++] = 0;
-		m_matBones[j++] = 0;
-		m_matBones[j++] = 0;
-		m_matBones[j++] = 1;
-		m_matBones[j++] = 0;
-		m_matBones[j++] = 0;
-		m_matBones[j++] = 0;
-		m_matBones[j++] = 0;
-		m_matBones[j++] = 1;
-		m_matBones[j++] = 0;
+		m_vertexData[j++] = 1;
+		m_vertexData[j++] = 0;
+		m_vertexData[j++] = 0;
+		m_vertexData[j++] = 0;
+		m_vertexData[j++] = 0;
+		m_vertexData[j++] = 1;
+		m_vertexData[j++] = 0;
+		m_vertexData[j++] = 0;
+		m_vertexData[j++] = 0;
+		m_vertexData[j++] = 0;
+		m_vertexData[j++] = 1;
+		m_vertexData[j++] = 0;
 	}
 }
 
@@ -106,7 +108,7 @@ void SkeletonAnimator::setRenderState(IContext* context, IRenderable* renderable
 	}
 	else
 	{
-		context->setProgramConstantsFromVector(ProgramType::VERTEX, vertexConstantOffset, m_matBones.data(), m_skeleton->m_numSkinningJoints * 3);
+		context->setProgramConstantsFromVector(ProgramType::VERTEX, vertexConstantOffset, m_vertexData.data(), m_skeleton->m_numSkinningJoints * 3);
 		skinnedGeom->activateJointIndexBuffer(vertexStreamOffset, context);
 		skinnedGeom->activateJointWeightsBuffer(vertexStreamOffset + 1, context);
 	}
@@ -146,11 +148,32 @@ void SkeletonAnimator::updateGlobalProperties()
 {
 	m_globalPropertiesDirty = false;
 
-	// Converts a local hierarchical skeleton pose to a global pose
-	localToGlobalPose(((SkeletonClipState*)m_activeState)->getSkeletonPose(m_skeleton));
+	// get global pose
+	SkeletonPose& sourcePose = static_cast<SkeletonClipState*>(m_activeState)->getSkeletonPose(m_skeleton);
 
+	// convert local hierarchical skeleton pose to global pose
+	std::vector<int>& indexTable = m_skeleton->m_indexTable;
+	std::vector<JointPose>& localPoses = sourcePose.m_jointPoses;
 	std::vector<SkeletonJoint*>& joints = m_skeleton->m_joints;
-	for (int i = 0, j = 0; i < m_numTotalJoints; i++)
+	int numTotalJoints = joints.size();
+	for (int i = 0; i < numTotalJoints; i++)
+	{
+		int index = indexTable[i];
+		JointPose& pose = localPoses[index];
+		Matrix3D& globalMatrix = m_globalMatrices[index];
+
+		// convert translation and rotation to matrix
+		pose.m_orientation.toMatrix3D(globalMatrix);
+		globalMatrix.appendTranslation(pose.m_translation.m_x, pose.m_translation.m_y, pose.m_translation.m_z);
+
+		// append parent pose
+		int parentIndex = joints[index]->m_parentIndex;
+		if (parentIndex >= 0)
+			globalMatrix.append(m_globalMatrices[parentIndex]);
+	}
+
+	int numSkinningJoints = m_skeleton->m_numSkinningJoints;
+	for (int i = 0, j = 0; i < numSkinningJoints; i++)
 	{
 		float(&rawData)[16] = m_globalMatrices[i].m_rawData;
 		float n11 = rawData[0];
@@ -178,42 +201,18 @@ void SkeletonAnimator::updateGlobalProperties()
 		float m33 = raw[8];
 		float m34 = raw[11];
 
-		m_matBones[j++] = n11 * m11 + n12 * m21 + n13 * m31;
-		m_matBones[j++] = n11 * m12 + n12 * m22 + n13 * m32;
-		m_matBones[j++] = n11 * m13 + n12 * m23 + n13 * m33;
-		m_matBones[j++] = n11 * m14 + n12 * m24 + n13 * m34 + rawData[12];
-		m_matBones[j++] = n21 * m11 + n22 * m21 + n23 * m31;
-		m_matBones[j++] = n21 * m12 + n22 * m22 + n23 * m32;
-		m_matBones[j++] = n21 * m13 + n22 * m23 + n23 * m33;
-		m_matBones[j++] = n21 * m14 + n22 * m24 + n23 * m34 + rawData[13];
-		m_matBones[j++] = n31 * m11 + n32 * m21 + n33 * m31;
-		m_matBones[j++] = n31 * m12 + n32 * m22 + n33 * m32;
-		m_matBones[j++] = n31 * m13 + n32 * m23 + n33 * m33;
-		m_matBones[j++] = n31 * m14 + n32 * m24 + n33 * m34 + rawData[14];
-	}
-}
-
-void SkeletonAnimator::localToGlobalPose(SkeletonPose& sourcePose)
-{
-	int index, parentIndex;
-	std::vector<SkeletonJoint*>& joints = m_skeleton->m_joints;
-	std::vector<JointPose>& localPoses = sourcePose.m_jointPoses;
-	std::vector<int>& indexTable = m_skeleton->m_indexTable;
-
-	for (int i = 0; i < m_numTotalJoints; i++)
-	{
-		index = indexTable[i];
-		JointPose& pose = localPoses[index];
-		Matrix3D& globalMatrix = m_globalMatrices[index];
-
-		// convert translation and rotation to matrix
-		pose.m_orientation.toMatrix3D(globalMatrix);
-		globalMatrix.appendTranslation(pose.m_translation.m_x, pose.m_translation.m_y, pose.m_translation.m_z);
-
-		// append parent pose
-		parentIndex = joints[index]->m_parentIndex;
-		if (parentIndex >= 0)
-			globalMatrix.append(m_globalMatrices[parentIndex]);
+		m_vertexData[j++] = n11 * m11 + n12 * m21 + n13 * m31;
+		m_vertexData[j++] = n11 * m12 + n12 * m22 + n13 * m32;
+		m_vertexData[j++] = n11 * m13 + n12 * m23 + n13 * m33;
+		m_vertexData[j++] = n11 * m14 + n12 * m24 + n13 * m34 + rawData[12];
+		m_vertexData[j++] = n21 * m11 + n22 * m21 + n23 * m31;
+		m_vertexData[j++] = n21 * m12 + n22 * m22 + n23 * m32;
+		m_vertexData[j++] = n21 * m13 + n22 * m23 + n23 * m33;
+		m_vertexData[j++] = n21 * m14 + n22 * m24 + n23 * m34 + rawData[13];
+		m_vertexData[j++] = n31 * m11 + n32 * m21 + n33 * m31;
+		m_vertexData[j++] = n31 * m12 + n32 * m22 + n33 * m32;
+		m_vertexData[j++] = n31 * m13 + n32 * m23 + n33 * m33;
+		m_vertexData[j++] = n31 * m14 + n32 * m24 + n33 * m34 + rawData[14];
 	}
 }
 
@@ -249,18 +248,18 @@ void SkeletonAnimator::morphGeometry(float* targetData, SkinnedSubGeometry* subG
 			if (weight > 0)
 			{
 				mtxOffset = jointIndices[j] << 2;
-				m11 = m_matBones[mtxOffset];
-				m12 = m_matBones[mtxOffset + 1];
-				m13 = m_matBones[mtxOffset + 2];
-				m21 = m_matBones[mtxOffset + 4];
-				m22 = m_matBones[mtxOffset + 5];
-				m23 = m_matBones[mtxOffset + 6];
-				m31 = m_matBones[mtxOffset + 8];
-				m32 = m_matBones[mtxOffset + 9];
-				m33 = m_matBones[mtxOffset + 10];
-				vx += weight * (m11 * vertX + m12 * vertY + m13 * vertZ + m_matBones[mtxOffset + 3]);
-				vy += weight * (m21 * vertX + m22 * vertY + m23 * vertZ + m_matBones[mtxOffset + 7]);
-				vz += weight * (m31 * vertX + m32 * vertY + m33 * vertZ + m_matBones[mtxOffset + 11]);
+				m11 = m_vertexData[mtxOffset];
+				m12 = m_vertexData[mtxOffset + 1];
+				m13 = m_vertexData[mtxOffset + 2];
+				m21 = m_vertexData[mtxOffset + 4];
+				m22 = m_vertexData[mtxOffset + 5];
+				m23 = m_vertexData[mtxOffset + 6];
+				m31 = m_vertexData[mtxOffset + 8];
+				m32 = m_vertexData[mtxOffset + 9];
+				m33 = m_vertexData[mtxOffset + 10];
+				vx += weight * (m11 * vertX + m12 * vertY + m13 * vertZ + m_vertexData[mtxOffset + 3]);
+				vy += weight * (m21 * vertX + m22 * vertY + m23 * vertZ + m_vertexData[mtxOffset + 7]);
+				vz += weight * (m31 * vertX + m32 * vertY + m33 * vertZ + m_vertexData[mtxOffset + 11]);
 				nx += weight * (m11 * normX + m12 * normY + m13 * normZ);
 				ny += weight * (m21 * normX + m22 * normY + m23 * normZ);
 				nz += weight * (m31 * normX + m32 * normY + m33 * normZ);

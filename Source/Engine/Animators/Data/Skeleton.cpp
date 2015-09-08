@@ -46,8 +46,5 @@ int Skeleton::getJointIndexByName(const std::string& name)
 int Skeleton::getJointDepth(SkeletonJoint* joint)
 {
 	int parentIndex = joint->m_parentIndex;
-	if (parentIndex < 0)
-		return 0;
-	else
-		return getJointDepth(m_joints[parentIndex]) + 1;
+	return parentIndex < 0 ? 0 : (getJointDepth(m_joints[parentIndex]) + 1);
 }
