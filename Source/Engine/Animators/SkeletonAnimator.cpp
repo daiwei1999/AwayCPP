@@ -29,8 +29,15 @@ SkeletonAnimator::SkeletonAnimator(SkeletonAnimationSet* animationSet, Skeleton*
 	m_globalPropertiesDirty = false;
 	m_jointsPerVertex = animationSet->getJointsPerVertex();
 
-	int numTotalJoints = m_skeleton->m_joints.size();
-	m_globalMatrices.resize(numTotalJoints);
+	std::vector<SkeletonJoint*>& joints = m_skeleton->m_joints;
+	int numTotalJoints = joints.size();
+	for (int i = 0; i < numTotalJoints; i++)
+	{
+		float(&raw)[12] = joints[i]->m_inverseBindPose;
+		Matrix3D bindPose(raw[0], raw[1], raw[2], 0, raw[3], raw[4], raw[5], 0, raw[6], raw[7], raw[8], 0, raw[9], raw[10], raw[11], 1);
+		bindPose.invert();
+		m_globalMatrices.push_back(bindPose);
+	}
 
 	int numSkinningJoints = m_skeleton->m_numSkinningJoints;
 	m_vertexData.resize(numSkinningJoints * 12);
