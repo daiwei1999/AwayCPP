@@ -269,24 +269,31 @@ void Object3D::translateLocal(Vector3D& axis, float distance)
 
 void Object3D::pitch(float angle)
 {
-	rotate(Vector3D::X_AXIS, angle);
+	Vector3D axis;
+	getRightVector(axis);
+	rotate(axis, angle);
 }
 
 void Object3D::yaw(float angle)
 {
-	rotate(Vector3D::Y_AXIS, angle);
+	Vector3D axis;
+	getUpVector(axis);
+	rotate(axis, angle);
 }
 
 void Object3D::roll(float angle)
 {
-	rotate(Vector3D::Z_AXIS, angle);
+	Vector3D axis;
+	getForwardVector(axis);
+	rotate(axis, angle);
 }
 
-void Object3D::rotate(Vector3D& axis, float angle)
+void Object3D::rotate(const Vector3D& axis, float angle)
 {
-	Matrix3D& transform = getTransform();
-	transform.prependRotation(angle, axis);
-	setTransform(transform);
+	Vector3D pivotPoint;
+	m_transform.copyColumnTo(3, pivotPoint);
+	m_transform.appendRotation(angle, axis, pivotPoint);
+	setTransform(m_transform);
 }
 
 void Object3D::lookAt(Vector3D& target, Vector3D& upAxis)

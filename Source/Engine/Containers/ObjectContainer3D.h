@@ -51,7 +51,7 @@ public:
 	virtual float getMaxY();
 	virtual float getMaxZ();
 	void translateLocal(Vector3D& axis, float distance) override;
-	void rotate(Vector3D& axis, float angle) override;
+	void rotate(const Vector3D& axis, float angle) override;
 	void lookAt(Vector3D& target, Vector3D& upAxis = Vector3D::Y_AXIS) override;
 	void invalidateTransform() override;
 

@@ -206,7 +206,7 @@ void ObjectContainer3D::translateLocal(Vector3D& axis, float distance)
 	notifySceneTransformChange();
 }
 
-void ObjectContainer3D::rotate(Vector3D& axis, float angle)
+void ObjectContainer3D::rotate(const Vector3D& axis, float angle)
 {
 	Object3D::rotate(axis, angle);
 	notifySceneTransformChange();

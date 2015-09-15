@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Common.h"
+#include "Vector3D.h"
 
 AWAY_NAMESPACE_BEGIN
 
@@ -32,7 +33,7 @@ public:
 	}
 
 	void append(const Matrix3D& lhs, bool m33 = false);
-	void appendRotation(float degrees, const Vector3D& axis);
+	void appendRotation(float degrees, const Vector3D& axis, const Vector3D& pivotPoint = Vector3D::ZERO);
 	void appendScale(float xScale, float yScale, float zScale);
 	void appendTranslation(float x, float y, float z);
 

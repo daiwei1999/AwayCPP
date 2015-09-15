@@ -104,7 +104,7 @@ public:
 	void pitch(float angle); // Rotates the 3d object around it's local x-axis
 	void yaw(float angle); // Rotates the 3d object around it's local y-axis
 	void roll(float angle); // Rotates the 3d object around it's local z-axis
-	virtual void rotate(Vector3D& axis, float angle); // Rotates the 3d object around an axis by a defined angle
+	virtual void rotate(const Vector3D& axis, float angle); // Rotates the 3d object around an axis by a defined angle
 	virtual void lookAt(Vector3D& target, Vector3D& upAxis = Vector3D::Y_AXIS); // Rotates the 3d object around to face a point defined relative to the local coordinates of the parent
 	virtual void invalidateTransform() { m_transformDirty = true; }
 

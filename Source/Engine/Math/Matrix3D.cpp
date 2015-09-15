@@ -62,11 +62,18 @@ void Matrix3D::append(const Matrix3D& lhs, bool m33)
 	}
 }
 
-void Matrix3D::appendRotation(float degrees, const Vector3D& axis)
+void Matrix3D::appendRotation(float degrees, const Vector3D& axis, const Vector3D& pivotPoint)
 {
-	Matrix3D rot;
-	getAxisRotation(axis.m_x, axis.m_y, axis.m_z, degrees, rot);
-	append(rot);
+	bool usePivot = (pivotPoint.m_x != 0 || pivotPoint.m_y != 0 || pivotPoint.m_z != 0);
+	if (usePivot)
+		appendTranslation(-pivotPoint.m_x, -pivotPoint.m_y, -pivotPoint.m_z);
+
+	Matrix3D matrix;
+	getAxisRotation(axis.m_x, axis.m_y, axis.m_z, degrees, matrix);
+	append(matrix);
+
+	if (usePivot)
+		appendTranslation(pivotPoint.m_x, pivotPoint.m_y, pivotPoint.m_z);
 }
 
 void Matrix3D::appendScale(float xScale, float yScale, float zScale)
@@ -123,9 +130,9 @@ void Matrix3D::prepend(const Matrix3D& rhs)
 
 void Matrix3D::prependRotation(float degrees, const Vector3D& axis)
 {
-	Matrix3D rot;
-	getAxisRotation(axis.m_x, axis.m_y, axis.m_z, degrees, rot);
-	prepend(rot);
+	Matrix3D matrix;
+	getAxisRotation(axis.m_x, axis.m_y, axis.m_z, degrees, matrix);
+	prepend(matrix);
 }
 
 void Matrix3D::prependScale(float xScale, float yScale, float zScale)
