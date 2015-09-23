@@ -45,7 +45,7 @@ void AnimatorBase::setAutoUpdate(bool value)
 	}
 }
 
-void AnimatorBase::setTime(int value)
+void AnimatorBase::setTime(unsigned int value)
 {
 	if (value != m_time)
 		update(value);
@@ -83,7 +83,7 @@ void AnimatorBase::phase(float value)
 	m_activeState->phase(value);
 }
 
-void AnimatorBase::update(int time)
+void AnimatorBase::update(unsigned int time)
 {
 	updateDeltaTime((time - m_time) * m_playbackSpeed);
 	m_time = time;
