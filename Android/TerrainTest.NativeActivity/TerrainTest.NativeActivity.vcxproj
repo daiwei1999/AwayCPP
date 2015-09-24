@@ -90,7 +90,7 @@
     </ClCompile>
     <Link>
       <LibraryDependencies>%(LibraryDependencies);GLESv1_CM;GLESv2;EGL;m</LibraryDependencies>
-      <AdditionalDependencies>../../ARM/Debug/libEngine.a;../../ARM/Debug/libRenderSystem_GLES2.a;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>../../ARM/Release/libEngine.a;../../ARM/Release/libRenderSystem_GLES2.a;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
