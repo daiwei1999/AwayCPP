@@ -15,10 +15,10 @@ BitmapData::~BitmapData()
 	std::free(m_imageData);
 }
 
-void BitmapData::colorTransform(Rectangle& rect, ColorTransform& colorTransform)
+void BitmapData::colorTransform(Rectangle<int>& rect, ColorTransform& colorTransform)
 {
-	int x = (int)rect.m_x, y = (int)rect.m_y;
-	int width = (int)rect.m_width, height = (int)rect.m_height;
+	int x = rect.m_x, y = rect.m_y;
+	int width = rect.m_width, height = rect.m_height;
 
 	int index, bpp = m_transparent ? 4 : 3;
 	for (int i = 0; i < width; i++)
@@ -26,26 +26,26 @@ void BitmapData::colorTransform(Rectangle& rect, ColorTransform& colorTransform)
 		for (int j = 0; j < height; j++)
 		{
 			index = (i + x + (j + y) * width) * bpp;
-			m_imageData[index] = m_imageData[index] * colorTransform.m_redMultiplier + colorTransform.m_redOffset;
-			m_imageData[index + 1] = m_imageData[index + 1] * colorTransform.m_greenMultiplier + colorTransform.m_greenOffset;
-			m_imageData[index + 2] = m_imageData[index + 2] * colorTransform.m_blueMultiplier + colorTransform.m_blueOffset;
+			m_imageData[index] = static_cast<unsigned char>(m_imageData[index] * colorTransform.m_redMultiplier + colorTransform.m_redOffset);
+			m_imageData[index + 1] = static_cast<unsigned char>(m_imageData[index + 1] * colorTransform.m_greenMultiplier + colorTransform.m_greenOffset);
+			m_imageData[index + 2] = static_cast<unsigned char>(m_imageData[index + 2] * colorTransform.m_blueMultiplier + colorTransform.m_blueOffset);
 			if (m_transparent)
-				m_imageData[index + 3] = m_imageData[index + 3] * colorTransform.m_alphaMultiplier + colorTransform.m_alphaOffset;
+				m_imageData[index + 3] = static_cast<unsigned char>(m_imageData[index + 3] * colorTransform.m_alphaMultiplier + colorTransform.m_alphaOffset);
 		}
 	}
 }
 
-void BitmapData::copyChannel(BitmapData& sourceBitmapData, Rectangle& sourceRect, Point& destPoint, unsigned int sourceChannel, unsigned int destChannel)
+void BitmapData::copyChannel(BitmapData& sourceBitmapData, Rectangle<int>& sourceRect, Point<int>& destPoint, unsigned int sourceChannel, unsigned int destChannel)
 {
 
 }
 
-void BitmapData::copyPixels(BitmapData& sourceBitmapData, Rectangle& sourceRect, Point& destPoint, BitmapData* alphaBitmapData, Point* alphaPoint, bool mergeAlpha)
+void BitmapData::copyPixels(BitmapData& sourceBitmapData, Rectangle<int>& sourceRect, Point<int>& destPoint, BitmapData* alphaBitmapData, Point<int>* alphaPoint, bool mergeAlpha)
 {
 
 }
 
-void BitmapData::copyPixelsToByteArray(Rectangle& rect, ByteArray& data)
+void BitmapData::copyPixelsToByteArray(Rectangle<int>& rect, ByteArray& data)
 {
 
 }
@@ -55,10 +55,10 @@ void BitmapData::draw(BitmapData& source, Matrix* matrix, bool smoothing)
 
 }
 
-void BitmapData::fillRect(Rectangle& rect, unsigned int color)
+void BitmapData::fillRect(Rectangle<int>& rect, unsigned int color)
 {
-	int x = (int)rect.m_x, y = (int)rect.m_y;
-	int width = (int)rect.m_width, height = (int)rect.m_height;
+	int x = rect.m_x, y = rect.m_y;
+	int width = rect.m_width, height = rect.m_height;
 
 	int index, bpp = m_transparent ? 4 : 3;
 	unsigned char a = (color >> 24) & 0xff;
@@ -82,7 +82,7 @@ void BitmapData::fillRect(Rectangle& rect, unsigned int color)
 
 unsigned int BitmapData::getPixel(int x, int y)
 {
-	int index = (x + y * (int)m_rect.m_width) * (m_transparent ? 4 : 3);
+	int index = (x + y * m_rect.m_width) * (m_transparent ? 4 : 3);
 	unsigned char r = m_imageData[index];
 	unsigned char g = m_imageData[index + 1];
 	unsigned char b = m_imageData[index + 2];
@@ -90,9 +90,9 @@ unsigned int BitmapData::getPixel(int x, int y)
 	return (a << 24) | (r << 16) | (g << 8) | b;
 }
 
-void BitmapData::setPixel(int x, int y, unsigned color)
+void BitmapData::setPixel(int x, int y, unsigned int color)
 {
-	int index = (x + y * (int)m_rect.m_width) * (m_transparent ? 4 : 3);
+	int index = (x + y * m_rect.m_width) * (m_transparent ? 4 : 3);
 	m_imageData[index] = (color >> 16) & 0xff;
 	m_imageData[index + 1] = (color >> 8) & 0xff;
 	m_imageData[index + 2] = color & 0xff;

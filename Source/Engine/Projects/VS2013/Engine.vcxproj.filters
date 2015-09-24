@@ -126,9 +126,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Math\Rectangle.cpp">
-      <Filter>Math</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Utils\BitmapData.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
@@ -191,9 +188,6 @@
     </ClCompile>
     <ClCompile Include="..\..\entities\Mesh.cpp">
       <Filter>Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\math\Point.cpp">
-      <Filter>Math</Filter>
     </ClCompile>
     <ClCompile Include="..\..\bounds\BoundingVolumeBase.cpp">
       <Filter>Bounds</Filter>
@@ -1554,6 +1548,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Filters\Tasks\RadialBlurFilterTask.h">
       <Filter>Filters\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Math\Rectangle-inl.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Math\Point-inl.h">
+      <Filter>Math</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

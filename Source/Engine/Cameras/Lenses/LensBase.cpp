@@ -80,7 +80,7 @@ Vector3D* LensBase::project(Vector3D* point3d, Vector3D* result)
 	return result;
 }
 
-void LensBase::updateScissorRect(float x, float y, float width, float height)
+void LensBase::updateScissorRect(int x, int y, int width, int height)
 {
 	m_scissorRect.m_x = x;
 	m_scissorRect.m_y = y;
@@ -89,7 +89,7 @@ void LensBase::updateScissorRect(float x, float y, float width, float height)
 	invalidateMatrix();
 }
 
-void LensBase::updateViewport(float x, float y, float width, float height)
+void LensBase::updateViewport(int x, int y, int width, int height)
 {
 	m_viewPort.m_x = x;
 	m_viewPort.m_y = y;

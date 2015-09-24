@@ -282,9 +282,9 @@ class ColorTransform;
 class Matrix;
 class Matrix3D;
 class Plane3D;
-class Point;
+template<typename T> class Point;
 class Quaternion;
-class Rectangle;
+template<typename T> class Rectangle;
 class Vector3D;
 
 // Primitives
@@ -328,8 +328,6 @@ class Program;
 class TextureBase;
 class Texture;
 class CubeTexture;
-class Matrix3D;
-class Rectangle;
 enum class BlendFactor;
 enum class BufferUsage;
 enum class ClearMask;

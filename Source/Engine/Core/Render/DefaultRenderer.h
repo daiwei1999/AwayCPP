@@ -17,7 +17,7 @@ public:
 	void setContext(IContext* value) override;
 
 protected:
-	void executeRender(EntityCollector* entityCollector, TextureBase* target = nullptr, Rectangle* scissorRect = nullptr, int surfaceSelector = 0) override;
+	void executeRender(EntityCollector* entityCollector, TextureBase* target = nullptr, Rectangle<int>* scissorRect = nullptr, int surfaceSelector = 0) override;
 	void draw(EntityCollector* entityCollector, TextureBase* target) override;
 
 private:

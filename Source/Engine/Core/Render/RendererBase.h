@@ -40,10 +40,10 @@ public:
 	void setTextureRatioY(float value) { m_textureRatioY = value; }
 
 	EntityCollector* createEntityCollector();
-	void render(EntityCollector* entityCollector, TextureBase* target = nullptr, Rectangle* scissorRect = nullptr, int surfaceSelector = 0);
+	void render(EntityCollector* entityCollector, TextureBase* target = nullptr, Rectangle<int>* scissorRect = nullptr, int surfaceSelector = 0);
 
 protected:
-	virtual void executeRender(EntityCollector* entityCollector, TextureBase* target = nullptr, Rectangle* scissorRect = nullptr, int surfaceSelector = 0);
+	virtual void executeRender(EntityCollector* entityCollector, TextureBase* target = nullptr, Rectangle<int>* scissorRect = nullptr, int surfaceSelector = 0);
 	virtual void draw(EntityCollector* entityCollector, TextureBase* target) = 0;
 
 protected:

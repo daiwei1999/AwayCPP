@@ -18,7 +18,7 @@ public:
 	Entity* m_entity; // The entity to which this collision object belongs.
 	Vector3D m_localPosition; // The local position of the collision on the entity's surface.
 	Vector3D m_localNormal; // The local normal vector at the position of the collision.
-	Point m_uv; // The uv coordinate at the position of the collision.
+	Point<float> m_uv; // The uv coordinate at the position of the collision.
 	unsigned int m_index; // The index of the face where the event took place.
 	unsigned int m_subGeometryIndex; // The index of the subGeometry where the event took place.
 	Vector3D m_localRayPosition; // The starting position of the colliding ray in local coordinates.

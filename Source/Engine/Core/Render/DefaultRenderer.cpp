@@ -29,7 +29,7 @@ void DefaultRenderer::setContext(IContext* value)
 	m_distanceRenderer->setContext(value);
 }
 
-void DefaultRenderer::executeRender(EntityCollector* entityCollector, TextureBase* target, Rectangle* scissorRect, int surfaceSelector)
+void DefaultRenderer::executeRender(EntityCollector* entityCollector, TextureBase* target, Rectangle<int>* scissorRect, int surfaceSelector)
 {
 	updateLights(entityCollector);
 

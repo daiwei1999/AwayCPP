@@ -124,14 +124,14 @@ void View3D::setScene(Scene3D* value)
 		m_camera->setPartition(m_scene->getPartition());
 }
 
-void View3D::setWidth(float value)
+void View3D::setWidth(int value)
 {
 	if (value == m_width)
 		return;
 
 	m_rttBufferManager->setViewWidth(value);
 	m_width = value;
-	m_aspectRatio = m_width / m_height;
+	m_aspectRatio = (float)m_width / m_height;
 	m_camera->getLens()->setAspectRatio(m_aspectRatio);
 	m_depthTextureInvalid = true;
 
@@ -141,14 +141,14 @@ void View3D::setWidth(float value)
 	m_scissorRectDirty = true;
 }
 
-void View3D::setHeight(float value)
+void View3D::setHeight(int value)
 {
 	if (value == m_height)
 		return;
 
 	m_rttBufferManager->setViewHeight(value);
 	m_height = value;
-	m_aspectRatio = m_width / m_height;
+	m_aspectRatio = (float)m_width / m_height;
 	m_camera->getLens()->setAspectRatio(m_aspectRatio);
 	m_depthTextureInvalid = true;
 
@@ -158,7 +158,7 @@ void View3D::setHeight(float value)
 	m_scissorRectDirty = true;
 }
 
-void View3D::setX(float value)
+void View3D::setX(int value)
 {
 	if (value == m_x)
 		return;
@@ -167,7 +167,7 @@ void View3D::setX(float value)
 	m_globalPosDirty = true;
 }
 
-void View3D::setY(float value)
+void View3D::setY(int value)
 {
 	if (value == m_y)
 		return;

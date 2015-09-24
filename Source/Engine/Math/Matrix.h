@@ -16,7 +16,7 @@ public:
 	void scale(float sx, float sy);
 	void translate(float dx, float dy);
 
-	static Point* transformPoint(const Matrix& matrix, const Point* pin, Point* pout);
+	static Point<float>* transformPoint(const Matrix& matrix, const Point<float>* pin, Point<float>* pout);
 	
 public:
 	float m_a, m_b, m_c, m_d, m_tx, m_ty;

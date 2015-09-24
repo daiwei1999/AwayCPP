@@ -50,7 +50,7 @@ public:
 	void setRenderToBackBuffer() override;
 	void setRenderToTexture(TextureBase* texture, bool enableDepthAndStencil = false, int antiAlias = 0, int surfaceSelector = 0, int colorOutputIndex = 0) override;
 	void setSamplerStateAt(int sampler, WrapMode wrap, TextureFilter filter, MipFilter mipfilter) override;
-	void setScissorRectangle(Rectangle* rectangle) override;
+	void setScissorRectangle(Rectangle<int>* rectangle) override;
 	void setStencilActions(TriangleFace triangleFace = TriangleFace::FRONT_AND_BACK,
 						   CompareMode compareMode = CompareMode::ALWAYS,
 						   StencilAction actionOnBothPass = StencilAction::KEEP,

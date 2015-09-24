@@ -210,9 +210,7 @@
     <ClCompile Include="..\..\Math\Matrix.cpp" />
     <ClCompile Include="..\..\Math\Matrix3D.cpp" />
     <ClCompile Include="..\..\Math\Plane3D.cpp" />
-    <ClCompile Include="..\..\Math\Point.cpp" />
     <ClCompile Include="..\..\Math\Quaternion.cpp" />
-    <ClCompile Include="..\..\Math\Rectangle.cpp" />
     <ClCompile Include="..\..\Math\Vector3D.cpp" />
     <ClCompile Include="..\..\Primitives\CapsuleGeometry.cpp" />
     <ClCompile Include="..\..\Primitives\ConeGeometry.cpp" />
@@ -456,8 +454,10 @@
     <ClInclude Include="..\..\Math\Matrix.h" />
     <ClInclude Include="..\..\Math\Matrix3D.h" />
     <ClInclude Include="..\..\Math\Plane3D.h" />
+    <ClInclude Include="..\..\Math\Point-inl.h" />
     <ClInclude Include="..\..\Math\Point.h" />
     <ClInclude Include="..\..\Math\Quaternion.h" />
+    <ClInclude Include="..\..\Math\Rectangle-inl.h" />
     <ClInclude Include="..\..\Math\Rectangle.h" />
     <ClInclude Include="..\..\Math\Vector3D.h" />
     <ClInclude Include="..\..\Primitives\CapsuleGeometry.h" />

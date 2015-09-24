@@ -94,10 +94,6 @@ private:
 	IContext* m_context;
 	bool m_bothSides;
 	bool m_renderToTexture;
-	bool m_oldDepthStencil;
-	TextureBase* m_oldTarget;
-	int m_oldSurface;
-	Rectangle m_oldRect;
 
 	static int m_previousUsedStreams;
 	static int m_previousUsedTexs;

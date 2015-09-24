@@ -465,7 +465,7 @@ void OpenGLES2Context::setSamplerStateAt(int sampler, WrapMode wrap, TextureFilt
 	}
 }
 
-void OpenGLES2Context::setScissorRectangle(Rectangle* rectangle)
+void OpenGLES2Context::setScissorRectangle(Rectangle<int>* rectangle)
 {
 	if (rectangle)
 	{
@@ -482,10 +482,10 @@ void OpenGLES2Context::setScissorRectangle(Rectangle* rectangle)
 		}
 		else
 		{
-			x = (GLint)rectangle->m_x;
-			y = (GLint)rectangle->m_y;
-			width = (GLsizei)rectangle->m_width;
-			height = (GLsizei)rectangle->m_height;
+			x = rectangle->m_x;
+			y = rectangle->m_y;
+			width = rectangle->m_width;
+			height = rectangle->m_height;
 		}
 
 		glScissor(x, y, width, height);

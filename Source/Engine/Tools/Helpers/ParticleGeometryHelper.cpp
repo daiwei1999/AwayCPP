@@ -25,7 +25,7 @@ ParticleGeometry* ParticleGeometryHelper::generateGeometry(std::vector<Geometry*
 	float* sourceVertices;
 	unsigned short* sourceIndices;
 	Vector3D position, normal, tangent;
-	Point uv;
+	Point<float> uv;
 	ParticleGeometry* particleGeometry = new ParticleGeometry();
 
 	for (i = 0; i < numParticles; i++)

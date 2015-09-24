@@ -57,8 +57,8 @@ void OrthographicLens::updateMatrix()
 	}
 	else
 	{
-		float xWidth = xMax * (m_viewPort.m_width / m_scissorRect.m_width);
-		float yHgt = yMax * (m_viewPort.m_height / m_scissorRect.m_height);
+		float xWidth = xMax * m_viewPort.m_width / m_scissorRect.m_width;
+		float yHgt = yMax * m_viewPort.m_height / m_scissorRect.m_height;
 		float center = xMax * (m_scissorRect.m_x * 2 - m_viewPort.m_width) / m_scissorRect.m_width + xMax;
 		float middle = -yMax * (m_scissorRect.m_y * 2 - m_viewPort.m_height) / m_scissorRect.m_height - yMax;
 

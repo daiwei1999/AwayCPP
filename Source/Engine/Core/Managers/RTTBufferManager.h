@@ -19,7 +19,7 @@ public:
 	VertexBuffer* getRenderToTextureVertexBuffer();
 	VertexBuffer* getRenderToScreenVertexBuffer();
 	IndexBuffer* getIndexBuffer() { return m_indexBuffer; }
-	Rectangle* getRenderToTextureRect();
+	Rectangle<int>* getRenderToTextureRect();
 	int getTextureWidth() { return m_textureWidth; }
 	int getTextureHeight() { return m_textureHeight; }
 
@@ -37,7 +37,7 @@ private:
 	int m_viewHeight;
 	int m_textureWidth;
 	int m_textureHeight;
-	Rectangle m_renderToTextureRect;
+	Rectangle<int> m_renderToTextureRect;
 	bool m_buffersInvalid;
 	float m_textureRatioX;
 	float m_textureRatioY;

@@ -51,7 +51,7 @@ EntityCollector* RendererBase::createEntityCollector()
 	return new EntityCollector();
 }
 
-void RendererBase::render(EntityCollector* entityCollector, TextureBase* target, Rectangle* scissorRect, int surfaceSelector)
+void RendererBase::render(EntityCollector* entityCollector, TextureBase* target, Rectangle<int>* scissorRect, int surfaceSelector)
 {
 	if (!m_context)
 		return;
@@ -69,7 +69,7 @@ void RendererBase::render(EntityCollector* entityCollector, TextureBase* target,
 	}
 }
 
-void RendererBase::executeRender(EntityCollector* entityCollector, TextureBase* target, Rectangle* scissorRect, int surfaceSelector)
+void RendererBase::executeRender(EntityCollector* entityCollector, TextureBase* target, Rectangle<int>* scissorRect, int surfaceSelector)
 {
 	if (m_renderableSorter)
 		m_renderableSorter->sort(entityCollector);

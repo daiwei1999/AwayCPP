@@ -1,8 +1,5 @@
-#include "Rectangle.h"
-
-USING_AWAY_NAMESPACE
-
-Rectangle::Rectangle(float x, float y, float width, float height)
+template <typename T>
+Rectangle<T>::Rectangle(T x, T y, T width, T height)
 {
 	m_x = x;
 	m_y = y;
@@ -10,35 +7,41 @@ Rectangle::Rectangle(float x, float y, float width, float height)
 	m_height = height;
 }
 
-void Rectangle::getBottomRight(Point& result) const
+template <typename T>
+void Rectangle<T>::getBottomRight(Point<T>& result) const
 {
 	result.m_x = m_x + m_width;
 	result.m_y = m_y + m_height;
 }
 
-void Rectangle::getSize(Point& result) const
+template <typename T>
+void Rectangle<T>::getSize(Point<T>& result) const
 {
 	result.m_x = m_width;
 	result.m_y = m_height;
 }
 
-void Rectangle::getTopLeft(Point& result) const
+template <typename T>
+void Rectangle<T>::getTopLeft(Point<T>& result) const
 {
 	result.m_x = m_x;
 	result.m_y = m_y;
 }
 
-bool Rectangle::contains(float x, float y) const
+template <typename T>
+bool Rectangle<T>::contains(T x, T y) const
 {
-	return m_x <= x && m_x + m_width >= x && m_y <= y && m_y + m_height >= y;
+	return (m_x <= x && m_x + m_width >= x && m_y <= y && m_y + m_height >= y);
 }
 
-bool Rectangle::containsRect(Rectangle& rect) const
+template <typename T>
+bool Rectangle<T>::containsRect(Rectangle<T>& rect) const
 {
-	return m_x <= rect.m_x && m_x + m_width >= rect.m_x + rect.m_width && m_y <= rect.m_y && m_y + m_height >= rect.m_y + rect.m_height;
+	return (m_x <= rect.m_x && m_x + m_width >= rect.m_x + rect.m_width && m_y <= rect.m_y && m_y + m_height >= rect.m_y + rect.m_height);
 }
 
-void Rectangle::copyFrom(const Rectangle& sourceRect)
+template <typename T>
+void Rectangle<T>::copyFrom(const Rectangle<T>& sourceRect)
 {
 	m_x = sourceRect.m_x;
 	m_y = sourceRect.m_y;
@@ -46,12 +49,14 @@ void Rectangle::copyFrom(const Rectangle& sourceRect)
 	m_height = sourceRect.m_height;
 }
 
-bool Rectangle::equals(Rectangle& toCompare) const
+template <typename T>
+bool Rectangle<T>::equals(Rectangle<T>& toCompare) const
 {
-	return m_x == toCompare.m_x && m_y == toCompare.m_y && m_width == toCompare.m_width && m_height == toCompare.m_height;
+	return (m_x == toCompare.m_x && m_y == toCompare.m_y && m_width == toCompare.m_width && m_height == toCompare.m_height);
 }
 
-void Rectangle::inflate(float dx, float dy)
+template <typename T>
+void Rectangle<T>::inflate(T dx, T dy)
 {
 	m_x -= dx;
 	m_y -= dy;
@@ -59,7 +64,8 @@ void Rectangle::inflate(float dx, float dy)
 	m_height += 2 * dy;
 }
 
-bool Rectangle::intersection(const Rectangle& toIntersect, Rectangle& result) const
+template <typename T>
+bool Rectangle<T>::intersection(const Rectangle<T>& toIntersect, Rectangle<T>& result) const
 {
 	if (!intersects(toIntersect))
 		return false;
@@ -101,23 +107,27 @@ bool Rectangle::intersection(const Rectangle& toIntersect, Rectangle& result) co
 	return true;
 }
 
-bool Rectangle::intersects(const Rectangle& toIntersect) const
+template <typename T>
+bool Rectangle<T>::intersects(const Rectangle<T>& toIntersect) const
 {
-	return m_x + m_width > toIntersect.m_x && m_x < toIntersect.m_x + toIntersect.m_width && m_y + m_height > toIntersect.m_y && m_y < toIntersect.m_y + toIntersect.m_height;
+	return (m_x + m_width > toIntersect.m_x && m_x < toIntersect.m_x + toIntersect.m_width && m_y + m_height > toIntersect.m_y && m_y < toIntersect.m_y + toIntersect.m_height);
 }
 
-void Rectangle::offset(float dx, float dy)
+template <typename T>
+void Rectangle<T>::offset(T dx, T dy)
 {
 	m_x += dx;
 	m_y += dy;
 }
 
-void Rectangle::setEmpty()
+template <typename T>
+void Rectangle<T>::setEmpty()
 {
 	m_x = m_y = m_width = m_height = 0;
 }
 
-void Rectangle::setTo(float xa, float ya, float widtha, float heighta)
+template <typename T>
+void Rectangle<T>::setTo(T xa, T ya, T widtha, T heighta)
 {
 	m_x = xa;
 	m_y = ya;
@@ -125,7 +135,8 @@ void Rectangle::setTo(float xa, float ya, float widtha, float heighta)
 	m_height = heighta;
 }
 
-void Rectangle::merge(const Rectangle& toUnion, Rectangle& result) const
+template <typename T>
+void Rectangle<T>::merge(const Rectangle<T>& toUnion, Rectangle<T>& result) const
 {
 	if (m_x < toUnion.m_x)
 	{

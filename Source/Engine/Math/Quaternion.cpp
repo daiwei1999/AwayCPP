@@ -181,7 +181,7 @@ void Quaternion::toMatrix3D(Matrix3D& result) const
 	result.m_rawData[15] = 1;
 }
 
-void Quaternion::fromMatrix(const Matrix3D& matrix)
+void Quaternion::fromMatrix3D(const Matrix3D& matrix)
 {
 	Vector3D v[3];
 	matrix.decompose(v, Orientation3D::QUATERNION);

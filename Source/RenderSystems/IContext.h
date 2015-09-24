@@ -155,7 +155,7 @@ public:
 	virtual void setRenderToBackBuffer() = 0;
 	virtual void setRenderToTexture(TextureBase* texture, bool enableDepthAndStencil = false, int antiAlias = 0, int surfaceSelector = 0, int colorOutputIndex = 0) = 0;
 	virtual void setSamplerStateAt(int sampler, WrapMode wrap, TextureFilter filter, MipFilter mipfilter) = 0;
-	virtual void setScissorRectangle(Rectangle* rectangle) = 0;
+	virtual void setScissorRectangle(Rectangle<int>* rectangle) = 0;
 	virtual void setStencilActions(TriangleFace triangleFace = TriangleFace::FRONT_AND_BACK,
 		                           CompareMode compareMode = CompareMode::ALWAYS,
 								   StencilAction actionOnBothPass = StencilAction::KEEP,

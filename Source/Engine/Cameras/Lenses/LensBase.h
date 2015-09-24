@@ -33,8 +33,8 @@ public:
 	Vector3D* project(Vector3D* point3d, Vector3D* result);
 	virtual Vector3D* unproject(float nX, float nY, float sZ, Vector3D* result) = 0;
 
-	void updateScissorRect(float x, float y, float width, float height);
-	void updateViewport(float x, float y, float width, float height);
+	void updateScissorRect(int x, int y, int width, int height);
+	void updateViewport(int x, int y, int width, int height);
 
 protected:
 	void invalidateMatrix();
@@ -42,8 +42,8 @@ protected:
 
 protected:
 	Matrix3D m_matrix;
-	Rectangle m_scissorRect;
-	Rectangle m_viewPort;
+	Rectangle<int> m_scissorRect;
+	Rectangle<int> m_viewPort;
 	float m_near;
 	float m_far;
 	float m_aspectRatio;

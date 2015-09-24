@@ -21,7 +21,7 @@ public:
 	void normalize();
 
 	void toMatrix3D(Matrix3D& result) const;
-	void fromMatrix(const Matrix3D& matrix);
+	void fromMatrix3D(const Matrix3D& matrix);
 
 	void rotatePoint(const Vector3D& vector, Vector3D& result) const;
 

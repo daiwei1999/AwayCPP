@@ -28,14 +28,14 @@ public:
 	void setCamera(Camera3D* value);
 	Scene3D* getScene() { return m_scene; }
 	void setScene(Scene3D* value);
-	float getX() { return m_x; }
-	void setX(float value);
-	float getY() { return m_y; }
-	void setY(float value);
-	float getWidth() { return m_width; }
-	void setWidth(float value);
-	float getHeight() { return m_height; }
-	void setHeight(float value);
+	int getX() { return m_x; }
+	void setX(int value);
+	int getY() { return m_y; }
+	void setY(int value);
+	int getWidth() { return m_width; }
+	void setWidth(int value);
+	int getHeight() { return m_height; }
+	void setHeight(int value);
 	bool getVisible() { return m_visible; }
 	void setVisible(bool value);
 	unsigned int getAntiAlias() { return m_antiAlias; }
@@ -74,16 +74,16 @@ protected:
 	bool m_visible;
 	bool m_backBufferInvalid;
 	bool m_requireDepthRender;
-	Rectangle m_scissorRect;
+	Rectangle<int> m_scissorRect;
 	FilterRenderer* m_filterRenderer;
 	Texture* m_depthRender;
 	RTTBufferManager* m_rttBufferManager;
 
 private:
-	float m_x;
-	float m_y;
-	float m_width;
-	float m_height;
+	int m_x;
+	int m_y;
+	int m_width;
+	int m_height;
 	unsigned int m_backgroundColor;
 	float m_backgroundAlpha;
 	Texture2DBase* m_background;

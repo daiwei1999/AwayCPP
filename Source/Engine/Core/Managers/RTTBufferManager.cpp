@@ -110,7 +110,7 @@ VertexBuffer* RTTBufferManager::getRenderToScreenVertexBuffer()
 	return m_renderToScreenVertexBuffer;
 }
 
-Rectangle* RTTBufferManager::getRenderToTextureRect()
+Rectangle<int>* RTTBufferManager::getRenderToTextureRect()
 {
 	if (m_buffersInvalid)
 		updateRTTBuffers();

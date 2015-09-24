@@ -29,7 +29,7 @@ private:
 	friend class SegmentSet;
 private:
 	SegmentSet* m_segmentSet;
-	unsigned int m_index;
+	int m_index;
 	Vector3D m_start, m_end;
 	unsigned int m_startColor;
 	unsigned int m_endColor;
