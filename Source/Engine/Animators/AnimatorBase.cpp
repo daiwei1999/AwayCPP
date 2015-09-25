@@ -45,7 +45,7 @@ void AnimatorBase::setAutoUpdate(bool value)
 	}
 }
 
-void AnimatorBase::setTime(unsigned int value)
+void AnimatorBase::setTime(long long value)
 {
 	if (value != m_time)
 		update(value);
@@ -56,7 +56,7 @@ void AnimatorBase::start()
 	if (m_isPlaying || !m_autoUpdate)
 		return;
 
-	m_time = (unsigned int)std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now() - ms_startTime).count();
+	m_time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now() - ms_startTime).count();
 	m_absoluteTime = (float)m_time;
 	m_isPlaying = true;
 
@@ -83,7 +83,7 @@ void AnimatorBase::phase(float value)
 	m_activeState->phase(value);
 }
 
-void AnimatorBase::update(unsigned int time)
+void AnimatorBase::update(long long time)
 {
 	updateDeltaTime((time - m_time) * m_playbackSpeed);
 	m_time = time;
@@ -106,7 +106,7 @@ void AnimatorBase::removeOwner(Mesh* mesh)
 
 void AnimatorBase::update()
 {
-	unsigned int time = (unsigned int)std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now() - ms_startTime).count();
+	long long time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now() - ms_startTime).count();
 	for (auto animator : ms_animators)
 		animator->update(time);
 }

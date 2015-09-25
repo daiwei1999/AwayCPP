@@ -23,13 +23,13 @@ public:
 	void setAutoUpdate(bool value);
 	float getPlaybackSpeed() { return m_playbackSpeed; }
 	void setPlaybackSpeed(float value) { m_playbackSpeed = value; }
-	unsigned int getTime() { return m_time; }
-	void setTime(unsigned int value);
+	long long getTime() { return m_time; }
+	void setTime(long long value);
 
 	virtual void start();
 	void stop();
 	void phase(float value);
-	void update(unsigned int time);
+	void update(long long time);
 	void reset(const std::string& name, float offset = 0);
 
 	void addOwner(Mesh* mesh) override;
@@ -51,7 +51,7 @@ protected:
 private:
 	bool m_isPlaying;
 	bool m_autoUpdate;
-	unsigned int m_time;
+	long long m_time;
 	float m_playbackSpeed;
 	std::unordered_map<AnimationNodeBase*, AnimationStateBase*> m_animationStates;
 
