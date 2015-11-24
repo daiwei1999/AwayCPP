@@ -48,6 +48,6 @@ OpLUT Mapping::agal2glsllut[46] = {
 		{ "%dest=%cast(greaterThanEqual(%a,%b).%dm);\n",             true,  true,  true,  1, true,  false }, // sge
 		{ "%dest=%cast(lessThan(%a,%b).%dm);\n",                     true,  true,  true,  1, true,  false }, // slt
 		{ "%dest=%cast(sign(%a));\n",                                true,  true,  false, 1, false, false }, // sgn
-		{ "%dest = %cast(equal(%a,%b).%dm);\n",                      true,  true,  true,  1, true,  false }, // seq
-		{ "%dest = %cast(notEqual(%a,%b).%dm);\n",                   true,  true,  true,  1, true,  false }, // sne
+		{ "%dest=%cast(equal(%a,%b).%dm);\n",                        true,  true,  true,  1, true,  false }, // seq
+		{ "%dest=%cast(notEqual(%a,%b).%dm);\n",                     true,  true,  true,  1, true,  false }, // sne
 };

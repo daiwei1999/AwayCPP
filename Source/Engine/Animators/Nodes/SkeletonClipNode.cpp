@@ -9,7 +9,7 @@ SkeletonClipNode::SkeletonClipNode()
 
 }
 
-void SkeletonClipNode::addFrame(SkeletonPose* skeletonPose, unsigned int duration)
+void SkeletonClipNode::addFrame(SkeletonPose* skeletonPose, float duration)
 {
 	m_frames.push_back(skeletonPose);
 	m_durations.push_back(duration);

@@ -30,7 +30,7 @@ void AnimationClipNodeBase::setStitchFinalFrame(bool value)
 	}
 }
 
-unsigned int AnimationClipNodeBase::getTotalDuration()
+float AnimationClipNodeBase::getTotalDuration()
 {
 	if (m_stitchDirty)
 		updateStitch();

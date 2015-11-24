@@ -41,7 +41,7 @@ void ParticleFollowState::setRenderState(IContext* context, IRenderable* rendera
 		subGeometry->m_previousTime = -MathConsts::Infinity;
 	}
 
-	float currentTime = m_time * 0.001f;
+	float currentTime = m_time;
 	float previousTime = subGeometry->m_previousTime;
 	float deltaTime = currentTime - previousTime;
 	bool needProcess = previousTime != currentTime;

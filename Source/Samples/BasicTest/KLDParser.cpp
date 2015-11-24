@@ -168,7 +168,7 @@ void KLDParser::parseAnimation(unsigned int end)
 	node->setLooping(m_body->readBoolean());
 
 	unsigned char frameRate = m_body->readUnsignedByte();
-	unsigned int duration = 1000 / frameRate;
+	float duration = 1.f / frameRate;
 	while (m_body->getPosition() < end)
 	{
 		away::SkeletonPose* skeletonPose = new away::SkeletonPose();

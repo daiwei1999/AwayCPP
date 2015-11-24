@@ -37,7 +37,7 @@ void AnimationClipState::update(float time)
 	AnimationClipNodeBase* animationClipNode = static_cast<AnimationClipNodeBase*>(m_animationNode);
 	if (!animationClipNode->getLooping())
 	{
-		unsigned int totalDuration = animationClipNode->getTotalDuration();
+		float totalDuration = animationClipNode->getTotalDuration();
 		if (time > m_startTime + totalDuration)
 			time = m_startTime + totalDuration;
 		else if (time < m_startTime)
@@ -68,13 +68,13 @@ void AnimationClipState::updateFrames()
 
 	AnimationClipNodeBase* animationClipNode = static_cast<AnimationClipNodeBase*>(m_animationNode);
 	bool looping = animationClipNode->getLooping();
-	unsigned int totalDuration = animationClipNode->getTotalDuration();
+	float totalDuration = animationClipNode->getTotalDuration();
 	unsigned int lastFrame = animationClipNode->getLastFrame();
 	float time = m_time;
 
 	if (looping && (time >= totalDuration || time < 0))
 	{
-		time = std::fmod(time, (float)totalDuration);
+		time = std::fmod(time, totalDuration);
 		if (time < 0)
 			time += totalDuration;
 	}
@@ -104,8 +104,8 @@ void AnimationClipState::updateFrames()
 		m_currentFrame = 0;
 		m_nextFrame = 0;
 
-		unsigned int dur = 0, frameTime;
-		std::vector<unsigned int>& durations = animationClipNode->getDurations();
+		float dur = 0, frameTime;
+		std::vector<float>& durations = animationClipNode->getDurations();
 
 		do
 		{

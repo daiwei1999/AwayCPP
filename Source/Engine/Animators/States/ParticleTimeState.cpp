@@ -15,5 +15,5 @@ void ParticleTimeState::setRenderState(IContext* context, IRenderable* renderabl
 {
 	ParticleTimeNode* particleTimeNode = static_cast<ParticleTimeNode*>(m_animationNode);
 	subGeometry->activateVertexBuffer(regCache->getRegisterIndex(m_animationNode, ParticleTimeNode::TIME_STREAM_INDEX), particleTimeNode->m_dataOffset, context, VertexBufferFormat::FLOAT_4);
-	regCache->setVertexConst(regCache->getRegisterIndex(m_animationNode, ParticleTimeNode::TIME_CONSTANT_INDEX), m_time * 0.001f);
+	regCache->setVertexConst(regCache->getRegisterIndex(m_animationNode, ParticleTimeNode::TIME_CONSTANT_INDEX), m_time);
 }

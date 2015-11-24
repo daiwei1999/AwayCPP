@@ -14,7 +14,7 @@ public:
 	SkeletonClipNode();
 
 	std::vector<SkeletonPose*>& getFrames() { return m_frames; }
-	void addFrame(SkeletonPose* skeletonPose, unsigned int duration);
+	void addFrame(SkeletonPose* skeletonPose, float duration);
 	AnimationStateBase* createAnimationState(IAnimator* animator) override;
 
 protected:
