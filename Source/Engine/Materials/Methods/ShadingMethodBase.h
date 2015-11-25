@@ -15,9 +15,9 @@ public:
 	ShadingMethodBase();
 
 	ShaderRegisterData* getSharedRegisters() { return m_sharedRegisters; }
-	void setSharedRegisters(ShaderRegisterData* value) { m_sharedRegisters = value; }
+	virtual void setSharedRegisters(ShaderRegisterData* value) { m_sharedRegisters = value; }
 
-	MaterialPassVector& getPasses() { return m_passes; }
+	virtual MaterialPassVector& getPasses() { return m_passes; }
 	MethodVO* createMethodVO();
 
 	virtual void initVO(MethodVO* vo);

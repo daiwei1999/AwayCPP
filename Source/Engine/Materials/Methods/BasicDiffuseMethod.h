@@ -15,15 +15,15 @@ public:
 
 	bool getUseAmbientTexture() { return m_useAmbientTexture; }
 	void setUseAmbientTexture(bool value);
-	float getDiffuseAlpha() { return m_diffuseA; }
-	void setDiffuseAlpha(float value) { m_diffuseA = value; }
-	unsigned int getDiffuseColor() { return m_diffuseColor; }
-	void setDiffuseColor(unsigned int value);
-	Texture2DBase* getTexture() { return m_texture; }
-	void setTexture(Texture2DBase* value);
-	float getAlphaThreshold() { return m_alphaThreshold; }
-	void setAlphaThreshold(float value);
-	void setShadowRegister(unsigned int value) { m_shadowRegister = value; }
+	virtual float getDiffuseAlpha() { return m_diffuseA; }
+	virtual void setDiffuseAlpha(float value) { m_diffuseA = value; }
+	virtual unsigned int getDiffuseColor() { return m_diffuseColor; }
+	virtual void setDiffuseColor(unsigned int value);
+	virtual Texture2DBase* getTexture() { return m_texture; }
+	virtual void setTexture(Texture2DBase* value);
+	virtual float getAlphaThreshold() { return m_alphaThreshold; }
+	virtual void setAlphaThreshold(float value);
+	virtual void setShadowRegister(unsigned int value) { m_shadowRegister = value; }
 
 	void initVO(MethodVO* vo) override;
 	void cleanCompilationData() override;
@@ -37,6 +37,7 @@ public:
 protected:
 	void applyShadow(ShaderChunk& code, MethodVO* vo, ShaderRegisterCache* regCache);
 
+	friend class CompositeDiffuseMethod;
 protected:
 	bool m_useTexture;
 	bool m_isFirstLight;

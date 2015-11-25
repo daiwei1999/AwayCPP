@@ -14,15 +14,15 @@ class BasicSpecularMethod : public LightingMethodBase
 public:
 	BasicSpecularMethod();
 
-	float getGloss() { return m_gloss; }
-	void setGloss(float value) { m_gloss = value; }
-	float getSpecular() { return m_specular; }
-	void setSpecular(float value);
+	virtual float getGloss() { return m_gloss; }
+	virtual void setGloss(float value) { m_gloss = value; }
+	virtual float getSpecular() { return m_specular; }
+	virtual void setSpecular(float value);
 	unsigned int getSpecularColor() { return m_specularColor; }
 	void setSpecularColor(unsigned int value);
-	Texture2DBase* getTexture() { return m_texture; }
-	void setTexture(Texture2DBase* value);
-	void setShadowRegister(unsigned int value) { m_shadowRegister = value; }
+	virtual Texture2DBase* getTexture() { return m_texture; }
+	virtual void setTexture(Texture2DBase* value);
+	virtual void setShadowRegister(unsigned int value) { m_shadowRegister = value; }
 
 	void initVO(MethodVO* vo) override;
 	void cleanCompilationData() override;

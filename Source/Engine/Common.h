@@ -354,5 +354,6 @@ typedef std::vector<DirectionalLight*> DirectionalLightVector;
 typedef std::vector<LightProbe*> LightProbeVector;
 typedef std::vector<float> WeightVector;
 typedef std::vector<FilterBase*> FilterVector;
+typedef std::function<void(ShaderChunk&, MethodVO*, unsigned int, ShaderRegisterCache*, ShaderRegisterData*)> ModulateFunc;
 
 AWAY_NAMESPACE_END

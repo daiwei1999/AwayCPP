@@ -51,8 +51,10 @@ public:
 	 */
 	virtual void getFragmentPostLightingCode(ShaderChunk& code, MethodVO* vo, ShaderRegisterCache* regCache, unsigned int targetReg);
 
-protected:
-	void (*m_modulateMethod)(ShaderChunk& code, MethodVO* vo, unsigned int t, ShaderRegisterCache* regCache, ShaderRegisterData* sharedRegisters);
+	/**
+	 * A method that is exposed to wrappers in case the strength needs to be controlled
+	 */
+	ModulateFunc m_modulateMethod;
 };
 
 AWAY_NAMESPACE_END

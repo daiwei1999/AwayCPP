@@ -816,6 +816,18 @@
     <ClCompile Include="..\..\Filters\Tasks\RadialBlurFilterTask.cpp">
       <Filter>Filters\Tasks</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\CelDiffuseMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\CelSpecularMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\CompositeDiffuseMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\CompositeSpecularMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Math\Rectangle.h">
@@ -1554,6 +1566,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Math\Point-inl.h">
       <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\CelDiffuseMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\CelSpecularMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\CompositeDiffuseMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\CompositeSpecularMethod.h">
+      <Filter>Materials\Methods</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

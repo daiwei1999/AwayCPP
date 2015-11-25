@@ -13,6 +13,7 @@ USING_AWAY_NAMESPACE
 BasicSpecularMethod::BasicSpecularMethod()
 {
 	m_useTexture = false;
+	m_texture = nullptr;
 	m_gloss = 50;
 	m_specular = 1;
 	m_specularColor = 0xffffff;
@@ -68,7 +69,7 @@ void BasicSpecularMethod::cleanCompilationData()
 
 void BasicSpecularMethod::copyFrom(ShadingMethodBase* method)
 {
-	BasicSpecularMethod* basicSpecularMethod = (BasicSpecularMethod*)method;
+	BasicSpecularMethod* basicSpecularMethod = static_cast<BasicSpecularMethod*>(method);
 	setTexture(basicSpecularMethod->getTexture());
 	setSpecular(basicSpecularMethod->getSpecular());
 	setSpecularColor(basicSpecularMethod->getSpecularColor());

@@ -175,8 +175,12 @@
     <ClCompile Include="..\..\Materials\Methods\BasicDiffuseMethod.cpp" />
     <ClCompile Include="..\..\Materials\Methods\BasicNormalMethod.cpp" />
     <ClCompile Include="..\..\Materials\Methods\BasicSpecularMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\CelDiffuseMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\CelSpecularMethod.cpp" />
     <ClCompile Include="..\..\Materials\Methods\ColorMatrixMethod.cpp" />
     <ClCompile Include="..\..\Materials\Methods\ColorTransformMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\CompositeDiffuseMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\CompositeSpecularMethod.cpp" />
     <ClCompile Include="..\..\Materials\Methods\EnvMapMethod.cpp" />
     <ClCompile Include="..\..\Materials\Methods\FogMethod.cpp" />
     <ClCompile Include="..\..\Materials\Methods\HardShadowMapMethod.cpp" />
@@ -418,8 +422,12 @@
     <ClInclude Include="..\..\Materials\Methods\BasicDiffuseMethod.h" />
     <ClInclude Include="..\..\Materials\Methods\BasicNormalMethod.h" />
     <ClInclude Include="..\..\Materials\Methods\BasicSpecularMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\CelDiffuseMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\CelSpecularMethod.h" />
     <ClInclude Include="..\..\Materials\Methods\ColorMatrixMethod.h" />
     <ClInclude Include="..\..\Materials\Methods\ColorTransformMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\CompositeDiffuseMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\CompositeSpecularMethod.h" />
     <ClInclude Include="..\..\Materials\Methods\EffectMethodBase.h" />
     <ClInclude Include="..\..\Materials\Methods\EnvMapMethod.h" />
     <ClInclude Include="..\..\Materials\Methods\FogMethod.h" />
