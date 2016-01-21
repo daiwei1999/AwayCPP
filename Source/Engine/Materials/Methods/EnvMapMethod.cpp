@@ -38,9 +38,17 @@ void EnvMapMethod::initVO(MethodVO* vo)
 void EnvMapMethod::activate(MethodVO* vo, IContext* context)
 {
 	(*vo->m_fragmentData)[vo->m_fragmentConstantsIndex] = m_alpha;
+
+	bool useMipMaps = vo->m_useMipmapping && m_envMap->hasMipMaps();
+	context->setSamplerStateAt(vo->m_texturesIndex, WrapMode::CLAMP, vo->m_useSmoothTextures ? TextureFilter::LINEAR : TextureFilter::NEAREST, useMipMaps ? MipFilter::MIPLINEAR : MipFilter::MIPNONE);
 	context->setTextureAt(vo->m_texturesIndex, m_envMap->getTextureForContext(context));
+
 	if (m_mask)
+	{
+		useMipMaps = vo->m_useMipmapping && m_mask->hasMipMaps();
+		context->setSamplerStateAt(vo->m_texturesIndex + 1, vo->m_repeatTextures ? WrapMode::REPEAT : WrapMode::CLAMP, vo->m_useSmoothTextures ? TextureFilter::LINEAR : TextureFilter::NEAREST, useMipMaps ? MipFilter::MIPLINEAR : MipFilter::MIPNONE);
 		context->setTextureAt(vo->m_texturesIndex + 1, m_mask->getTextureForContext(context));
+	}
 }
 
 void EnvMapMethod::getFragmentCode(ShaderChunk& code, MethodVO* vo, ShaderRegisterCache* regCache, unsigned int targetReg)
@@ -54,14 +62,13 @@ void EnvMapMethod::getFragmentCode(ShaderChunk& code, MethodVO* vo, ShaderRegist
 	regCache->addFragmentTempUsages(temp, 1);
 	unsigned int temp2 = regCache->getFreeFragmentVectorTemp();
 
-	// r = I - 2(I.N)*N
-	code.dp3(temp ^ Regs::w, m_sharedRegisters->m_viewDirFragment, m_sharedRegisters->m_normalFragment);
-	code.add(temp ^ Regs::w, temp ^ Regs::w, temp ^ Regs::w);
-	code.mul(temp ^ Regs::xyz, m_sharedRegisters->m_normalFragment, temp ^ Regs::w);
-	code.sub(temp ^ Regs::xyz, temp, m_sharedRegisters->m_viewDirFragment);
+	code.dp3(temp ^ Regs::w, m_sharedRegisters->m_viewDirFragment, m_sharedRegisters->m_normalFragment); // dot(viewDir, normal)
+	code.add(temp ^ Regs::w, temp ^ Regs::w, temp ^ Regs::w); // 2 * dot(viewDir, normal)
+	code.mul(temp ^ Regs::xyz, m_sharedRegisters->m_normalFragment, temp ^ Regs::w); // 2 * dot(viewDir, normal) * normal
+	code.sub(temp ^ Regs::xyz, temp, m_sharedRegisters->m_viewDirFragment); // 2 * dot(viewDir, normal) * normal - viewDir
 	getTexCubeSampleCode(code, temp, envMapReg, m_envMap, temp);
-	code.sub(temp2 ^ Regs::w, temp ^ Regs::w, Regs::c0 ^ Regs::x);
-	code.kil(temp2 ^ Regs::w);
+	code.sub(temp2 ^ Regs::w, temp ^ Regs::w, Regs::c0 ^ Regs::x); // temp2.w = temp.w - 0.5
+	code.kil(temp2 ^ Regs::w);	// if alpha is not 1 (mock texture) kill output (used for real time reflection mapping)
 	code.sub(temp ^ Regs::xyz, temp, targetReg);
 
 	if (m_mask)
@@ -71,7 +78,7 @@ void EnvMapMethod::getFragmentCode(ShaderChunk& code, MethodVO* vo, ShaderRegist
 		code.mul(temp ^ Regs::xyz, temp, temp2);
 	}
 
-	code.mul(temp ^ Regs::xyz, temp, dataReg ^ Regs::x);
-	code.add(targetReg ^ Regs::xyz, targetReg, temp);
+	code.mul(temp ^ Regs::xyz, temp, dataReg ^ Regs::x); // (temp - targetReg) * alpha
+	code.add(targetReg ^ Regs::xyz, targetReg, temp); // targetReg + (temp - targetReg) * alpha
 	regCache->removeFragmentTempUsage(temp);
 }
