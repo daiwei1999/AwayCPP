@@ -23,6 +23,8 @@
 #include "ParticleGeometryHelper.h"
 #include "ParticleGeometry.h"
 #include "AxisAlignedBoundingBox.h"
+#include "DistortionMethod.h"
+#include "NullFilter.h"
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 1024;
@@ -53,6 +55,8 @@ away::Scene3D* scene;
 away::HoverController* cameraController;
 away::DirectionalLight* light;
 away::StaticLightPicker* lightPicker;
+away::Mesh* particleMesh;
+away::DistortionMethod* method = nullptr;
 
 float lastPanAngle, lastTiltAngle;
 int lastMouseX, lastMouseY;
@@ -106,7 +110,7 @@ void initParticle()
 		float radius = 15;
 		float degree1 = away::MathUtils::random(0.f, away::MathConsts::TWO_PI);
 		float degree2 = away::MathUtils::random(0.f, away::MathConsts::TWO_PI);
-		prop[away::ParticleVelocityNode::VELOCITY_VECTOR3D].setTo(radius * std::sin(degree1) * std::cos(degree2), 80 + radius * std::cos(degree1) * std::cos(degree2), radius * std::sin(degree2));
+		prop[away::ParticleVelocityNode::VELOCITY_VECTOR3D].setTo(radius * std::sin(degree1) * std::cos(degree2), 20 + radius * std::cos(degree1) * std::cos(degree2), radius * std::sin(degree2));
 	};
 	animationSet->addAnimation(new away::ParticleBillboardNode());
 	animationSet->addAnimation(new away::ParticleScaleNode(away::ParticlePropertiesMode::GLOBAL, false, false, 2.5f, 0.5f));
@@ -118,14 +122,14 @@ void initParticle()
 	away::TextureMaterial* material = new away::TextureMaterial(new away::ATFTexture(textureBytes));
 	material->setBlendMode(away::BlendMode::ADD);
 
-	away::Mesh* particleMesh = new away::Mesh(away::ParticleGeometryHelper::generateGeometry(geometrySet), material);
+	particleMesh = new away::Mesh(away::ParticleGeometryHelper::generateGeometry(geometrySet), material);
 	particleMesh->setAnimator(new away::ParticleAnimator(animationSet));
 	static_cast<away::ParticleAnimator*>(particleMesh->getAnimator())->start();
 
 	away::AxisAlignedBoundingBox bounds;
 	bounds.fromExtremes(-50, 0, -50, 50, 350, 50);
 	particleMesh->setBounds(&bounds);
-	particleMesh->setShowBounds(true);
+	//particleMesh->setShowBounds(true);
 	
 	scene->addChild(particleMesh);
 }
@@ -176,6 +180,9 @@ bool init()
 	initScene();
 	initParticle();
 
+	away::FilterVector filters = { new away::NullFilter() };
+	view->setFilters(filters);
+
 	return true;
 }
 
@@ -207,6 +214,28 @@ void OnKeyDown(SDL_KeyboardEvent& event)
 	case SDLK_MINUS:
 		context->setFillMode(away::FillMode::WIREFRAME);
 		break;
+	case SDLK_d:
+	{
+		if (!method)
+		{
+			away::ByteArray* textureBytes = new away::ByteArray();
+			readFileToByteArray("TX_n_jyt_bigwave.atf", textureBytes);
+			away::ATFTexture* normalMap = new away::ATFTexture(textureBytes);
+			method = new away::DistortionMethod(normalMap, view->getSceneTexture(), 0, 0, 0.5f);
+		}
+		away::TextureMaterial* material = static_cast<away::TextureMaterial*>(particleMesh->getMaterial());
+		if (material->hasMethod(method))
+		{
+			material->removeMethod(method);
+			material->setBlendMode(away::BlendMode::ADD);
+		}
+		else
+		{
+			material->addMethod(method);
+			material->setBlendMode(away::BlendMode::NORMAL);
+		}
+	}
+	break;
 	}
 }
 

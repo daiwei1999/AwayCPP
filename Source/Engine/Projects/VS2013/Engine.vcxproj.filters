@@ -828,6 +828,15 @@
     <ClCompile Include="..\..\Materials\Methods\CompositeSpecularMethod.cpp">
       <Filter>Materials\Methods</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Filters\NullFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\NullFilterTask.cpp">
+      <Filter>Filters\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\DistortionMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Math\Rectangle.h">
@@ -1577,6 +1586,15 @@
       <Filter>Materials\Methods</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Materials\Methods\CompositeSpecularMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\NullFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\NullFilterTask.h">
+      <Filter>Filters\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\DistortionMethod.h">
       <Filter>Materials\Methods</Filter>
     </ClInclude>
   </ItemGroup>

@@ -207,6 +207,11 @@ void View3D::setFilters(FilterVector& value)
 		m_filterRenderer = nullptr;
 }
 
+Texture* View3D::getSceneTexture()
+{
+	return m_filterRenderer->getMainInputTexture(m_context);
+}
+
 void View3D::updateBackBuffer()
 {
 	m_context->configureViewport(m_x, m_y, m_width, m_height);

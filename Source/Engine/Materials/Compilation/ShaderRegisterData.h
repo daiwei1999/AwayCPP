@@ -22,6 +22,7 @@ public:
 	unsigned int m_shadedTarget;
 	unsigned int m_globalPositionVertex;
 	unsigned int m_globalPositionVarying;
+	unsigned int m_projectivePositionVarying;
 	unsigned int m_localPosition;
 	unsigned int m_uvInput;
 	unsigned int m_secondaryUVInput;
@@ -30,7 +31,6 @@ public:
 	unsigned int m_animatedNormal;
 	unsigned int m_animatedTangent;
 	unsigned int m_commons;
-	unsigned int m_projectionFragment;
 	unsigned int m_normalFragment;
 	unsigned int m_viewDirFragment;
 	unsigned int m_bitangent;

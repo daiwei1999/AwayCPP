@@ -96,7 +96,7 @@ void SkeletonAnimator::setRenderState(IContext* context, IRenderable* renderable
 	if (m_globalPropertiesDirty)
 		updateGlobalProperties();
 
-	SkinnedSubGeometry* skinnedGeom = (SkinnedSubGeometry*)(((SubMesh*)renderable)->getSubGeometry());
+	SkinnedSubGeometry* skinnedGeom = static_cast<SkinnedSubGeometry*>(static_cast<SubMesh*>(renderable)->getSubGeometry());
 
 	if (m_animationSet->usesCPU())
 	{

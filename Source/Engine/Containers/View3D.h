@@ -42,6 +42,7 @@ public:
 	void setAntiAlias(unsigned int value);
 	FilterVector& getFilters();
 	void setFilters(FilterVector& value);
+	Texture* getSceneTexture();
 
 	void render();
 	void project(Vector3D* point3d, Vector3D* result);

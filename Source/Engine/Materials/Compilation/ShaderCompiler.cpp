@@ -295,9 +295,9 @@ void ShaderCompiler::compileProjectionCode()
 	unsigned int pos = (m_dependencyCounter.getGlobalPosDependencies() > 0 || m_forceSeperateMVP) ? m_sharedRegisters.m_globalPositionVertex : m_animationTargetRegisters[0];
 	if (m_dependencyCounter.getProjectionDependencies() > 0)
 	{
-		m_sharedRegisters.m_projectionFragment = m_registerCache.getFreeVarying();
+		m_sharedRegisters.m_projectivePositionVarying = m_registerCache.getFreeVarying();
 		m_vertexCode.m44(Regs::t5, pos, Regs::c0);
-		m_vertexCode.mov(m_sharedRegisters.m_projectionFragment, Regs::t5);
+		m_vertexCode.mov(m_sharedRegisters.m_projectivePositionVarying, Regs::t5);
 		m_vertexCode.mov(Regs::op, Regs::t5);
 	}
 	else

@@ -143,12 +143,14 @@
     <ClCompile Include="..\..\Filters\FilterBase.cpp" />
     <ClCompile Include="..\..\Filters\HBlurFilter.cpp" />
     <ClCompile Include="..\..\Filters\MotionBlurFilter.cpp" />
+    <ClCompile Include="..\..\Filters\NullFilter.cpp" />
     <ClCompile Include="..\..\Filters\RadialBlurFilter.cpp" />
     <ClCompile Include="..\..\Filters\Tasks\ColorMatrixFilterTask.cpp" />
     <ClCompile Include="..\..\Filters\Tasks\ColorTransformFilterTask.cpp" />
     <ClCompile Include="..\..\Filters\Tasks\DoubleBufferCopyFilterTask.cpp" />
     <ClCompile Include="..\..\Filters\Tasks\FilterTaskBase.cpp" />
     <ClCompile Include="..\..\Filters\Tasks\HBlurFilterTask.cpp" />
+    <ClCompile Include="..\..\Filters\Tasks\NullFilterTask.cpp" />
     <ClCompile Include="..\..\Filters\Tasks\RadialBlurFilterTask.cpp" />
     <ClCompile Include="..\..\Filters\Tasks\VBlurFilterTask.cpp" />
     <ClCompile Include="..\..\Filters\Tasks\XFadeCompositeFilterTask.cpp" />
@@ -181,6 +183,7 @@
     <ClCompile Include="..\..\Materials\Methods\ColorTransformMethod.cpp" />
     <ClCompile Include="..\..\Materials\Methods\CompositeDiffuseMethod.cpp" />
     <ClCompile Include="..\..\Materials\Methods\CompositeSpecularMethod.cpp" />
+    <ClCompile Include="..\..\Materials\Methods\DistortionMethod.cpp" />
     <ClCompile Include="..\..\Materials\Methods\EnvMapMethod.cpp" />
     <ClCompile Include="..\..\Materials\Methods\FogMethod.cpp" />
     <ClCompile Include="..\..\Materials\Methods\HardShadowMapMethod.cpp" />
@@ -390,12 +393,14 @@
     <ClInclude Include="..\..\Filters\FilterBase.h" />
     <ClInclude Include="..\..\Filters\HBlurFilter.h" />
     <ClInclude Include="..\..\Filters\MotionBlurFilter.h" />
+    <ClInclude Include="..\..\Filters\NullFilter.h" />
     <ClInclude Include="..\..\Filters\RadialBlurFilter.h" />
     <ClInclude Include="..\..\Filters\Tasks\ColorMatrixFilterTask.h" />
     <ClInclude Include="..\..\Filters\Tasks\ColorTransformFilterTask.h" />
     <ClInclude Include="..\..\Filters\Tasks\DoubleBufferCopyFilterTask.h" />
     <ClInclude Include="..\..\Filters\Tasks\FilterTaskBase.h" />
     <ClInclude Include="..\..\Filters\Tasks\HBlurFilterTask.h" />
+    <ClInclude Include="..\..\Filters\Tasks\NullFilterTask.h" />
     <ClInclude Include="..\..\Filters\Tasks\RadialBlurFilterTask.h" />
     <ClInclude Include="..\..\Filters\Tasks\VBlurFilterTask.h" />
     <ClInclude Include="..\..\Filters\Tasks\XFadeCompositeFilterTask.h" />
@@ -428,6 +433,7 @@
     <ClInclude Include="..\..\Materials\Methods\ColorTransformMethod.h" />
     <ClInclude Include="..\..\Materials\Methods\CompositeDiffuseMethod.h" />
     <ClInclude Include="..\..\Materials\Methods\CompositeSpecularMethod.h" />
+    <ClInclude Include="..\..\Materials\Methods\DistortionMethod.h" />
     <ClInclude Include="..\..\Materials\Methods\EffectMethodBase.h" />
     <ClInclude Include="..\..\Materials\Methods\EnvMapMethod.h" />
     <ClInclude Include="..\..\Materials\Methods\FogMethod.h" />

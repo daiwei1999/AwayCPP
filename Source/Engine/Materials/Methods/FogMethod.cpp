@@ -54,7 +54,7 @@ void FogMethod::getFragmentCode(ShaderChunk& code, MethodVO* vo, ShaderRegisterC
 	vo->m_fragmentConstantsIndex = REGISTER_INDEX(fogColor) * 4;
 
 	unsigned int temp = regCache->getFreeFragmentVectorTemp();
-	code.sub(temp ^ Regs::w, m_sharedRegisters->m_projectionFragment ^ Regs::z, fogData ^ Regs::x); // z - minDistance
+	code.sub(temp ^ Regs::w, m_sharedRegisters->m_projectivePositionVarying ^ Regs::z, fogData ^ Regs::x); // z - minDistance
 	code.mul(temp ^ Regs::w, temp ^ Regs::w, fogData ^ Regs::y); // ratio = (z - minDistance) / (maxDistance - minDistance)
 	code.sat(temp ^ Regs::w, temp);
 	code.sub(temp ^ Regs::xyz, fogColor, targetReg); // fogColor - targetReg
