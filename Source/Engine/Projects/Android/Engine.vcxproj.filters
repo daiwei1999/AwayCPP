@@ -816,6 +816,27 @@
     <ClCompile Include="..\..\Filters\Tasks\XFadeCompositeFilterTask.cpp">
       <Filter>Filters\Tasks</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Filters\NullFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Filters\Tasks\NullFilterTask.cpp">
+      <Filter>Filters\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\CelDiffuseMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\CelSpecularMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\CompositeDiffuseMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\CompositeSpecularMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Materials\Methods\DistortionMethod.cpp">
+      <Filter>Materials\Methods</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Math\Rectangle.h">
@@ -1554,6 +1575,27 @@
     </ClInclude>
     <ClInclude Include="..\..\Math\Rectangle-inl.h">
       <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\NullFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Filters\Tasks\NullFilterTask.h">
+      <Filter>Filters\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\CelDiffuseMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\CelSpecularMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\CompositeDiffuseMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\CompositeSpecularMethod.h">
+      <Filter>Materials\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Materials\Methods\DistortionMethod.h">
+      <Filter>Materials\Methods</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
