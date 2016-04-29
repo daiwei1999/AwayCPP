@@ -89,16 +89,14 @@ void initScene()
 {
 	away::ByteArray* textureBytes = new away::ByteArray();
 	readFileToByteArray("floor_diffuse.atf", textureBytes);
-	away::Mesh* ground = new away::Mesh(new away::PlaneGeometry(500, 500), new away::TextureMaterial(new away::ATFTexture(textureBytes)));
-	ground->setY(-20);
-	scene->addChild(ground);
+	scene->addChild(new away::Mesh(new away::PlaneGeometry(1000, 1000), new away::TextureMaterial(new away::ATFTexture(textureBytes))));
 }
 
 void initParticle()
 {
-	away::PlaneGeometry* plane = new away::PlaneGeometry(10, 10, 1, 1, false);
+	away::PlaneGeometry* plane = new away::PlaneGeometry(50, 50, 1, 1, false);
 	std::vector<away::Geometry*> geometrySet;
-	for (int i = 0; i < 500; i++)
+	for (int i = 0; i < 10; i++)
 		geometrySet.push_back(plane);
 
 	away::ParticleAnimationSet* animationSet = new away::ParticleAnimationSet(true, true);
@@ -110,15 +108,15 @@ void initParticle()
 		float radius = 15;
 		float degree1 = away::MathUtils::random(0.f, away::MathConsts::TWO_PI);
 		float degree2 = away::MathUtils::random(0.f, away::MathConsts::TWO_PI);
-		prop[away::ParticleVelocityNode::VELOCITY_VECTOR3D].setTo(radius * std::sin(degree1) * std::cos(degree2), 20 + radius * std::cos(degree1) * std::cos(degree2), radius * std::sin(degree2));
+		prop[away::ParticleVelocityNode::VELOCITY_VECTOR3D].setTo(radius * std::sin(degree1) * std::cos(degree2), 80 + radius * std::cos(degree1) * std::cos(degree2), radius * std::sin(degree2));
 	};
 	animationSet->addAnimation(new away::ParticleBillboardNode());
 	animationSet->addAnimation(new away::ParticleScaleNode(away::ParticlePropertiesMode::GLOBAL, false, false, 2.5f, 0.5f));
-	animationSet->addAnimation(new away::ParticleColorNode(away::ParticlePropertiesMode::GLOBAL, true, true, false, false, new away::ColorTransform(0, 0, 0, 1, 0xFF, 0x33, 0x01), new away::ColorTransform(0, 0, 0, 1, 0x99)));
+	//animationSet->addAnimation(new away::ParticleColorNode(away::ParticlePropertiesMode::GLOBAL, true, true, false, false, new away::ColorTransform(0, 0, 0, 1, 0xFF, 0x33, 0x01), new away::ColorTransform(0, 0, 0, 1, 0x99)));
 	animationSet->addAnimation(new away::ParticleVelocityNode(away::ParticlePropertiesMode::LOCAL_STATIC));
 
 	away::ByteArray* textureBytes = new away::ByteArray();
-	readFileToByteArray("blue.atf", textureBytes);
+	readFileToByteArray("TX_n_jyt_bigwave.atf", textureBytes);
 	away::TextureMaterial* material = new away::TextureMaterial(new away::ATFTexture(textureBytes));
 	material->setBlendMode(away::BlendMode::ADD);
 
@@ -232,8 +230,17 @@ void OnKeyDown(SDL_KeyboardEvent& event)
 		else
 		{
 			material->addMethod(method);
-			material->setBlendMode(away::BlendMode::NORMAL);
+			material->setBlendMode(away::BlendMode::LAYER);
 		}
+	}
+	break;
+	case SDLK_p:
+	{
+		away::AnimatorBase* animator = static_cast<away::AnimatorBase*>(particleMesh->getAnimator());
+		if (animator->isPlaying())
+			animator->stop();
+		else
+			animator->resume();
 	}
 	break;
 	}

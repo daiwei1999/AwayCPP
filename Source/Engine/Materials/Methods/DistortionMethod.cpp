@@ -88,5 +88,4 @@ void DistortionMethod::getFragmentCode(ShaderChunk& code, MethodVO* vo, ShaderRe
 	code.mul(temp2 ^ Regs::xyz, targetReg ^ Regs::xyz, targetReg ^ Regs::w); // targetReg.rgb * targetReg.a
 	code.mul(temp2 ^ Regs::xyz, temp2 ^ Regs::xyz, dataReg ^ Regs::w); // targetReg.rgb * targetReg.a * alphaFactor
 	code.add(targetReg ^ Regs::xyz, temp ^ Regs::xyz, temp2 ^ Regs::xyz); // sceneColor.rgb + targetReg.rgb * targetReg.a * alphaFactor
-	code.mov(targetReg ^ Regs::w, m_sharedRegisters->m_commons ^ Regs::w); // targetReg.w = 1
 }
