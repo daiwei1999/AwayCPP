@@ -436,15 +436,28 @@ bool Matrix3D::recompose(const Vector3D& translation, const Vector3D& rotation, 
 			z *= shw;
 			w = std::cos(hw);
 		}
-		m_rawData[0] = (1 - 2 * y * y - 2 * z * z) * scaleX;
-		m_rawData[1] = (2 * x * y + 2 * w * z) * scaleX;
-		m_rawData[2] = (2 * x * z - 2 * w * y) * scaleX;
-		m_rawData[4] = (2 * x * y - 2 * w * z) * scaleY;
-		m_rawData[5] = (1 - 2 * x * x - 2 * z * z) * scaleY;
-		m_rawData[6] = (2 * y * z + 2 * w * x) * scaleY;
-		m_rawData[8] = (2 * x * z + 2 * w * y) * scaleZ;
-		m_rawData[9] = (2 * y * z - 2 * w * x) * scaleZ;
-		m_rawData[10] = (1 - 2 * x * x - 2 * y * y) * scaleZ;
+		float t = 2 * x;
+		float xx2 = t * x;
+		float xy2 = t * y;
+		float xz2 = t * z;
+		float xw2 = t * w;
+		t = 2 * y;
+		float yy2 = t * y;
+		float yz2 = t * z;
+		float yw2 = t * w;
+		t = 2 * z;
+		float zz2 = t * z;
+		float zw2 = t * w;
+		t = 1 - zz2;
+		m_rawData[0] = (t - yy2) * scaleX;
+		m_rawData[1] = (xy2 + zw2) * scaleX;
+		m_rawData[2] = (xz2 - yw2) * scaleX;
+		m_rawData[4] = (xy2 - zw2) * scaleY;
+		m_rawData[5] = (t - xx2) * scaleY;
+		m_rawData[6] = (yz2 + xw2) * scaleY;
+		m_rawData[8] = (xz2 + yw2) * scaleZ;
+		m_rawData[9] = (yz2 - xw2) * scaleZ;
+		m_rawData[10] = (1 - xx2 - yy2) * scaleZ;
 	}
 
 	m_rawData[3] = m_rawData[7] = m_rawData[11] = 0;
