@@ -159,6 +159,7 @@ void SkeletonAnimator::updateGlobalProperties()
 	SkeletonPose& sourcePose = static_cast<SkeletonClipState*>(m_activeState)->getSkeletonPose(m_skeleton);
 
 	// convert local hierarchical skeleton pose to global pose
+	Vector3D rotation;
 	std::vector<int>& indexTable = m_skeleton->m_indexTable;
 	std::vector<JointPose>& localPoses = sourcePose.m_jointPoses;
 	std::vector<SkeletonJoint*>& joints = m_skeleton->m_joints;
@@ -170,8 +171,8 @@ void SkeletonAnimator::updateGlobalProperties()
 		Matrix3D& globalMatrix = m_globalMatrices[index];
 
 		// convert translation and rotation to matrix
-		pose.m_orientation.toMatrix3D(globalMatrix);
-		globalMatrix.appendTranslation(pose.m_translation.m_x, pose.m_translation.m_y, pose.m_translation.m_z);
+		std::memcpy(&rotation, &pose.m_orientation, 16);
+		globalMatrix.recompose(pose.m_translation, rotation, pose.m_scaling, Orientation3D::QUATERNION);
 
 		// append parent pose
 		int parentIndex = joints[index]->m_parentIndex;

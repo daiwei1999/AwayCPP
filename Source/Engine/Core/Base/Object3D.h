@@ -57,25 +57,25 @@ public:
 	virtual ~Object3D() {}
 
 public:
-	float getX() { return m_x; }
+	float getX() { return m_position.m_x; }
 	void setX(float value);
-	float getY() { return m_y; }
+	float getY() { return m_position.m_y; }
 	void setY(float value);
-	float getZ() { return m_z; }
+	float getZ() { return m_position.m_z; }
 	void setZ(float value);
 
-	float getRotationX() { return m_rotationX * MathConsts::RADIANS_TO_DEGREES; }
+	float getRotationX() { return m_rotation.m_x * MathConsts::RADIANS_TO_DEGREES; }
 	void setRotationX(float value);
-	float getRotationY() { return m_rotationY * MathConsts::RADIANS_TO_DEGREES; }
+	float getRotationY() { return m_rotation.m_y * MathConsts::RADIANS_TO_DEGREES; }
 	void setRotationY(float value);
-	float getRotationZ() { return m_rotationZ * MathConsts::RADIANS_TO_DEGREES; }
+	float getRotationZ() { return m_rotation.m_z * MathConsts::RADIANS_TO_DEGREES; }
 	void setRotationZ(float value);
 
-	float getScaleX() { return m_scaleX; }
+	float getScaleX() { return m_scaling.m_x; }
 	void setScaleX(float value);
-	float getScaleY() { return m_scaleY; }
+	float getScaleY() { return m_scaling.m_y; }
 	void setScaleY(float value);
-	float getScaleZ() { return m_scaleZ; }
+	float getScaleZ() { return m_scaling.m_z; }
 	void setScaleZ(float value);
 
 	void getEulers(Vector3D& result);
@@ -118,9 +118,9 @@ private:
 
 protected:
 	Matrix3D m_transform;
-	float m_rotationX, m_rotationY, m_rotationZ; // Euler angles
-	float m_scaleX, m_scaleY, m_scaleZ;
-	float m_x, m_y, m_z;
+	Vector3D m_position;
+	Vector3D m_rotation;
+	Vector3D m_scaling;
 	bool m_transformDirty, m_positionDirty, m_rotationDirty, m_scaleDirty;
 };
 

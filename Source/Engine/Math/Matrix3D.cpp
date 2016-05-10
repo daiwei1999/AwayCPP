@@ -397,22 +397,20 @@ void Matrix3D::transpose()
 	m_rawData[14] = temp;
 }
 
-bool Matrix3D::recompose(const Vector3D* components, Orientation3D orientationStyle)
+bool Matrix3D::recompose(const Vector3D& translation, const Vector3D& rotation, const Vector3D& scaling, Orientation3D orientationStyle)
 {
-	float scaleX = components[2].m_x, scaleY = components[2].m_y, scaleZ = components[2].m_z;
+	float scaleX = scaling.m_x, scaleY = scaling.m_y, scaleZ = scaling.m_z;
 	if (scaleX == 0 || scaleY == 0 || scaleZ == 0)
 		return false;
 
-	identity();
-
 	if (orientationStyle == Orientation3D::EULER_ANGLES)
 	{
-		float cx = std::cos(components[1].m_x);
-		float cy = std::cos(components[1].m_y);
-		float cz = std::cos(components[1].m_z);
-		float sx = std::sin(components[1].m_x);
-		float sy = std::sin(components[1].m_y);
-		float sz = std::sin(components[1].m_z);
+		float cx = std::cos(rotation.m_x);
+		float cy = std::cos(rotation.m_y);
+		float cz = std::cos(rotation.m_z);
+		float sx = std::sin(rotation.m_x);
+		float sy = std::sin(rotation.m_y);
+		float sz = std::sin(rotation.m_z);
 		m_rawData[0] = cy * cz * scaleX;
 		m_rawData[1] = cy * sz * scaleX;
 		m_rawData[2] = -sy * scaleX;
@@ -425,10 +423,10 @@ bool Matrix3D::recompose(const Vector3D* components, Orientation3D orientationSt
 	}
 	else
 	{
-		float x = components[1].m_x;
-		float y = components[1].m_y;
-		float z = components[1].m_z;
-		float w = components[1].m_w;
+		float x = rotation.m_x;
+		float y = rotation.m_y;
+		float z = rotation.m_z;
+		float w = rotation.m_w;
 		if (orientationStyle == Orientation3D::AXIS_ANGLE)
 		{
 			float hw = w * .5f;
@@ -450,9 +448,9 @@ bool Matrix3D::recompose(const Vector3D* components, Orientation3D orientationSt
 	}
 
 	m_rawData[3] = m_rawData[7] = m_rawData[11] = 0;
-	m_rawData[12] = components[0].m_x;
-	m_rawData[13] = components[0].m_y;
-	m_rawData[14] = components[0].m_z;
+	m_rawData[12] = translation.m_x;
+	m_rawData[13] = translation.m_y;
+	m_rawData[14] = translation.m_z;
 	m_rawData[15] = 1;
 
 	return true;

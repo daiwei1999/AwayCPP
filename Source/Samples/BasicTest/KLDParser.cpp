@@ -165,6 +165,7 @@ void KLDParser::parseAnimation(unsigned int end)
 
 	away::SkeletonClipNode* node = new away::SkeletonClipNode();
 	node->setName(name);
+	bool hasScaling = m_body->readBoolean();
 	node->setLooping(m_body->readBoolean());
 
 	unsigned char frameRate = m_body->readUnsignedByte();
@@ -178,6 +179,10 @@ void KLDParser::parseAnimation(unsigned int end)
 			away::JointPose& jointPose = skeletonPose->m_jointPoses[i];
 			m_body->readBlock(&jointPose.m_translation, 12);
 			m_body->readBlock(&jointPose.m_orientation, 16);
+			if (hasScaling)
+				m_body->readBlock(&jointPose.m_scaling, 12);
+			else
+				jointPose.m_scaling.setTo(1, 1, 1);
 		}
 		node->addFrame(skeletonPose, duration);
 	}

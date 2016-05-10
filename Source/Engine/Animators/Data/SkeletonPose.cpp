@@ -5,7 +5,7 @@ USING_AWAY_NAMESPACE
 
 Matrix3D& JointPose::toMatrix3D(Matrix3D& target)
 {
-	m_orientation.toMatrix3D(target);
-	target.appendTranslation(m_translation.m_x, m_translation.m_y, m_translation.m_z);
+	Vector3D rotation(m_orientation.m_x, m_orientation.m_y, m_orientation.m_z, m_orientation.m_w);
+	target.recompose(m_translation, rotation, m_scaling, Orientation3D::QUATERNION);
 	return target;
 }

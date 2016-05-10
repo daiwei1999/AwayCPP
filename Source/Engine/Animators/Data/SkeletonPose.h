@@ -17,6 +17,7 @@ public:
 public:
 	Quaternion m_orientation; // The rotation of the pose stored as a quaternion
 	Vector3D m_translation; // The translation of the pose
+	Vector3D m_scaling; // The scaling of the pose
 };
 
 /**

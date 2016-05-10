@@ -242,7 +242,7 @@ void ParticleAnimationSet::getAGALUVCode(ShaderChunk& code, MaterialPassBase* pa
 void ParticleAnimationSet::doneAGALCode(MaterialPassBase* pass)
 {
 	m_animationRegisterCache->setDataLength();
-	m_animationRegisterCache->setVertexConst(m_animationRegisterCache->m_vertexZeroConst & 0xFF, 0, 1, 2, 0);
+	m_animationRegisterCache->setVertexConst(REGISTER_INDEX(m_animationRegisterCache->m_vertexZeroConst), 0, 1, 2, 0);
 }
 
 void ParticleAnimationSet::activate(IContext* context, MaterialPassBase* pass)

@@ -27,7 +27,7 @@ void DirectionalLight::setDirection(Vector3D& value)
 {
 	m_direction.copyFrom(value);
 
-	Vector3D tmpLookAt(m_x + m_direction.m_x, m_y + m_direction.m_y, m_z + m_direction.m_z);
+	Vector3D tmpLookAt(m_position.m_x + m_direction.m_x, m_position.m_y + m_direction.m_y, m_position.m_z + m_direction.m_z);
 	lookAt(tmpLookAt);
 }
 

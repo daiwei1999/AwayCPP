@@ -54,7 +54,7 @@ public:
 	bool invert();
 	void identity();
 	void transpose();
-	bool recompose(const Vector3D* components, Orientation3D orientationStyle = Orientation3D::EULER_ANGLES);
+	bool recompose(const Vector3D& translation, const Vector3D& rotation, const Vector3D& scaling, Orientation3D orientationStyle = Orientation3D::EULER_ANGLES);
 	void decompose(Vector3D* result, Orientation3D orientationStyle = Orientation3D::EULER_ANGLES) const;
 
 	void getForward(Vector3D& result) const;

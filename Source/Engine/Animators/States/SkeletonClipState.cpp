@@ -89,5 +89,13 @@ void SkeletonClipState::updateSkeletonPose(Skeleton* skeleton)
 		tr.m_x = p1.m_x + m_blendWeight * (p2.m_x - p1.m_x);
 		tr.m_y = p1.m_y + m_blendWeight * (p2.m_y - p1.m_y);
 		tr.m_z = p1.m_z + m_blendWeight * (p2.m_z - p1.m_z);
+
+		// interpolation of scale
+		Vector3D& sc = endPose.m_scaling;
+		Vector3D& s1 = pose1.m_scaling;
+		Vector3D& s2 = pose2.m_scaling;
+		sc.m_x = s1.m_x + m_blendWeight * (s2.m_x - s1.m_x);
+		sc.m_y = s1.m_y + m_blendWeight * (s2.m_y - s1.m_y);
+		sc.m_z = s1.m_z + m_blendWeight * (s2.m_z - s1.m_z);
 	}
 }
