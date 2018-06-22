@@ -161,64 +161,20 @@ void Matrix3D::prependTranslation(float x, float y, float z)
 
 void Matrix3D::copyColumnFrom(int column, const Vector3D& vector3D)
 {
-	switch (column)
-	{
-	case 0:
-		m_rawData[0] = vector3D.m_x;
-		m_rawData[1] = vector3D.m_y;
-		m_rawData[2] = vector3D.m_z;
-		m_rawData[3] = vector3D.m_w;
-		break;
-	case 1:
-		m_rawData[4] = vector3D.m_x;
-		m_rawData[5] = vector3D.m_y;
-		m_rawData[6] = vector3D.m_z;
-		m_rawData[7] = vector3D.m_w;
-		break;
-	case 2:
-		m_rawData[8] = vector3D.m_x;
-		m_rawData[9] = vector3D.m_y;
-		m_rawData[10] = vector3D.m_z;
-		m_rawData[11] = vector3D.m_w;
-		break;
-	case 3:
-		m_rawData[12] = vector3D.m_x;
-		m_rawData[13] = vector3D.m_y;
-		m_rawData[14] = vector3D.m_z;
-		m_rawData[15] = vector3D.m_w;
-		break;
-	}
+	int index = column * 4;
+	m_rawData[index] = vector3D.m_x;
+	m_rawData[index + 1] = vector3D.m_y;
+	m_rawData[index + 2] = vector3D.m_z;
+	m_rawData[index + 3] = vector3D.m_w;
 }
 
 void Matrix3D::copyColumnTo(int column, Vector3D& vector3D) const
 {
-	switch (column)
-	{
-	case 0:
-		vector3D.m_x = m_rawData[0];
-		vector3D.m_y = m_rawData[1];
-		vector3D.m_z = m_rawData[2];
-		vector3D.m_w = m_rawData[3];
-		break;
-	case 1:
-		vector3D.m_x = m_rawData[4];
-		vector3D.m_y = m_rawData[5];
-		vector3D.m_z = m_rawData[6];
-		vector3D.m_w = m_rawData[7];
-		break;
-	case 2:
-		vector3D.m_x = m_rawData[8];
-		vector3D.m_y = m_rawData[9];
-		vector3D.m_z = m_rawData[10];
-		vector3D.m_w = m_rawData[11];
-		break;
-	case 3:
-		vector3D.m_x = m_rawData[12];
-		vector3D.m_y = m_rawData[13];
-		vector3D.m_z = m_rawData[14];
-		vector3D.m_w = m_rawData[15];
-		break;
-	}
+	int index = column * 4;
+	vector3D.m_x = m_rawData[index];
+	vector3D.m_y = m_rawData[index + 1];
+	vector3D.m_z = m_rawData[index + 2];
+	vector3D.m_w = m_rawData[index + 3];
 }
 
 void Matrix3D::copyFrom(const Matrix3D& sourceMatrix3D)
@@ -262,64 +218,18 @@ void Matrix3D::copyRawDataTo(float* data, int index, bool transpose) const
 
 void Matrix3D::copyRowFrom(int row, const Vector3D& vector3D)
 {
-	switch (row)
-	{
-	case 0:
-		m_rawData[0] = vector3D.m_x;
-		m_rawData[4] = vector3D.m_y;
-		m_rawData[8] = vector3D.m_z;
-		m_rawData[12] = vector3D.m_w;
-		break;
-	case 1:
-		m_rawData[1] = vector3D.m_x;
-		m_rawData[5] = vector3D.m_y;
-		m_rawData[9] = vector3D.m_z;
-		m_rawData[13] = vector3D.m_w;
-		break;
-	case 2:
-		m_rawData[2] = vector3D.m_x;
-		m_rawData[6] = vector3D.m_y;
-		m_rawData[10] = vector3D.m_z;
-		m_rawData[14] = vector3D.m_w;
-		break;
-	case 3:
-		m_rawData[3] = vector3D.m_x;
-		m_rawData[7] = vector3D.m_y;
-		m_rawData[11] = vector3D.m_z;
-		m_rawData[15] = vector3D.m_w;
-		break;
-	}
+	m_rawData[row] = vector3D.m_x;
+	m_rawData[row + 4] = vector3D.m_y;
+	m_rawData[row + 8] = vector3D.m_z;
+	m_rawData[row + 12] = vector3D.m_w;
 }
 
 void Matrix3D::copyRowTo(int row, Vector3D& vector3D) const
 {
-	switch (row)
-	{
-	case 0:
-		vector3D.m_x = m_rawData[0];
-		vector3D.m_y = m_rawData[4];
-		vector3D.m_z = m_rawData[8];
-		vector3D.m_w = m_rawData[12];
-		break;
-	case 1:
-		vector3D.m_x = m_rawData[1];
-		vector3D.m_y = m_rawData[5];
-		vector3D.m_z = m_rawData[9];
-		vector3D.m_w = m_rawData[13];
-		break;
-	case 2:
-		vector3D.m_x = m_rawData[2];
-		vector3D.m_y = m_rawData[6];
-		vector3D.m_z = m_rawData[10];
-		vector3D.m_w = m_rawData[14];
-		break;
-	case 3:
-		vector3D.m_x = m_rawData[3];
-		vector3D.m_y = m_rawData[7];
-		vector3D.m_z = m_rawData[11];
-		vector3D.m_w = m_rawData[15];
-		break;
-	}
+	vector3D.m_x = m_rawData[row];
+	vector3D.m_y = m_rawData[row + 4];
+	vector3D.m_z = m_rawData[row + 8];
+	vector3D.m_w = m_rawData[row + 12];
 }
 
 void Matrix3D::copyToMatrix3D(Matrix3D& dest) const

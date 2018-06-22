@@ -34,7 +34,6 @@ void ParticleSpriteSheetNode::getAGALUVCode(ShaderChunk& code, AnimationRegister
 	unsigned int vStep = uvParamConst1 ^ Regs::z;
 	unsigned int uSpeed = uvParamConst2 ^ Regs::x;
 	unsigned int cycle = uvParamConst2 ^ Regs::y;
-	unsigned int phaseTime = uvParamConst2 ^ Regs::z;
 
 	unsigned int temp = regCache->getFreeVertexVectorTemp();
 	unsigned int time = temp ^ Regs::x;
@@ -52,7 +51,7 @@ void ParticleSpriteSheetNode::getAGALUVCode(ShaderChunk& code, AnimationRegister
 	if (m_usesCycle)
 	{
 		if (m_usesPhase)
-			code.add(time, regCache->m_vertexTime, phaseTime);
+			code.add(time, regCache->m_vertexTime, uvParamConst2 ^ Regs::z);
 		else
 			code.mov(time, regCache->m_vertexTime);
 
