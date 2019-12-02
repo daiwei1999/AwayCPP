@@ -194,7 +194,7 @@ void AxisAlignedBoundingBox::transformFrom(BoundingVolumeBase* bounds, Matrix3D&
 	float cx = aabb->m_centerX;
 	float cy = aabb->m_centerY;
 	float cz = aabb->m_centerZ;
-	float(&raw)[16] = matrix.m_rawData;
+	const float* raw = matrix.m_rawData;
 	float m11 = raw[0];
 	float m12 = raw[4];
 	float m13 = raw[8];

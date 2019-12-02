@@ -35,7 +35,7 @@ Vector3D* OrthographicLens::unproject(float nX, float nY, float sZ, Vector3D* re
 
 void OrthographicLens::updateMatrix()
 {
-	float(&raw)[16] = m_matrix.m_rawData;
+	float* raw = m_matrix.m_rawData;
 	float yMax = m_projectionHeight * .5f;
 	float xMax = yMax * m_aspectRatio;
 	float left, right, top, bottom;

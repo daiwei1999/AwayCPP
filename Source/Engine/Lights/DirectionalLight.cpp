@@ -89,7 +89,7 @@ void DirectionalLight::getObjectProjectionMatrix(IRenderable* renderable, Camera
 	float invXRange = 1 / (xMax - xMin);
 	float invYRange = 1 / (yMax - yMin);
 	float invZRange = 1 / (zMax - zMin);
-	float(&raw)[16] = result.m_rawData;
+	float* raw = result.m_rawData;
 	raw[0] = 2 * invXRange;
 	raw[5] = 2 * invYRange;
 	raw[10] = invZRange;

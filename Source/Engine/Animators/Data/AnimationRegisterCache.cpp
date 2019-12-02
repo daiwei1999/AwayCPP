@@ -165,7 +165,7 @@ void AnimationRegisterCache::setVertexConst(int index, Matrix3D& matrix, bool m3
 	index = (index - m_vertexConstantOffset) * 4;
 	if (m33)
 	{
-		float(&raw)[16] = matrix.m_rawData;
+		const float* raw = matrix.m_rawData;
 		for (int i = 0; i < 3; i++)
 		{
 			m_vertexConstantData[index++] = raw[i];

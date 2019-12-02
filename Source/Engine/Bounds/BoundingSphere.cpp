@@ -121,7 +121,7 @@ void BoundingSphere::transformFrom(BoundingVolumeBase* bounds, Matrix3D& matrix)
 	float cy = sphere->m_centerY;
 	float cz = sphere->m_centerZ;
 
-	float(&raw)[16] = matrix.m_rawData;
+	const float* raw = matrix.m_rawData;
 	float m11 = raw[0], m12 = raw[4], m13 = raw[8], m14 = raw[12];
 	float m21 = raw[1], m22 = raw[5], m23 = raw[9], m24 = raw[13];
 	float m31 = raw[2], m32 = raw[6], m33 = raw[10], m34 = raw[14];

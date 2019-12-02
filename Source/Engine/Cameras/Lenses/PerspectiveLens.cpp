@@ -51,7 +51,7 @@ void PerspectiveLens::updateMatrix()
 	float xMax = yMax * m_aspectRatio;
 
 	float left, right, top, bottom;
-	float(&raw)[16] = m_matrix.m_rawData;
+	float* raw = m_matrix.m_rawData;
 	if (m_scissorRect.m_x == 0 && m_scissorRect.m_y == 0 && m_scissorRect.m_width == m_viewPort.m_width && m_scissorRect.m_height == m_viewPort.m_height)
 	{
 		// assume unscissored frustum

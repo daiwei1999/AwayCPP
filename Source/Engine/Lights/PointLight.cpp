@@ -69,7 +69,7 @@ void PointLight::getObjectProjectionMatrix(IRenderable* renderable, Camera3D* ca
 	float zMin = pos.m_z - d;
 	float zMax = pos.m_z + d;
 
-	float(&raw)[16] = result.m_rawData;
+	float* raw = result.m_rawData;
 	raw[5] = raw[0] = zMin / d;
 	raw[10] = zMax / (zMax - zMin);
 	raw[11] = 1;

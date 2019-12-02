@@ -123,7 +123,7 @@ void DirectionalShadowMapper::updateProjectionFromFrustumCorners(Camera3D* viewC
 	w = 1 / w;
 	h = 1 / h;
 
-	float(&raw)[16] = matrix.m_rawData;
+	float* raw = matrix.m_rawData;
 	raw[0] = 2 * w;
 	raw[5] = 2 * h;
 	raw[10] = d;

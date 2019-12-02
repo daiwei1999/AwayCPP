@@ -315,7 +315,7 @@ void Object3D::lookAt(Vector3D& target, Vector3D& upAxis)
 
 	Vector3D yAxis(zAxis.m_y * xAxis.m_z - zAxis.m_z * xAxis.m_y, zAxis.m_z * xAxis.m_x - zAxis.m_x * xAxis.m_z, zAxis.m_x * xAxis.m_y - zAxis.m_y * xAxis.m_x);
 
-	float (&raw)[16] = m_transform.m_rawData;
+	float* raw = m_transform.m_rawData;
 	raw[0] = m_scaling.m_x * xAxis.m_x;
 	raw[1] = m_scaling.m_x * xAxis.m_y;
 	raw[2] = m_scaling.m_x * xAxis.m_z;

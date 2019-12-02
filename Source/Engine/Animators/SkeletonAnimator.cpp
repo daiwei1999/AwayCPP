@@ -183,7 +183,7 @@ void SkeletonAnimator::updateGlobalProperties()
 	int numSkinningJoints = m_skeleton->m_numSkinningJoints;
 	for (int i = 0, j = 0; i < numSkinningJoints; i++)
 	{
-		float(&rawData)[16] = m_globalMatrices[i].m_rawData;
+		const float* rawData = m_globalMatrices[i].m_rawData;
 		float n11 = rawData[0];
 		float n12 = rawData[4];
 		float n13 = rawData[8];

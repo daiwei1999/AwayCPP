@@ -14,7 +14,7 @@ Matrix3D::Matrix3D(float m00, float m10, float m20, float m30,
 
 Matrix3D::Matrix3D(const Matrix3D& matrix)
 {
-	const float(&raw)[16] = matrix.m_rawData;
+	const float* raw = matrix.m_rawData;
 	init(raw[0], raw[1], raw[2], raw[3], raw[4], raw[5], raw[6], raw[7], raw[8], raw[9], raw[10], raw[11], raw[12], raw[13], raw[14], raw[15]);
 }
 
@@ -546,7 +546,7 @@ Vector3D* Matrix3D::transformVector(const Matrix3D& matrix, const Vector3D* vin,
 	float x = vin->m_x;
 	float y = vin->m_y;
 	float z = vin->m_z;
-	const float(&raw)[16] = matrix.m_rawData;
+	const float* raw = matrix.m_rawData;
 	vout->m_x = raw[0] * x + raw[4] * y + raw[8] * z + raw[12];
 	vout->m_y = raw[1] * x + raw[5] * y + raw[9] * z + raw[13];
 	vout->m_z = raw[2] * x + raw[6] * y + raw[10] * z + raw[14];
@@ -559,7 +559,7 @@ Vector3D* Matrix3D::deltaTransformVector(const Matrix3D& matrix, const Vector3D*
 	float x = vin->m_x;
 	float y = vin->m_y;
 	float z = vin->m_z;
-	const float(&raw)[16] = matrix.m_rawData;
+	const float* raw = matrix.m_rawData;
 	vout->m_x = raw[0] * x + raw[4] * y + raw[8] * z;
 	vout->m_y = raw[1] * x + raw[5] * y + raw[9] * z;
 	vout->m_z = raw[2] * x + raw[6] * y + raw[10] * z;
