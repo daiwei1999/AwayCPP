@@ -50,7 +50,8 @@ void BoundingVolumeBase::disposeRenderable()
 void BoundingVolumeBase::fromGeometry(Geometry* geometry)
 {
 	SubGeometryVector& subGeoms = geometry->getSubGeometries();
-	if (subGeoms.size() > 0)
+	size_t numSubGeoms = subGeoms.size();
+	if (numSubGeoms > 0)
 	{
 		ISubGeometry* subGeom = subGeoms[0];
 		float* vertices = subGeom->getVertexData();
@@ -62,8 +63,9 @@ void BoundingVolumeBase::fromGeometry(Geometry* geometry)
 		minZ = maxZ = vertices[i + 2];
 
 		int stride, vertexDataLen;
-		for (auto subGeom : subGeoms)
+		for (size_t j = 0; j < numSubGeoms; ++j)
 		{
+			subGeom = subGeoms[j];
 			vertices = subGeom->getVertexData();
 			i = subGeom->getVertexOffset();
 			stride = subGeom->getVertexStride();

@@ -43,7 +43,6 @@ float AxisAlignedBoundingBox::rayIntersection(Vector3D& position, Vector3D& dire
 	float rayEntryDistance;
 
 	// ray-plane tests
-	bool intersects = false;
 	if (vx < 0)
 	{
 		rayEntryDistance = (m_halfExtentsX - px) / vx;
@@ -56,11 +55,11 @@ float AxisAlignedBoundingBox::rayIntersection(Vector3D& position, Vector3D& dire
 				targetNormal.m_x = 1;
 				targetNormal.m_y = 0;
 				targetNormal.m_z = 0;
-				intersects = true;
+				return rayEntryDistance;
 			}
 		}
 	}
-	if (!intersects && vx > 0)
+	if (vx > 0)
 	{
 		rayEntryDistance = (-m_halfExtentsX - px) / vx;
 		if (rayEntryDistance > 0)
@@ -72,11 +71,11 @@ float AxisAlignedBoundingBox::rayIntersection(Vector3D& position, Vector3D& dire
 				targetNormal.m_x = -1;
 				targetNormal.m_y = 0;
 				targetNormal.m_z = 0;
-				intersects = true;
+				return rayEntryDistance;
 			}
 		}
 	}
-	if (!intersects && vy < 0)
+	if (vy < 0)
 	{
 		rayEntryDistance = (m_halfExtentsY - py) / vy;
 		if (rayEntryDistance > 0)
@@ -88,11 +87,11 @@ float AxisAlignedBoundingBox::rayIntersection(Vector3D& position, Vector3D& dire
 				targetNormal.m_x = 0;
 				targetNormal.m_y = 1;
 				targetNormal.m_z = 0;
-				intersects = true;
+				return rayEntryDistance;
 			}
 		}
 	}
-	if (!intersects && vy > 0)
+	if (vy > 0)
 	{
 		rayEntryDistance = (-m_halfExtentsY - py) / vy;
 		if (rayEntryDistance > 0)
@@ -104,11 +103,11 @@ float AxisAlignedBoundingBox::rayIntersection(Vector3D& position, Vector3D& dire
 				targetNormal.m_x = 0;
 				targetNormal.m_y = -1;
 				targetNormal.m_z = 0;
-				intersects = true;
+				return rayEntryDistance;
 			}
 		}
 	}
-	if (!intersects && vz < 0)
+	if (vz < 0)
 	{
 		rayEntryDistance = (m_halfExtentsZ - pz) / vz;
 		if (rayEntryDistance > 0)
@@ -120,11 +119,11 @@ float AxisAlignedBoundingBox::rayIntersection(Vector3D& position, Vector3D& dire
 				targetNormal.m_x = 0;
 				targetNormal.m_y = 0;
 				targetNormal.m_z = 1;
-				intersects = true;
+				return rayEntryDistance;
 			}
 		}
 	}
-	if (!intersects && vz > 0)
+	if (vz > 0)
 	{
 		rayEntryDistance = (-m_halfExtentsZ - pz) / vz;
 		if (rayEntryDistance > 0)
@@ -136,12 +135,12 @@ float AxisAlignedBoundingBox::rayIntersection(Vector3D& position, Vector3D& dire
 				targetNormal.m_x = 0;
 				targetNormal.m_y = 0;
 				targetNormal.m_z = -1;
-				intersects = true;
+				return rayEntryDistance;
 			}
 		}
 	}
 
-	return intersects ? rayEntryDistance : -1;
+	return -1;
 }
 
 bool AxisAlignedBoundingBox::containsPoint(Vector3D& position)
