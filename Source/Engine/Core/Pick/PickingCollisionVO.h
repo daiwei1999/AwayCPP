@@ -12,7 +12,15 @@ AWAY_NAMESPACE_BEGIN
 class PickingCollisionVO
 {
 public:
-	PickingCollisionVO(Entity* entity) { m_entity = entity; }
+	PickingCollisionVO(Entity* entity)
+		: m_entity(entity)
+		, m_index(0)
+		, m_subGeometryIndex(0)
+		, m_rayOriginIsInsideBounds(false)
+		, m_rayEntryDistance(0.f)
+		, m_renderable(nullptr)
+	{
+	}
 
 public:
 	Entity* m_entity; // The entity to which this collision object belongs.

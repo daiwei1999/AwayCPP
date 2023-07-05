@@ -85,7 +85,7 @@ void SimpleShadowMapMethodBase::activate(MethodVO* vo, IContext* context)
 	if (m_usePoint)
 	{
 		float fallOff = static_cast<PointLight*>(m_castingLight)->getFallOff();
-		fragmentData[index + 4] = -std::pow(1 / (fallOff * m_epsilon), 2);
+		fragmentData[index + 4] = -std::powf(1.f / (fallOff * m_epsilon), 2);
 
 		Vector3D* lightPos = m_castingLight->getScenePosition();
 		fragmentData[index + 8] = lightPos->m_x;
